@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
-import './_StartPage.scss';
 
 class StartPage extends Component {
     state = {  }
     render() { 
         return ( 
-            <div class="startPage"></div>
+            <div className="startPage">
+                <div className="searchPlace">
+                    <h1 className="searchPlace__text">Order your favourite food!</h1>
+                    <h2 className="searchPlace__text searchPlace__text--smaller">Enter the address and start</h2>
+                    <form className="searchPlace__form">
+                    <input className="searchPlace__form__input" type="text"/>
+                    <button className="searchPlace__form__btn">Search</button>
+                    </form>
+                </div>
+            </div>
          );
     }
 }

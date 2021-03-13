@@ -1,5 +1,8 @@
-@import './settings/reset';
+@import 'settings/reset';
+@import 'settings/fonts';
+@import 'settings/base';
 
 @import './../js/Header/Header';
-@import './../js/Footer/Footer';
 @import './../js/StartPage/StartPage';
+@import './../js/allRestaurantsPage/allRestaurantsPage';
+@import './../js/Footer/Footer';

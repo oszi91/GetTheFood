@@ -1,10 +1,42 @@
 import React, { Component } from 'react';
-import './_Header.scss';
+import {
+    Link
+} from 'react-router-dom';
 
 class Header extends Component {
-    state = {}
+    
     render() {
-        return (<h1>Header</h1>);
+        return (
+            <>
+            <div className="header-background"></div>
+            <header className="header">
+                <div className="container">
+                    <nav className="nav">
+                        <div className="nav__logo">
+                            <Link to="./">
+                                <p className="nav__logo__text">
+                                    Get
+                                <span className="nav__logo__text--color-one">The</span>
+                                    <span className="nav__logo__text--color-two">Food!</span>
+                                    <i className="fas fa-hamburger"></i>
+                                </p>
+                            </Link>
+                        </div>
+                        <div className="nav__address">
+                            <p className="nav__address__text">
+                                <Link to="./">Krakowska 5/30, Warsaw</Link>
+                            </p>
+                        </div>
+                        <div className="nav__basket">
+                            <Link to="./">
+                                <i className="fas fa-shopping-cart"></i>
+                            </Link>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+            </>
+        );
     }
 }
 
