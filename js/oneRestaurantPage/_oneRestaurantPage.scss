@@ -1,0 +1,229 @@
+.oneRestaurant__main {
+    margin-top: 70px;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.oneRestaurantPhoto {
+    width: 100%;
+    position: relative;
+
+    &__textBox {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        height: 125px;
+        min-width: 400px;
+        position: absolute;
+        left: 50%;
+        bottom: -125px;
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+        font-weight: 700;
+        z-index: 1;
+        color: black;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 -0.25rem 2em rgba(0, 0, 0, 0.2);
+
+        &__text {
+            display: block;
+            text-align: center;
+            margin-bottom: 10px;
+
+        }
+
+        &__rating {
+            font-size: 1.5rem;
+            font-weight: 500;
+
+            .fa {
+                margin-left: 5px;
+            }
+        }
+    }
+
+    &__img {
+        display: block;
+        height: 30vh;
+        width: 100%;
+        object-fit: cover;
+        object-position: 100% 50%;
+        filter: grayscale(75%);
+    }
+}
+
+.oneRestaurant__container {
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    min-height: 50vh;
+
+    .oneRestaurantMenu {
+        width: 75%;
+
+        .oneRestaurantMenu__typeOfDish {
+            padding: 5px;
+            background-color: lighten($color: #fafa1f, $amount: 20%);
+            border-radius: 15px;
+
+            .typeOfDish__list {
+                display: flex;
+                justify-content: space-around;
+                margin: 5px 0;
+
+                .typeOfDish__list__item {
+                    background-color: white;
+                    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.25);
+                    padding: 15px;
+                    border-radius: 15px;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .dishesList__container {
+
+            &__category {
+                margin-top: 50px;
+                text-align: center;
+                font-size: 3rem;
+                font-weight: 700;
+                width: 100%;
+                box-shadow: 5px 15px 30px -16px rgba(0, 0, 0, 0.15);
+                padding: 10px;
+            }
+
+            .dishesList {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                width: 100%;
+                margin-top: 50px;
+
+                &__item {
+                    width: 32%;
+                    margin: 15px 0;
+
+                    .oneDishView {
+                        display: flex;
+                        width: 100%;
+                        flex-direction: column;
+                        justify-content: space-evenly;
+                        min-height: 150px;
+                        overflow: hidden;
+                        border-radius: 15px;
+                        box-shadow: 2px 7px 20px 3px rgba(0, 0, 0, 0.25);
+                        padding: 15px;
+
+                        &__name {
+                            font-size: 1.6rem;
+                            margin-bottom: 5px;
+                            font-weight: 700;
+                        }
+
+                        &__order {
+                            font-size: 2rem;
+                            color: darken(#b40d0d, 10%);
+                        }
+
+                        &__ingredients {
+                            margin-bottom: 15px;
+                        }
+
+                        &__container {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+
+                        }
+                    }
+
+                }
+            }
+        }
+
+    }
+
+    .oneRestaurantCart {
+        margin-left: 25px;
+        width: 25%;
+        font-size: 1.5rem;
+        text-align: center;
+
+        &__header {
+            font-weight: 700;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgb(235, 235, 235);
+        }
+
+        .dishContainer {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 10px 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgb(235, 235, 235);
+            margin-bottom: 15px;
+
+            &__dishName {
+                font-weight: 600;
+                width: 100px;
+                line-height: 1.2;
+            }
+
+            &__price {
+                font-size: 1rem;
+
+                &__quantity {
+                    font-weight: 600;
+                    margin-right: 5px;
+                }
+            }
+
+            &__btn {
+                font-size: 1.3rem;
+            }
+        }
+    }
+
+    .dishDeliverySummary {
+
+        &--bold {
+            font-weight: 600;
+        }
+
+        margin: 15px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.1rem;
+    }
+
+    .dishFreeDelivery {
+        font-size: 1rem;
+        color: rgb(0, 0, 0);
+        background-color: #fafa1f;
+        ;
+        padding: 10px;
+    }
+
+    .dishMinPrice {
+        font-size: 1rem;
+        color: white;
+        background-color: #b40d0d;
+        padding: 10px;
+    }
+
+    .dishOrder {
+        margin-top: 20px;
+        background-color: black;
+        color: white;
+        font-weight: 600;
+        width: 100%;
+        padding: 15px;
+        border-radius: 5px;
+    }
+}
