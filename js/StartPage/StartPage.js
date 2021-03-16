@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
 class StartPage extends Component {
+
     state = {  }
+
     render() { 
         return ( 
             <div className="startPage">

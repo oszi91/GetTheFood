@@ -1,0 +1,1066 @@
+{  
+   "foodCategoriesAll": ["american", "pizza", "burgers", "salads", "oriental"],
+   "restaurants": [{
+   "id":91041926150,    
+   "name":"Roberto's Pizza",
+   "photo":"./../../images/food1.jpg",
+   "openHours":"10-23",
+   "rating":"3.45",
+   "deliveryPrice":7,
+   "averageDeliveryTime":40,
+   "freeDeliveryFrom":100,
+   "minDeliveryPrice":50,
+   "foodCategories":[
+      "american", "pizza"
+   ],
+   "menus":[
+      {
+         "menuSections":[
+            {
+               "sectionName":"Pizzas",
+               "additionals":[
+                  "extra cheese"
+               ],
+               "menuItems":[
+                  {
+                     "id":1233252421,
+                     "name":"Cheese Pizza",
+                     "ingriedents":"Sauce, mozzarella cheese",
+                     "price":25
+                  },
+                  {
+                     "id":1243232422,
+                     "name":"White Pizza",
+                     "ingriedents":"Sauce, mozzarella cheese",
+                     "price":28
+                  },
+                  {
+                     "id":123246423,
+                     "name":"Margherita Pizza",
+                     "ingriedents":"Marinara sauce, EVOO, basil, grated cheese, fresh mozzarella",
+                     "price":30
+                  },
+                  {
+                     "id":123243253424,
+                     "name":"White Spinach Pizza",
+                     "ingriedents":"Sautéed spinach, seasoned ricotta, mozzarella cheese",
+                     "price":32
+                  },
+                  {
+                     "id":1232643425,
+                     "name":"White Broccoli Pizza",
+                     "ingriedents":"Breaded eggplant, seasoned ricotta, mozzarella cheese",
+                     "price":34
+                  }
+               ]
+            },
+            {
+               "sectionName":"Appetizers",
+               "menuItems":[
+                  {
+                     "id":123532441,
+                     "name":"Mozzarella Sticks",
+                     "ingriedents":"Five jumbo housemade mozzarella sticks served with tomato sauce",
+                     "price":13
+                  },
+                  {
+                     "id":123243311,
+                     "name":"Stuffed Portobello",
+                     "ingriedents":"portobello mushrooms topped with spinach, roasted red peppers",
+                     "price":15
+                  },
+                  {
+                     "id":12356441,
+                     "name":"Hot Antipasto",
+                     "ingriedents":"Clams oreganata, grilled shrimp, stuffed tomato oreganata,",
+                     "price":18
+                  }
+               ]
+            },
+            {
+               "sectionName":"Soups",
+               "menuItems":[
+                  {
+                     "id":123246421,
+                     "name":"Pasta Fagioli Soup",
+                     "ingriedents":"White beans and ditalini pasta simmered in a chicken broth of crushed plum tomatoes",
+                     "price":13
+                  },
+                  {
+                     "id":1232532311,
+                     "name":"Beef, Escarole & Beans Soup",
+                     "ingriedents":"a chicken broth of crushed plum tomatoes",
+                     "price":15
+                  }
+               ]
+            },
+            {
+               "sectionName":"Salads",
+               "menuItems":[
+                  {
+                     "id":123244236421,
+                     "name":"House Salad",
+                     "ingriedents":". Mixed greens, carrots, red onions, olives, red cabbage, cucumbers, tomatoes",
+                     "price":13
+                  },
+                  {
+                     "id":123254532311,
+                     "name":"Spinach Salad",
+                     "ingriedents":"Spinach, bacon, shaved parmesan, pinenuts, button mushrooms, hardboiled egg",
+                     "price":12
+                  }
+               ]
+            },
+            {
+               "sectionName":"Beverages",
+               "menuItems":[
+                  {
+                     "id":12324421236421,
+                     "name":"Soda",
+                     "ingriedents":"",
+                     "price":5
+                  },
+                  {
+                     "id":1232541532311,
+                     "name":"Cola",
+                     "ingriedents":"",
+                     "price":7
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "deliveryAddress":[
+      {
+         "street":"Emaliowa",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":1,
+         "numbersTo":98
+      },
+      {
+         "street":"Staszewskiego",
+         "city":"Warszawa",
+         "zipCode":"02-234",
+         "numbersFrom":1,
+         "numbersTo":64
+      },
+      {
+         "street":"Kwiska",
+         "city":"Warszawa",
+         "zipCode":"02-215",
+         "numbersFrom":34,
+         "numbersTo":170
+      },
+      {
+         "street":"Francuska",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":59,
+         "numbersTo":222
+      },
+      {
+         "street":"Derdowska",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":1,
+         "numbersTo":89
+      }
+   ]
+},
+{
+   "id":91541926150,
+   "name":"Rafaelo's Pizza Bar",
+   "photo":"./../../images/food1.jpg",
+   "openHours":"10-21",
+   "rating":"4.45",
+   "deliveryPrice":8,
+   "averageDeliveryTime":40,
+   "freeDeliveryFrom":50,
+   "minDeliveryPrice":50,
+   "foodCategories":[
+      "american, pizza"
+   ],
+   "menus":[
+      {
+         "menuSections":[
+            {
+               "sectionName":"Pizzas",
+               "additionals":[
+                  "extra cheese"
+               ],
+               "menuItems":[
+                  {
+                     "id":123376252421,
+                     "name":"Ortalano Pizza",
+                     "ingriedents":"Sauce, mozzarella cheese",
+                     "price":25
+                  },
+                  {
+                     "id":1243675232422,
+                     "name":"Combo Pizza",
+                     "ingriedents":"Sauce, mozzarella cheese",
+                     "price":28
+                  },
+                  {
+                     "id":12324546423,
+                     "name":"Chicken Parm Pizza",
+                     "ingriedents":"Marinara sauce, EVOO, basil, grated cheese, fresh mozzarella",
+                     "price":30
+                  },
+                  {
+                     "id":123435243253424,
+                     "name":"White Spinach Pizza",
+                     "ingriedents":"Sautéed spinach, seasoned ricotta, mozzarella cheese",
+                     "price":32
+                  },
+                  {
+                     "id":1232676543425,
+                     "name":"White Broccoli Pizza",
+                     "ingriedents":"Breaded eggplant, seasoned ricotta, mozzarella cheese",
+                     "price":34
+                  }
+               ]
+            },
+            {
+               "sectionName":"Appetizers",
+               "menuItems":[
+                  {
+                     "id":1421423532441,
+                     "name":"Mozzarella Sticks",
+                     "ingriedents":"Five jumbo housemade mozzarella sticks served with tomato sauce",
+                     "price":13
+                  },
+                  {
+                     "id":1232543643311,
+                     "name":"Stuffed Portobello",
+                     "ingriedents":"portobello mushrooms topped with spinach, roasted red peppers",
+                     "price":15
+                  },
+                  {
+                     "id":123566456441,
+                     "name":"Hot Antipasto",
+                     "ingriedents":"Clams oreganata, grilled shrimp, stuffed tomato oreganata,",
+                     "price":18
+                  }
+               ]
+            },
+            {
+               "sectionName":"Salads",
+               "menuItems":[
+                  {
+                     "id":1232464564236421,
+                     "name":"House Salad",
+                     "ingriedents":". Mixed greens, carrots, red onions, olives, red cabbage, cucumbers, tomatoes",
+                     "price":13
+                  },
+                  {
+                     "id":1232541441532311,
+                     "name":"Spinach Salad",
+                     "ingriedents":"Spinach, bacon, shaved parmesan, pinenuts, button mushrooms, hardboiled egg",
+                     "price":12
+                  }
+               ]
+            },
+            {
+               "sectionName":"Beverages",
+               "menuItems":[
+                  {
+                     "id":123244646421236420,
+                     "name":"Soda",
+                     "ingriedents":"",
+                     "price":5
+                  },
+                  {
+                     "id":1232541436436532200,
+                     "name":"Cola",
+                     "ingriedents":"",
+                     "price":7
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "deliveryAddress":[
+      {
+         "street":"Emaliowa",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":1,
+         "numbersTo":98
+      },
+      {
+         "street":"Staszewskiego",
+         "city":"Warszawa",
+         "zipCode":"02-234",
+         "numbersFrom":1,
+         "numbersTo":64
+      },
+      {
+         "street":"Kwiska",
+         "city":"Warszawa",
+         "zipCode":"02-215",
+         "numbersFrom":34,
+         "numbersTo":170
+      },
+      {
+         "street":"Francuska",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":59,
+         "numbersTo":222
+      },
+      {
+         "street":"Derdowska",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":1,
+         "numbersTo":89
+      }
+   ]
+},
+{
+   "id":91552926150,
+   "name":"Toni's Pizza Food",
+   "photo":"./../../images/food1.jpg",
+   "openHours":"12-24",
+   "rating":"4.80",
+   "deliveryPrice":8,
+   "averageDeliveryTime":40,
+   "freeDeliveryFrom":50,
+   "minDeliveryPrice":50,
+   "foodCategories":[
+      "american, pizza"
+   ],
+   "menus":[
+      {
+         "menuSections":[
+            {
+               "sectionName":"Pizzas",
+               "additionals":[
+                  "extra cheese"
+               ],
+               "menuItems":[
+                  {
+                     "id":1233764252421,
+                     "name":"Ortalano Pizza",
+                     "ingriedents":"Sauce, mozzarella cheese",
+                     "price":25
+                  },
+                  {
+                     "id":124367425232422,
+                     "name":"Combo Pizza",
+                     "ingriedents":"Sauce, mozzarella cheese",
+                     "price":28
+                  },
+                  {
+                     "id":12324432546423,
+                     "name":"Chicken Parm Pizza",
+                     "ingriedents":"Marinara sauce, EVOO, basil, grated cheese, fresh mozzarella",
+                     "price":30
+                  },
+                  {
+                     "id":12343565243253424,
+                     "name":"White Spinach Pizza",
+                     "ingriedents":"Sautéed spinach, seasoned ricotta, mozzarella cheese",
+                     "price":32
+                  },
+                  {
+                     "id":123267756543425,
+                     "name":"White Broccoli Pizza",
+                     "ingriedents":"Breaded eggplant, seasoned ricotta, mozzarella cheese",
+                     "price":34
+                  }
+               ]
+            },
+            {
+               "sectionName":"Appetizers",
+               "menuItems":[
+                  {
+                     "id":142142353532441,
+                     "name":"Mozzarella Sticks",
+                     "ingriedents":"Five jumbo housemade mozzarella sticks served with tomato sauce",
+                     "price":13
+                  },
+                  {
+                     "id":123254863643311,
+                     "name":"Stuffed Portobello",
+                     "ingriedents":"portobello mushrooms topped with spinach, roasted red peppers",
+                     "price":15
+                  },
+                  {
+                     "id":12356689456441,
+                     "name":"Hot Antipasto",
+                     "ingriedents":"Clams oreganata, grilled shrimp, stuffed tomato oreganata,",
+                     "price":18
+                  }
+               ]
+            },
+            {
+               "sectionName":"Beverages",
+               "menuItems":[
+                  {
+                     "id":123244646456421240000,
+                     "name":"Soda",
+                     "ingriedents":"",
+                     "price":5
+                  },
+                  {
+                     "id":1.2325414364465366e+21,
+                     "name":"Cola",
+                     "ingriedents":"",
+                     "price":7
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "deliveryAddress":[
+      {
+         "street":"Emaliowa",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":1,
+         "numbersTo":98
+      },
+      {
+         "street":"Staszewskiego",
+         "city":"Warszawa",
+         "zipCode":"02-234",
+         "numbersFrom":1,
+         "numbersTo":64
+      },
+      {
+         "street":"Kwiska",
+         "city":"Warszawa",
+         "zipCode":"02-215",
+         "numbersFrom":34,
+         "numbersTo":170
+      },
+      {
+         "street":"Francuska",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":59,
+         "numbersTo":222
+      },
+      {
+         "street":"Derdowska",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":1,
+         "numbersTo":89
+      }
+   ]
+},
+{
+   "id":9152926150,
+   "name":"Domi's Burger",
+   "photo":"./../../images/food1.jpg",
+   "openHours":"8-20",
+   "rating":"4.80",
+   "deliveryPrice":8,
+   "averageDeliveryTime":40,
+   "freeDeliveryFrom":50,
+   "minDeliveryPrice":50,
+   "foodCategories":[
+      "american, burgers, salads"
+   ],
+   "menus":[
+      {
+         "menuSections":[
+            {
+               "sectionName":"Burgers",
+               "additionals":[
+                  "extra cheese"
+               ],
+               "menuItems":[
+                  {
+                     "id":1236352421,
+                     "name":"Jumbo Bone In Wings",
+                     "ingriedents":"Fresh, 100% all natural chicken. Cooked to order. Served with celery and choice of dressing.",
+                     "price":31
+                  },
+                  {
+                     "id":1264364425232422,
+                     "name":"Steak Burger",
+                     "ingriedents":"Fresh half pound steak burger, cooked to temp. Served with natural-cut fries.",
+                     "price":32
+                  },
+                  {
+                     "id":1232442546423,
+                     "name":"Hangover Burger",
+                     "ingriedents":"Half-pound of ground beef with a hangover-killing combination of crispy bacon,",
+                     "price":35
+                  },
+                  {
+                     "id":123633252523,
+                     "name":"Super Burger",
+                     "ingriedents":"Half-pound of ground beef with a hangover-killing combination of crispy bacon,",
+                     "price":40
+                  },
+                  {
+                     "id":12363456423,
+                     "name":"Extra Burger",
+                     "ingriedents":"Half-pound of ground beef with a hangover-killing combination of crispy bacon,",
+                     "price":41
+                  }
+               ]
+            },
+            {
+               "sectionName":"Appetizers",
+               "menuItems":[
+                  {
+                     "id":142152353532441,
+                     "name":"Mozzarella Sticks",
+                     "ingriedents":"Five jumbo housemade mozzarella sticks served with tomato sauce",
+                     "price":13
+                  },
+                  {
+                     "id":12325213643311,
+                     "name":"Stuffed Portobello",
+                     "ingriedents":"portobello mushrooms topped with spinach, roasted red peppers",
+                     "price":15
+                  },
+                  {
+                     "id":123561256441,
+                     "name":"Hot Antipasto",
+                     "ingriedents":"Clams oreganata, grilled shrimp, stuffed tomato oreganata,",
+                     "price":18
+                  }
+               ]
+            },
+            {
+               "sectionName":"Salads",
+               "menuItems":[
+                  {
+                     "id":1232452364236421,
+                     "name":"House Salad",
+                     "ingriedents":". Mixed greens, carrots, red onions, olives, red cabbage, cucumbers, tomatoes",
+                     "price":13
+                  },
+                  {
+                     "id":1232541631532311,
+                     "name":"Spinach Salad",
+                     "ingriedents":"Spinach, bacon, shaved parmesan, pinenuts, button mushrooms, hardboiled egg",
+                     "price":12
+                  }
+               ]
+            },
+            {
+               "sectionName":"Beverages",
+               "menuItems":[
+                  {
+                     "id":1232446631236421,
+                     "name":"Soda",
+                     "ingriedents":"",
+                     "price":5
+                  },
+                  {
+                     "id":1232636446536532200,
+                     "name":"Cola",
+                     "ingriedents":"",
+                     "price":7
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "deliveryAddress":[
+      {
+         "street":"Emaliowa",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":1,
+         "numbersTo":98
+      },
+      {
+         "street":"Staszewskiego",
+         "city":"Warszawa",
+         "zipCode":"02-234",
+         "numbersFrom":1,
+         "numbersTo":64
+      },
+      {
+         "street":"Kwiska",
+         "city":"Warszawa",
+         "zipCode":"02-215",
+         "numbersFrom":34,
+         "numbersTo":170
+      },
+      {
+         "street":"Francuska",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":59,
+         "numbersTo":222
+      },
+      {
+         "street":"Derdowska",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":1,
+         "numbersTo":89
+      }
+   ]
+},
+{
+   "id":91545226150,
+   "name":"Silver Spurs Burger",
+   "photo":"./../../images/food1.jpg",
+   "openHours":"12-22",
+   "rating":"4.10",
+   "deliveryPrice":15,
+   "averageDeliveryTime":90,
+   "freeDeliveryFrom":100,
+   "minDeliveryPrice":50,
+   "foodCategories":[
+      "american, burgers, salads"
+   ],
+   "menus":[
+      {
+         "menuSections":[
+            {
+               "sectionName":"Burgers",
+               "additionals":[
+                  "extra cheese"
+               ],
+               "menuItems":[
+                  {
+                     "id":1233532421,
+                     "name":"Garlic Burger",
+                     "ingriedents":"Fresh, 100% all natural chicken. Cooked to order. Served with celery and choice of dressing.",
+                     "price":31
+                  },
+                  {
+                     "id":1243754425232422,
+                     "name":"Mexican  Burger",
+                     "ingriedents":"Fresh half pound steak burger, cooked to temp. Served with natural-cut fries.",
+                     "price":32
+                  },
+                  {
+                     "id":12324654432546424,
+                     "name":"Street  Burger",
+                     "ingriedents":"Half-pound of ground beef with a hangover-killing combination of crispy bacon,",
+                     "price":35
+                  },
+                  {
+                     "id":1236573252523,
+                     "name":"Super Burger",
+                     "ingriedents":"Half-pound of ground beef with a hangover-killing combination of crispy bacon,",
+                     "price":40
+                  },
+                  {
+                     "id":1235765356423,
+                     "name":"Extra Burger",
+                     "ingriedents":"Half-pound of ground beef with a hangover-killing combination of crispy bacon,",
+                     "price":41
+                  }
+               ]
+            },
+            {
+               "sectionName":"Appetizers",
+               "menuItems":[
+                  {
+                     "id":1421423453532441,
+                     "name":"Mozzarella Sticks",
+                     "ingriedents":"Five jumbo housemade mozzarella sticks served with tomato sauce",
+                     "price":13
+                  },
+                  {
+                     "id":12325633643311,
+                     "name":"Stuffed Portobello",
+                     "ingriedents":"portobello mushrooms topped with spinach, roasted red peppers",
+                     "price":15
+                  },
+                  {
+                     "id":12356622456441,
+                     "name":"Hot Antipasto",
+                     "ingriedents":"Clams oreganata, grilled shrimp, stuffed tomato oreganata,",
+                     "price":18
+                  }
+               ]
+            },
+            {
+               "sectionName":"Salads",
+               "menuItems":[
+                  {
+                     "id":123252564236421,
+                     "name":"House Salad",
+                     "ingriedents":". Mixed greens, carrots, red onions, olives, red cabbage, cucumbers, tomatoes",
+                     "price":13
+                  },
+                  {
+                     "id":1232563476541532400,
+                     "name":"Spinach Salad",
+                     "ingriedents":"Spinach, bacon, shaved parmesan, pinenuts, button mushrooms, hardboiled egg",
+                     "price":12
+                  }
+               ]
+            },
+            {
+               "sectionName":"Beverages",
+               "menuItems":[
+                  {
+                     "id":12324636456421237000,
+                     "name":"Soda",
+                     "ingriedents":"",
+                     "price":5
+                  },
+                  {
+                     "id":1232636536532311,
+                     "name":"Cola",
+                     "ingriedents":"",
+                     "price":7
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "deliveryAddress":[
+      {
+         "street":"Emaliowa",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":1,
+         "numbersTo":98
+      },
+      {
+         "street":"Staszewskiego",
+         "city":"Warszawa",
+         "zipCode":"02-234",
+         "numbersFrom":1,
+         "numbersTo":64
+      },
+      {
+         "street":"Kwiska",
+         "city":"Warszawa",
+         "zipCode":"02-215",
+         "numbersFrom":34,
+         "numbersTo":170
+      },
+      {
+         "street":"Francuska",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":59,
+         "numbersTo":222
+      },
+      {
+         "street":"Derdowska",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":1,
+         "numbersTo":89
+      }
+   ]
+},
+{
+   "id":9153216150,
+   "name":"Eddy KingDong",
+   "photo":"./../../images/food1.jpg",
+   "openHours":"12-23",
+   "rating":"4.20",
+   "deliveryPrice":12,
+   "averageDeliveryTime":25,
+   "freeDeliveryFrom":250,
+   "minDeliveryPrice":20,
+   "foodCategories":[
+      "oriental, salads"
+   ],
+   "menus":[
+      {
+         "menuSections":[
+            {
+               "sectionName":"Main",
+               "additionals":[
+                  "extra cheese"
+               ],
+               "menuItems":[
+                  {
+                     "id":123522421,
+                     "name":"Traditional Raw Salmon",
+                     "ingriedents":"Lo Shan Supreme Salad",
+                     "price":31
+                  },
+                  {
+                     "id":124412232422,
+                     "name":"New Year (Poon Choi)",
+                     "ingriedents":"Imperial Supreme Treasure Pot",
+                     "price":32
+                  },
+                  {
+                     "id":12324643546423,
+                     "name":"Street  Burger",
+                     "ingriedents":"Half-pound of ground beef with a hangover-killing combination of crispy bacon,",
+                     "price":35
+                  },
+                  {
+                     "id":12352352523,
+                     "name":"Scallop Coated",
+                     "ingriedents":"Mashed Prawn in Crabmeat Sauce on Jade Green",
+                     "price":40
+                  },
+                  {
+                     "id":1235321356423,
+                     "name":"Sauté Rib Eyes Cube",
+                     "ingriedents":"Shao Xing Rice Wine Black Pepper Sauce ,",
+                     "price":41
+                  }
+               ]
+            },
+            {
+               "sectionName":"Appetizers",
+               "menuItems":[
+                  {
+                     "id":1451241,
+                     "name":"Mozzarella Sticks",
+                     "ingriedents":"Five jumbo housemade mozzarella sticks served with tomato sauce",
+                     "price":13
+                  },
+                  {
+                     "id":12323123643311,
+                     "name":"Stuffed Portobello",
+                     "ingriedents":"portobello mushrooms topped with spinach, roasted red peppers",
+                     "price":15
+                  },
+                  {
+                     "id":1231532456441,
+                     "name":"Hot Antipasto",
+                     "ingriedents":"Clams oreganata, grilled shrimp, stuffed tomato oreganata,",
+                     "price":18
+                  }
+               ]
+            },
+            {
+               "sectionName":"Salads",
+               "menuItems":[
+                  {
+                     "id":1235324236421,
+                     "name":"House Salad",
+                     "ingriedents":". Mixed greens, carrots, red onions, olives, red cabbage, cucumbers, tomatoes",
+                     "price":13
+                  },
+                  {
+                     "id":15233476541532312,
+                     "name":"Spinach Salad",
+                     "ingriedents":"Spinach, bacon, shaved parmesan, pinenuts, button mushrooms, hardboiled egg",
+                     "price":12
+                  }
+               ]
+            },
+            {
+               "sectionName":"Beverages",
+               "menuItems":[
+                  {
+                     "id":123244124456421230000,
+                     "name":"Soda",
+                     "ingriedents":"",
+                     "price":5
+                  },
+                  {
+                     "id":12324216532311,
+                     "name":"Cola",
+                     "ingriedents":"",
+                     "price":7
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "deliveryAddress":[
+      {
+         "street":"Emaliowa",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":1,
+         "numbersTo":98
+      },
+      {
+         "street":"Staszewskiego",
+         "city":"Warszawa",
+         "zipCode":"02-234",
+         "numbersFrom":1,
+         "numbersTo":64
+      },
+      {
+         "street":"Kwiska",
+         "city":"Warszawa",
+         "zipCode":"02-215",
+         "numbersFrom":34,
+         "numbersTo":170
+      },
+      {
+         "street":"Francuska",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":59,
+         "numbersTo":222
+      },
+      {
+         "street":"Derdowska",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":1,
+         "numbersTo":89
+      }
+   ]
+},
+{
+   "id":9121150,
+   "name":" Golden Dong",
+   "photo":"./../../images/food1.jpg",
+   "openHours":"6-23",
+   "rating":"4.80",
+   "deliveryPrice":15,
+   "averageDeliveryTime":46,
+   "freeDeliveryFrom":150,
+   "minDeliveryPrice":25,
+   "foodCategories":[
+      "oriental, salads"
+   ],
+   "menus":[
+      {
+         "menuSections":[
+            {
+               "sectionName":"Main",
+               "menuItems":[
+                  {
+                     "id":141421,
+                     "name":"Diced Four Season ",
+                     "ingriedents":"Lo Shan Supreme Salad",
+                     "price":31
+                  },
+                  {
+                     "id":12522422,
+                     "name":"Sauté Rib Eyes",
+                     "ingriedents":"Imperial Supreme Treasure Pot",
+                     "price":32
+                  },
+                  {
+                     "id":12362446423,
+                     "name":"Steamed Wild",
+                     "ingriedents":"Half-pound of ground beef with a hangover-killing combination of crispy bacon,",
+                     "price":35
+                  },
+                  {
+                     "id":12353223,
+                     "name":"Fresh Lobster with",
+                     "ingriedents":"Mashed Prawn in Crabmeat Sauce on Jade Green",
+                     "price":40
+                  },
+                  {
+                     "id":123523423,
+                     "name":"Traditional Salmon",
+                     "ingriedents":"Shao Xing Rice Wine Black Pepper Sauce ,",
+                     "price":41
+                  }
+               ]
+            },
+            {
+               "sectionName":"Appetizers",
+               "menuItems":[
+                  {
+                     "id":14523241,
+                     "name":"Mozzarella Sticks",
+                     "ingriedents":"Five jumbo housemade mozzarella sticks served with tomato sauce",
+                     "price":13
+                  },
+                  {
+                     "id":16423643311,
+                     "name":"Stuffed Portobello",
+                     "ingriedents":"portobello mushrooms topped with spinach, roasted red peppers",
+                     "price":15
+                  },
+                  {
+                     "id":12352356441,
+                     "name":"Hot Antipasto",
+                     "ingriedents":"Clams oreganata, grilled shrimp, stuffed tomato oreganata,",
+                     "price":18
+                  }
+               ]
+            },
+            {
+               "sectionName":"Salads",
+               "menuItems":[
+                  {
+                     "id":1235531421,
+                     "name":"House Salad",
+                     "ingriedents":". Mixed greens, carrots, red onions, olives, red cabbage, cucumbers, tomatoes",
+                     "price":13
+                  },
+                  {
+                     "id":1523421311,
+                     "name":"Spinach Salad",
+                     "ingriedents":"Spinach, bacon, shaved parmesan, pinenuts, button mushrooms, hardboiled egg",
+                     "price":12
+                  }
+               ]
+            },
+            {
+               "sectionName":"Beverages",
+               "menuItems":[
+                  {
+                     "id":123244216421,
+                     "name":"Soda",
+                     "ingriedents":"",
+                     "price":5
+                  },
+                  {
+                     "id":123412311,
+                     "name":"Cola",
+                     "ingriedents":"",
+                     "price":7
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "deliveryAddress":[
+      {
+         "street":"Emaliowa",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":1,
+         "numbersTo":98
+      },
+      {
+         "street":"Staszewskiego",
+         "city":"Warszawa",
+         "zipCode":"02-234",
+         "numbersFrom":1,
+         "numbersTo":64
+      },
+      {
+         "street":"Kwiska",
+         "city":"Warszawa",
+         "zipCode":"02-215",
+         "numbersFrom":34,
+         "numbersTo":170
+      },
+      {
+         "street":"Francuska",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":59,
+         "numbersTo":222
+      },
+      {
+         "street":"Derdowska",
+         "city":"Warszawa",
+         "zipCode":"02-295",
+         "numbersFrom":1,
+         "numbersTo":89
+      }
+   ]
+}] 
+}
+   
+   
