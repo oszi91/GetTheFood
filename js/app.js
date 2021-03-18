@@ -16,7 +16,10 @@ import RestaurantsData from './API/RestaurantsData.json';
 class App extends Component {
 
     state = {
-        data: null
+        data: null,
+        order: {
+            address: '', 
+        }
     }
 
     componentDidMount() {

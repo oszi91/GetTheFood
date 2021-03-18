@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
+import {Link} from "react-router-dom";
+import changeNameToURL from '../../../Functions/changeNameToURL';
 
 class RestaurantItem extends Component {
     state = {}
     render() {
-
-        const { id, name, photo, rating, deliveryPrice, averageDeliveryTime, minDeliveryPrice } = this.props.restaurant;
-
+        const { name, photo, rating, deliveryPrice, averageDeliveryTime, minDeliveryPrice } = this.props.restaurant;
+        
+        const restaurantURL = changeNameToURL(name);
+        const currPath = window.location.pathname;
+       
         return (
                 <li className="allRestaurants__list__item">
+                <Link to={`${currPath}/${restaurantURL}`}>
                 <div className="restaurantOnListView">
                     <div className="restaurantOnListView__main">
                         <p className="restaurantOnListView__main__name">{name}</p>
@@ -30,6 +35,7 @@ class RestaurantItem extends Component {
                         <img className="restaurantOnListView__photo__img" src={photo} />
                     </div>
                 </div>
+                </Link>
             </li>
         );
     }

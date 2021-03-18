@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RestaurantItem from './RestaurantItem/RestaurantItem';
 
+
 class RestaurantsList extends Component {
     state = {}
     render() {

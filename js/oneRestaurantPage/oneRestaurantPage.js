@@ -3,6 +3,7 @@ import DishesList from './DishesList/DishesList';
 import FoodKind from './FoodKind/FoodKind';
 import OneRestaurantHeader from './OneRestaurantHeader/OneRestaurantHeader';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
+import changeNameToURL from '../Functions/changeNameToURL';
 
 class OneRestaurantPage extends Component {
    
@@ -10,7 +11,6 @@ class OneRestaurantPage extends Component {
         const {restaurants} = this.props.data;
         const {id} = this.props.match.params;
 
-        const changeNameToURL = str => str.replace(/\s/g, '-').replace(/[&\s/\\#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
         const oneRestaurant = restaurants.filter(restaurant => (
             changeNameToURL(restaurant.name) == id
         ));
@@ -22,8 +22,14 @@ class OneRestaurantPage extends Component {
                 <div className="containerBig">
                     <div className="oneRestaurant__container">
                         <div className="oneRestaurantMenu">
-                            <FoodKind foodCat={restaurant.foodCategories} />
-                            {restaurant.menus.map(res => <DishesList key={res.menuSections} foodMenu={res.menuSections} />)}
+                            {restaurant.menus.map(res => 
+                            (
+                                <React.Fragment key={restaurant.id}>
+                                <FoodKind  foodCat={res.menuSections} />
+                                <DishesList foodMenu={res.menuSections} />
+                                </React.Fragment>
+                            )
+                            )}
                         </div>
                         <ShoppingCart />
                     </div>

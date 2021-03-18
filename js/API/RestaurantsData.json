@@ -2,9 +2,9 @@
    "foodCategoriesAll": ["american", "pizza", "burgers", "salads", "oriental"],
    "restaurants": [{
    "id":91041926150,    
-   "name":"Roberto's Pizza",
+   "name":"Roberto",
    "photo":"./../../images/food1.jpg",
-   "openHours":"10-23",
+   "openHours": [{"from": 10, "to": 18}],
    "rating":"3.45",
    "deliveryPrice":7,
    "averageDeliveryTime":40,
@@ -173,14 +173,14 @@
    "id":91541926150,
    "name":"Rafaelo's Pizza Bar",
    "photo":"./../../images/food1.jpg",
-   "openHours":"10-21",
+   "openHours": [{"from": 10, "to": 21}],
    "rating":"4.45",
    "deliveryPrice":8,
    "averageDeliveryTime":40,
    "freeDeliveryFrom":50,
    "minDeliveryPrice":50,
    "foodCategories":[
-      "american, pizza"
+      "american", "pizza"
    ],
    "menus":[
       {
@@ -325,14 +325,14 @@
    "id":91552926150,
    "name":"Toni's Pizza Food",
    "photo":"./../../images/food1.jpg",
-   "openHours":"12-24",
+   "openHours": [{"from": 12, "to": 24}],
    "rating":"4.80",
    "deliveryPrice":8,
    "averageDeliveryTime":40,
    "freeDeliveryFrom":50,
    "minDeliveryPrice":50,
    "foodCategories":[
-      "american, pizza"
+      "american", "pizza"
    ],
    "menus":[
       {
@@ -460,14 +460,14 @@
    "id":9152926150,
    "name":"Domi's Burger",
    "photo":"./../../images/food1.jpg",
-   "openHours":"8-20",
+   "openHours": [{"from": 8, "to": 20}],
    "rating":"4.80",
    "deliveryPrice":8,
    "averageDeliveryTime":40,
    "freeDeliveryFrom":50,
    "minDeliveryPrice":50,
    "foodCategories":[
-      "american, burgers, salads"
+      "american", "burgers", "salads"
    ],
    "menus":[
       {
@@ -612,14 +612,14 @@
    "id":91545226150,
    "name":"Silver Spurs Burger",
    "photo":"./../../images/food1.jpg",
-   "openHours":"12-22",
+   "openHours": [{"from": 12, "to": 22}],
    "rating":"4.10",
    "deliveryPrice":15,
    "averageDeliveryTime":90,
    "freeDeliveryFrom":100,
    "minDeliveryPrice":50,
    "foodCategories":[
-      "american, burgers, salads"
+      "american", "burgers", "salads"
    ],
    "menus":[
       {
@@ -764,14 +764,14 @@
    "id":9153216150,
    "name":"Eddy KingDong",
    "photo":"./../../images/food1.jpg",
-   "openHours":"12-23",
+   "openHours": [{"from": 12, "to": 23}],
    "rating":"4.20",
    "deliveryPrice":12,
    "averageDeliveryTime":25,
    "freeDeliveryFrom":250,
    "minDeliveryPrice":20,
    "foodCategories":[
-      "oriental, salads"
+      "oriental", "salads"
    ],
    "menus":[
       {
@@ -914,16 +914,16 @@
 },
 {
    "id":9121150,
-   "name":" Golden Dong",
+   "name":"Golden Dong",
    "photo":"./../../images/food1.jpg",
-   "openHours":"6-23",
+   "openHours": [{"from": 6, "to": 23}],
    "rating":"4.80",
-   "deliveryPrice":15,
+   "deliveryPrice":0,
    "averageDeliveryTime":46,
    "freeDeliveryFrom":150,
    "minDeliveryPrice":25,
    "foodCategories":[
-      "oriental, salads"
+      "oriental", "salads"
    ],
    "menus":[
       {
