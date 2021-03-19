@@ -13,13 +13,13 @@ class AllRestaurantsPage extends Component {
     }
 
     filterSearchRestaurant = (searchName) => {
-        const { restaurantsList } = this.state;
+        const { restaurants } = this.props.data;
 
         let searchRes;
         if (searchName) {
-            searchRes = restaurantsList.filter(res => res.name.toLowerCase().indexOf(searchName.toLowerCase()) !== -1)
+            searchRes = restaurants.filter(res => res.name.toLowerCase().indexOf(searchName.toLowerCase()) !== -1)
         } else {
-            searchRes = restaurantsList;
+            searchRes = restaurants;
         }
 
         this.setState({

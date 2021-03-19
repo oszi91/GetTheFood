@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useRef } from 'react';
 import DishesList from './DishesList/DishesList';
 import FoodKind from './FoodKind/FoodKind';
 import OneRestaurantHeader from './OneRestaurantHeader/OneRestaurantHeader';
@@ -6,6 +6,12 @@ import ShoppingCart from './ShoppingCart/ShoppingCart';
 import changeNameToURL from '../Functions/changeNameToURL';
 
 class OneRestaurantPage extends Component {
+
+    state = {
+        dishes: [
+            {name: '', quantity: '', additions: []}
+        ]
+    }
    
     render() {
         const {restaurants} = this.props.data;
@@ -14,6 +20,7 @@ class OneRestaurantPage extends Component {
         const oneRestaurant = restaurants.filter(restaurant => (
             changeNameToURL(restaurant.name) == id
         ));
+
 
         return (
             oneRestaurant.map(restaurant => (
@@ -25,8 +32,11 @@ class OneRestaurantPage extends Component {
                             {restaurant.menus.map(res => 
                             (
                                 <React.Fragment key={restaurant.id}>
-                                <FoodKind  foodCat={res.menuSections} />
-                                <DishesList foodMenu={res.menuSections} />
+                                <FoodKind  
+                                foodCat={res.menuSections}
+                                />
+                                <DishesList 
+                                foodMenu={res.menuSections} />
                                 </React.Fragment>
                             )
                             )}

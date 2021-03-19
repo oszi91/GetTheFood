@@ -12,7 +12,7 @@ class DishesList extends Component {
                     <div key={res.sectionName} className="dishesList__container">
                         <h1 className="dishesList__container__category">{res.sectionName}</h1>
                         <ul className="dishesList">
-                            <OneDish menuItems={res.menuItems} />
+                            <OneDish menu={res.menuItems} />
                         </ul>
                     </div>
                 ))

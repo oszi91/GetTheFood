@@ -7,6 +7,9 @@ import SummaryOrder from './SummaryOrder/SummaryOrder';
 class ShoppingCart extends Component {
     state = {}
     render() {
+
+        
+
         return (
             <div className="oneRestaurantCart">
                 <h2 className="oneRestaurantCart__header">Your order</h2>
