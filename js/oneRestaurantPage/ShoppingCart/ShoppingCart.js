@@ -5,18 +5,28 @@ import FreeDelivery from './SummaryOrder/FreeDelivery/FreeDelivery';
 import SummaryOrder from './SummaryOrder/SummaryOrder';
 
 class ShoppingCart extends Component {
-    state = {}
+  
     render() {
-
-        
+        const {minDeliveryPrice, orderAmount} = this.props;
+        const priceLeft = minDeliveryPrice - orderAmount;
 
         return (
             <div className="oneRestaurantCart">
                 <h2 className="oneRestaurantCart__header">Your order</h2>
-                <OneDishShoppingCart />
-                <SummaryOrder />
-                <FreeDelivery />
-                <DishMinPrice />
+                <OneDishShoppingCart order={this.props.order} />
+                <SummaryOrder
+                 orderAmount={this.props.orderAmount}
+                 deliveryPrice={this.props.deliveryPrice}
+                 freeDeliveryFrom={this.props.freeDeliveryFrom}
+                 />
+                <FreeDelivery
+                orderAmount={this.props.orderAmount}
+                freeDeliveryFrom={this.props.freeDeliveryFrom}
+                />
+                {priceLeft > 0 && <DishMinPrice 
+                orderAmount={this.props.orderAmount}
+                minDeliveryPrice={this.props.minDeliveryPrice}
+                />}
                 <button className="dishOrder">Order</button>
             </div>
         );

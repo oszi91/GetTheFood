@@ -31,12 +31,19 @@ class OneDish extends Component {
                             </div>
                             <p className="oneDishView__ingredients">{dish.ingriedents}</p>
                             <div className="oneDishView__container">
-                                <p className="oneDishView__container__price">{dish.price},00 PLN</p>
+                                <p className="oneDishView__container__price">{dish.price.toFixed(2)} PLN</p>
                                 <p className="oneDishView__container__additionals">Additionals <i className="fas fa-plus-circle"></i>
                                 </p>
                             </div>
                         </div>
-                        <OneDishOrderDetails dish={dish} handleOpenDetails={this.handleOpenDetails} classAdd={classAdd} />
+                        <OneDishOrderDetails 
+                        dish={dish} 
+                        handleOpenDetails={this.handleOpenDetails} 
+                        classAdd={classAdd}
+                        order={this.props.order}
+                        handleOrder={this.props.handleOrder} 
+                        price={this.props.price}
+                        />
                     </li>
                 ))
                 }

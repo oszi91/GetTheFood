@@ -8,9 +8,18 @@ import changeNameToURL from '../Functions/changeNameToURL';
 class OneRestaurantPage extends Component {
 
     state = {
-        dishes: [
-            { name: '', quantity: '', additions: [] }
-        ]
+        order: [],
+        price: ''
+    }
+
+    handleOrder = dish => {
+        this.setState({
+            order: this.state.order.filter(el => el.name !== dish.name)
+        }, () => {
+            this.setState({
+                order: [...this.state.order, dish]
+            })
+        })
     }
 
     render() {
@@ -21,6 +30,8 @@ class OneRestaurantPage extends Component {
             changeNameToURL(restaurant.name) == id
         ));
 
+        const orderAmount = this.state.order.reduce((a, b) => a + b.price, 0);
+        console.log(orderAmount)
 
         return (
             oneRestaurant.map(restaurant => (
@@ -30,10 +41,14 @@ class OneRestaurantPage extends Component {
                         <div className="oneRestaurant__container">
                             <div className="oneRestaurantMenu">
                                 {restaurant.menus.map(res => {
-                                    const ref = React.createRef();
 
-                                    const handleClick = () =>
-                                        ref.current.scrollIntoView({
+                                    const refs = res.menuSections.reduce((acc, value) => {
+                                        acc[value.sectionName] = React.createRef();
+                                        return acc;
+                                    }, {});
+
+                                    const handleClick = id =>
+                                        refs[id].current.scrollIntoView({
                                             behavior: 'smooth',
                                             block: 'start',
                                         });
@@ -46,14 +61,23 @@ class OneRestaurantPage extends Component {
                                             />
                                             <DishesList
                                                 foodMenu={res.menuSections}
-                                                refs={ref}
+                                                reference={refs}
+                                                order={this.state.order}
+                                                handleOrder={this.handleOrder}
+                                                price={this.state.price}
                                             />
                                         </React.Fragment>
                                     )
                                 }
                                 )}
                             </div>
-                            <ShoppingCart />
+                            <ShoppingCart
+                             orderAmount={orderAmount}
+                             order={this.state.order}
+                             deliveryPrice={restaurant.deliveryPrice}
+                             freeDeliveryFrom={restaurant.freeDeliveryFrom}
+                             minDeliveryPrice={restaurant.minDeliveryPrice}
+                             />
                         </div>
                     </div>
                 </main>

@@ -1,12 +1,63 @@
 import React, { Component } from 'react';
 
 class OneDishOrderDetails extends Component {
-    
+
+    state = {
+        quantity: 1,
+        onlyDishPrice: this.props.dish.price,
+        addsPrice: 0,
+        addID: undefined,
+        orderDetails: []
+    }
+
+    handleAdditionals = (e, id) => {
+        const addPrice = Number(e.target.dataset.price);
+        const addName = e.target.dataset.name;
+
+        if (addName === id) {
+            this.setState({
+                [addName]: e.target.checked
+            })
+
+            if(e.target.checked){
+                this.setState({
+                    addsPrice: this.state.addsPrice + addPrice,
+                    
+                })
+            } else{
+                this.setState({
+                    addsPrice: this.state.addsPrice - addPrice
+                })
+            }
+        }
+    }
+
+    handleQuantity = val => {
+
+        if (val === 'plus') {
+            this.setState({
+                quantity: ++this.state.quantity,
+                onlyDishPrice: this.props.dish.price * this.state.quantity
+            })
+        } else if (val === 'minus') {
+            this.setState({
+                quantity: this.state.quantity <= 1 ? 1 : --this.state.quantity,
+                onlyDishPrice: this.props.dish.price * this.state.quantity
+            })
+        }
+    }
+
+    handleOrder = (e,dish) => {
+       this.setState({
+            orderDetails: {name: dish, price: this.state.onlyDishPrice + this.state.addsPrice, quantity: this.state.quantity}
+       }, () => {
+           this.props.handleOrder(this.state.orderDetails)
+       })
+    }
 
     render() {
+        const { dish } = this.props;
 
-        const {dish} = this.props;
-       
         return (
             <div key={dish.id} className={`oneDishViewContainer ${this.props.classAdd(dish.id)}`}>
                 <div className="oneDishViewBig">
@@ -18,23 +69,30 @@ class OneDishOrderDetails extends Component {
                     <div className="oneDishViewBig__additionals">
                         {dish.additionals.map(add => (
                             <div key={add.name} className="oneDishViewBig__additionals__item">
-                                <input className="oneDishViewBig__additionals__item__check" type="checkbox" value={add.price} />
+                                <input
+                                    className="oneDishViewBig__additionals__item__check"
+                                    data-price={add.price}
+                                    data-name={add.name}
+                                    type="checkbox"
+                                    value={this.state.checked}
+                                    onClick={e => this.handleAdditionals(e, add.name)}
+                                />
                                 <p className="oneDishViewBig__additionals__item__name">
                                     {add.name}
-                                    <span className="oneDishViewBig__additionals__item__name--bold">{add.price} PLN</span>
+                                    <span className="oneDishViewBig__additionals__item__name--bold">{add.price.toFixed(2)} PLN</span>
                                 </p>
                             </div>
                         ))}
                     </div>
                     <div className="oneDishViewBig__quantity">
-                        <button className="oneDishViewBig__quantity__minus">-</button>
-                        <p className="oneDishViewBig__quantity__number">1</p>
-                        <button className="oneDishViewBig__quantity__add">+</button>
+                        <button className="oneDishViewBig__quantity__minus" value="minus" onClick={e => this.handleQuantity(e.target.value)}>-</button>
+                        <p className="oneDishViewBig__quantity__number">{this.state.quantity}</p>
+                        <button className="oneDishViewBig__quantity__add" value="plus" onClick={e => this.handleQuantity(e.target.value)}>+</button>
                     </div>
-                    <button 
-                    onClick={this.props.handleOpenDetails}
-                    className="oneDishViewBig__addToOrder"
-                    >Add to Order <span>({dish.price} PLN)</span></button>
+                    <button
+                        onClick={(e) => this.handleOrder(e.target.value, dish.name)}
+                        className="oneDishViewBig__addToOrder"
+                    >Add to Order <span>({(this.state.onlyDishPrice + this.state.addsPrice).toFixed(2)} PLN)</span></button>
                 </div>
             </div>
         );

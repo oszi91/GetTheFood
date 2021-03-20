@@ -10,9 +10,15 @@ class DishesList extends Component {
             <>
                 {foodMenu.map(res => (
                     <div key={res.sectionName} className="dishesList__container">
-                        <h1 className="dishesList__container__category" ref={this.props.refs}>{res.sectionName}</h1>
+                        <h1
+                            className="dishesList__container__category"
+                            ref={this.props.reference[res.sectionName]}>{res.sectionName}</h1>
                         <ul className="dishesList">
-                            <OneDish menu={res.menuItems} />
+                            <OneDish
+                                menu={res.menuItems}
+                                order={this.props.order}
+                                handleOrder={this.props.handleOrder}
+                                price={this.props.price} />
                         </ul>
                     </div>
                 ))

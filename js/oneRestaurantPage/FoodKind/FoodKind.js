@@ -11,7 +11,7 @@ class FoodKind extends Component {
                 <ul className="typeOfDish__list">
                     {foodCat.map(cat => 
                     <li 
-                    onClick={this.props.handleClick}
+                    onClick={() => this.props.handleClick(cat.sectionName)}
                     key={cat.sectionName} 
                     className="typeOfDish__list__item">{cat.sectionName}</li>
                     )}

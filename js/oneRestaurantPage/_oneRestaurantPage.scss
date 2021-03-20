@@ -240,13 +240,13 @@
                 display: none;
                 justify-content: center;
                 align-items: center;
+                cursor: auto;
 
                 &__showDetails{
                     display: flex;
                 }
     
                 .oneDishViewBig {
-                    
                     width: 50%;
                     min-height: 50%;
                     background-color: white;
