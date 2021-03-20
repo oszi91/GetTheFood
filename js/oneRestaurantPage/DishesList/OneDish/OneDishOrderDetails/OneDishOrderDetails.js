@@ -8,7 +8,7 @@ class OneDishOrderDetails extends Component {
         const {dish} = this.props;
        
         return (
-            <div key={dish.id} className={`oneDishViewContainer ${this.props.classAdd}`}>
+            <div key={dish.id} className={`oneDishViewContainer ${this.props.classAdd(dish.id)}`}>
                 <div className="oneDishViewBig">
                     <div className="oneDishViewBig__close" onClick={this.props.handleOpenDetails}>
                         <i className="fas fa-times"></i>

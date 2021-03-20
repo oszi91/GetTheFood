@@ -67,13 +67,14 @@
 
         .oneRestaurantMenu__typeOfDish {
             padding: 5px;
-            background-color: lighten($color: #fafa1f, $amount: 20%);
+            background-color: lighten($color: #e2e2e2, $amount: 20%);
             border-radius: 15px;
 
             .typeOfDish__list {
                 display: flex;
                 justify-content: space-around;
                 margin: 5px 0;
+               
 
                 .typeOfDish__list__item {
                     background-color: white;
@@ -81,6 +82,7 @@
                     padding: 15px;
                     border-radius: 15px;
                     font-weight: 600;
+                    cursor: pointer;
                 }
             }
         }
@@ -232,7 +234,9 @@
                 left: 0;
                 width: 100%;
                 height: 100vh;
-                background-color: rgba(250, 250, 31, 0.1);
+                background-color: rgba(250, 250, 31, 0.5);
+                backdrop-filter: blur(5px);
+                
                 display: none;
                 justify-content: center;
                 align-items: center;
@@ -242,6 +246,7 @@
                 }
     
                 .oneDishViewBig {
+                    
                     width: 50%;
                     min-height: 50%;
                     background-color: white;

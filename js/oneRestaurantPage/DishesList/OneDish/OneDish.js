@@ -3,26 +3,26 @@ import OneDishOrderDetails from './OneDishOrderDetails/OneDishOrderDetails';
 
 class OneDish extends Component {
     state = {
-        orderDetails: false
+        orderDetails: false,
+        id: undefined
     }
 
-    handleOpenDetails = item => {
+    handleOpenDetails = id => {
         this.setState({
-            orderDetails: !this.state.orderDetails
+            orderDetails: !this.state.orderDetails,
+            id
         })
     }
 
     render() {
-
         const { menu } = this.props;
-
-        const classAdd = this.state.orderDetails ? "oneDishViewContainer__showDetails" : "";
+        const classAdd = id => (this.state.orderDetails && this.state.id === id) ? "oneDishViewContainer__showDetails" : "";
 
         return (
             <>
-                {menu.map( dish => (
-                    <li  className="dishesList__item" >
-                        <div className="oneDishView" key={dish.id} onClick={() => this.handleOpenDetails(dish.id)}>
+                {menu.map(dish => (
+                    <li className="dishesList__item" key={dish.id} >
+                        <div className="oneDishView" onClick={() => this.handleOpenDetails(dish.id)}>
                             <div className="oneDishView__container">
                                 <p className="oneDishView__name">{dish.name}</p>
                                 <p className="oneDishView__order">

@@ -13,14 +13,14 @@ class Header extends Component {
                 <div className="container">
                     <nav className="nav">
                         <div className="nav__logo">
-                            <Link to="./">
+                            <a href="/">
                                 <p className="nav__logo__text">
                                     Get
                                 <span className="nav__logo__text--color-one">The</span>
                                     <span className="nav__logo__text--color-two">Food!</span>
                                     <i className="fas fa-hamburger"></i>
                                 </p>
-                            </Link>
+                            </a>
                         </div>
                         <div className="nav__address">
                             <p className="nav__address__text">

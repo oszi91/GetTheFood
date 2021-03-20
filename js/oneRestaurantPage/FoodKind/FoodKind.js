@@ -2,8 +2,6 @@ import React, { Component, useRef } from 'react';
 
 class FoodKind extends Component {
 
-   
-
     render() {
 
         const {foodCat} = this.props;
@@ -13,6 +11,7 @@ class FoodKind extends Component {
                 <ul className="typeOfDish__list">
                     {foodCat.map(cat => 
                     <li 
+                    onClick={this.props.handleClick}
                     key={cat.sectionName} 
                     className="typeOfDish__list__item">{cat.sectionName}</li>
                     )}
