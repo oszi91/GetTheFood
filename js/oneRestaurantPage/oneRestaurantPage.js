@@ -8,18 +8,24 @@ import changeNameToURL from '../Functions/changeNameToURL';
 class OneRestaurantPage extends Component {
 
     state = {
-        order: [],
-        price: ''
+        order: []
     }
 
-    handleOrder = dish => {
-        this.setState({
-            order: this.state.order.filter(el => el.name !== dish.name)
-        }, () => {
+    handleOrder = (dish,val) => {
+    
+        if(val == 'addOrModify'){
             this.setState({
-                order: [...this.state.order, dish]
+                order: this.state.order.filter(el => el.id !== dish.id)
+            }, () => {
+                this.setState({
+                    order: [...this.state.order, dish]
+                })
             })
-        })
+        } else if (val === 'remove'){
+            this.setState({
+                order: this.state.order.filter(el => el.id !== dish)
+            })
+        }
     }
 
     render() {
@@ -31,7 +37,6 @@ class OneRestaurantPage extends Component {
         ));
 
         const orderAmount = this.state.order.reduce((a, b) => a + b.price, 0);
-        console.log(orderAmount)
 
         return (
             oneRestaurant.map(restaurant => (
@@ -64,7 +69,6 @@ class OneRestaurantPage extends Component {
                                                 reference={refs}
                                                 order={this.state.order}
                                                 handleOrder={this.handleOrder}
-                                                price={this.state.price}
                                             />
                                         </React.Fragment>
                                     )
@@ -72,12 +76,14 @@ class OneRestaurantPage extends Component {
                                 )}
                             </div>
                             <ShoppingCart
-                             orderAmount={orderAmount}
-                             order={this.state.order}
-                             deliveryPrice={restaurant.deliveryPrice}
-                             freeDeliveryFrom={restaurant.freeDeliveryFrom}
-                             minDeliveryPrice={restaurant.minDeliveryPrice}
-                             />
+                                foodMenu={restaurant.menus}
+                                orderAmount={orderAmount}
+                                order={this.state.order}
+                                deliveryPrice={restaurant.deliveryPrice}
+                                freeDeliveryFrom={restaurant.freeDeliveryFrom}
+                                minDeliveryPrice={restaurant.minDeliveryPrice}
+                                handleOrder={this.handleOrder}
+                            />
                         </div>
                     </div>
                 </main>

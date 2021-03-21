@@ -89,6 +89,8 @@
     }
 
     .oneRestaurantCart {
+        position: sticky;
+        top: 70px;
         margin-left: 25px;
         width: 25%;
         font-size: 1.5rem;
@@ -96,9 +98,20 @@
 
         &__header {
             font-weight: 700;
+            margin-top: 15px;
             margin-bottom: 25px;
             padding-bottom: 15px;
             border-bottom: 1px solid rgb(235, 235, 235);
+        }
+
+        .emptyBasket{
+            margin: 50px 0;
+
+            .fas{
+                margin-top: 25px;
+                font-size: 8rem;
+                color: rgb(224, 224, 224);
+            }
         }
 
         .dishContainer {
@@ -114,6 +127,11 @@
                 font-weight: 600;
                 width: 100px;
                 line-height: 1.2;
+
+                &--adds{
+                    font-weight: 300;
+                    font-size: 0.8rem;
+                }
             }
 
             &__price {
@@ -127,6 +145,11 @@
 
             &__btn {
                 font-size: 1.3rem;
+                &--edit{
+                    font-size: 1rem;
+                    font-weight: 600;
+                    text-decoration: underline;
+                }
             }
         }
     }
@@ -162,7 +185,8 @@
         margin-top: 20px;
         background-color: black;
         color: white;
-        font-weight: 600;
+        font-weight: 500;
+        font-size: 1.4rem;
         width: 100%;
         padding: 15px;
         border-radius: 5px;

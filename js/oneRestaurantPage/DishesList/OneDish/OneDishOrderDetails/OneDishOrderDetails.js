@@ -19,12 +19,12 @@ class OneDishOrderDetails extends Component {
                 [addName]: e.target.checked
             })
 
-            if(e.target.checked){
+            if (e.target.checked) {
                 this.setState({
                     addsPrice: this.state.addsPrice + addPrice,
-                    
+
                 })
-            } else{
+            } else {
                 this.setState({
                     addsPrice: this.state.addsPrice - addPrice
                 })
@@ -47,21 +47,35 @@ class OneDishOrderDetails extends Component {
         }
     }
 
-    handleOrder = (e,dish) => {
-       this.setState({
-            orderDetails: {name: dish, price: this.state.onlyDishPrice + this.state.addsPrice, quantity: this.state.quantity}
-       }, () => {
-           this.props.handleOrder(this.state.orderDetails)
-       })
+    handleOrder = (btnVal, dish, id) => {
+    
+        this.setState({
+            orderDetails: {
+                name: dish,
+                id: id,
+                price: this.state.onlyDishPrice + this.state.addsPrice,
+                quantity: this.state.quantity,
+                additionals: this.state.addsPrice ? true : false
+            }
+        }, () => {
+            this.props.handleOrder(this.state.orderDetails, btnVal)
+        })
     }
+
+    classAdd = id => {
+        return (
+            (this.props.orderDetails && this.props.id === id) ? "oneDishViewContainer__showDetails" : ""
+        )
+     }
+
 
     render() {
         const { dish } = this.props;
-
+  
         return (
-            <div key={dish.id} className={`oneDishViewContainer ${this.props.classAdd(dish.id)}`}>
+            <div key={dish.id} className={`oneDishViewContainer ${this.classAdd(dish.id)}`}>
                 <div className="oneDishViewBig">
-                    <div className="oneDishViewBig__close" onClick={this.props.handleOpenDetails}>
+                    <div className="oneDishViewBig__close" onClick={() => this.props.handleOpenDetails(dish.id)}>
                         <i className="fas fa-times"></i>
                     </div>
                     <h1 className="oneDishViewBig__name">{dish.name}</h1>
@@ -74,7 +88,6 @@ class OneDishOrderDetails extends Component {
                                     data-price={add.price}
                                     data-name={add.name}
                                     type="checkbox"
-                                    value={this.state.checked}
                                     onClick={e => this.handleAdditionals(e, add.name)}
                                 />
                                 <p className="oneDishViewBig__additionals__item__name">
@@ -90,7 +103,7 @@ class OneDishOrderDetails extends Component {
                         <button className="oneDishViewBig__quantity__add" value="plus" onClick={e => this.handleQuantity(e.target.value)}>+</button>
                     </div>
                     <button
-                        onClick={(e) => this.handleOrder(e.target.value, dish.name)}
+                        onClick={() => {this.handleOrder('addOrModify', dish.name, dish.id); this.props.handleOpenDetails(dish.id)}}
                         className="oneDishViewBig__addToOrder"
                     >Add to Order <span>({(this.state.onlyDishPrice + this.state.addsPrice).toFixed(2)} PLN)</span></button>
                 </div>

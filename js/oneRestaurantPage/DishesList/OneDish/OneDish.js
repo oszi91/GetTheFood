@@ -16,7 +16,6 @@ class OneDish extends Component {
 
     render() {
         const { menu } = this.props;
-        const classAdd = id => (this.state.orderDetails && this.state.id === id) ? "oneDishViewContainer__showDetails" : "";
 
         return (
             <>
@@ -32,17 +31,19 @@ class OneDish extends Component {
                             <p className="oneDishView__ingredients">{dish.ingriedents}</p>
                             <div className="oneDishView__container">
                                 <p className="oneDishView__container__price">{dish.price.toFixed(2)} PLN</p>
-                                <p className="oneDishView__container__additionals">Additionals <i className="fas fa-plus-circle"></i>
-                                </p>
+                                {dish.additionals.length ?
+                                    <p className="oneDishView__container__additionals">Additionals <i className="fas fa-plus-circle"></i></p>
+                                    : <p className="oneDishView__container__additionals"></p>}
                             </div>
                         </div>
-                        <OneDishOrderDetails 
-                        dish={dish} 
-                        handleOpenDetails={this.handleOpenDetails} 
-                        classAdd={classAdd}
-                        order={this.props.order}
-                        handleOrder={this.props.handleOrder} 
-                        price={this.props.price}
+                        <OneDishOrderDetails
+                            dish={dish}
+                            handleOpenDetails={this.handleOpenDetails}
+                            order={this.props.order}
+                            handleOrder={this.props.handleOrder}
+                            price={this.props.price}
+                            orderDetails={this.state.orderDetails}
+                            id={this.state.id}
                         />
                     </li>
                 ))
