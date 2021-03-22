@@ -17,29 +17,34 @@ class App extends Component {
 
     state = {
         data: null,
-        order: {
-            address: '', 
-        }
+        address: ''
     }
 
     componentDidMount() {
-       this.setState({
-           data: RestaurantsData
-       })
+        this.setState({
+            data: RestaurantsData
+        })
     }
 
+    handleAddress = address => {
+        const addressTxt = `${address.street}, ${address.zipCode} ${address.city}`;
+
+        this.setState({
+            address: addressTxt
+        })
+    }
 
     render() {
-        const {data} = this.state;
+        const { data } = this.state;
         if (!data) return null;
 
         return (
             <BrowserRouter>
-                <Header />
+                <Header address={this.state.address} />
                 <Switch>
-                    <Route exact path={"/"} component={StartPage} />
-                    <Route exact path={"/restaurants"} component={() => <AllRestaurantsPage data={data}/>} />
-                    <Route exact path={"/restaurants/:id"} render={(props) => <OneRestaurantPage data={data} {...props}/>} />
+                    <Route exact path={"/"} component={() => <StartPage data={data} handleAddress={this.handleAddress} />} />
+                    <Route exact path={"/restaurants"} component={() => <AllRestaurantsPage data={data} />} />
+                    <Route exact path={"/restaurants/:id"} render={(props) => <OneRestaurantPage data={data} {...props} />} />
                 </Switch>
                 <Footer />
             </BrowserRouter>

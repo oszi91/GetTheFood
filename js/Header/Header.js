@@ -6,6 +6,10 @@ import {
 class Header extends Component {
     
     render() {
+
+        const {address} = this.props;
+        const addressTxt = address ? address : 'Enter your address';
+
         return (
             <>
             <div className="header-background"></div>
@@ -24,7 +28,7 @@ class Header extends Component {
                         </div>
                         <div className="nav__address">
                             <p className="nav__address__text">
-                                <Link to="./">Krakowska 5/30, Warsaw</Link>
+                                <Link to="./">{addressTxt}</Link>
                             </p>
                         </div>
                         <div className="nav__basket">
