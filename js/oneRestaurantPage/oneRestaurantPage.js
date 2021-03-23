@@ -4,6 +4,7 @@ import FoodKind from './FoodKind/FoodKind';
 import OneRestaurantHeader from './OneRestaurantHeader/OneRestaurantHeader';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import changeNameToURL from '../Functions/changeNameToURL';
+import { Prompt } from 'react-router'
 
 class OneRestaurantPage extends Component {
 
@@ -11,9 +12,9 @@ class OneRestaurantPage extends Component {
         order: []
     }
 
-    handleOrder = (dish,val) => {
-    
-        if(val == 'addOrModify'){
+    handleOrder = (dish, val) => {
+
+        if (val == 'addOrModify') {
             this.setState({
                 order: this.state.order.filter(el => el.id !== dish.id)
             }, () => {
@@ -21,12 +22,20 @@ class OneRestaurantPage extends Component {
                     order: [...this.state.order, dish]
                 })
             })
-        } else if (val === 'remove'){
+        } else if (val === 'remove') {
             this.setState({
                 order: this.state.order.filter(el => el.id !== dish)
             })
         }
     }
+
+    componentDidUpdate = () => {
+        if (this.state.order.length) {
+          window.onbeforeunload = () => true
+        } else {
+          window.onbeforeunload = undefined
+        }
+      }
 
     render() {
         const { restaurants } = this.props.data;
@@ -41,6 +50,10 @@ class OneRestaurantPage extends Component {
         return (
             oneRestaurant.map(restaurant => (
                 <main key={restaurant.id} className="oneRestaurant__main">
+                    <Prompt
+                        when={this.state.order.length > 0}
+                        message='If you leave the website you will lose your order. Are you sure you want to do this?'
+                    />
                     <OneRestaurantHeader name={restaurant.name} rating={restaurant.rating} photo={restaurant.photo} />
                     <div className="containerBig">
                         <div className="oneRestaurant__container">

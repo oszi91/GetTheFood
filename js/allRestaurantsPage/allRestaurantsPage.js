@@ -166,7 +166,6 @@ class AllRestaurantsPage extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (prevState.restaurantsList !== this.state.restaurantsList) {
-            console.log(this.state.restaurantsList)
             this.setState({
                 restaurantsList: this.state.restaurantsList
             })

@@ -7,7 +7,8 @@ class OneDishOrderDetails extends Component {
         onlyDishPrice: this.props.dish.price,
         addsPrice: 0,
         addID: undefined,
-        orderDetails: []
+        orderDetails: [],
+        addsList: []
     }
 
     handleAdditionals = (e, id) => {
@@ -20,13 +21,16 @@ class OneDishOrderDetails extends Component {
             })
 
             if (e.target.checked) {
-                this.setState({
-                    addsPrice: this.state.addsPrice + addPrice,
-
-                })
+                if (this.state.addsList.indexOf(addName) === -1){
+                    this.setState({
+                        addsList: [...this.state.addsList, {name: addName, price: addPrice}],
+                        addsPrice: this.state.addsPrice + addPrice
+                    })
+                }
             } else {
                 this.setState({
-                    addsPrice: this.state.addsPrice - addPrice
+                    addsPrice: this.state.addsPrice - addPrice,
+                    addsList: this.state.addsList.filter(a => a.name !== addName)
                 })
             }
         }
@@ -55,7 +59,8 @@ class OneDishOrderDetails extends Component {
                 id: id,
                 price: this.state.onlyDishPrice + this.state.addsPrice,
                 quantity: this.state.quantity,
-                additionals: this.state.addsPrice ? true : false
+                additionals: this.state.addsPrice ? true : false,
+                addsList: this.state.addsList
             }
         }, () => {
             this.props.handleOrder(this.state.orderDetails, btnVal)
@@ -68,10 +73,9 @@ class OneDishOrderDetails extends Component {
         )
      }
 
-
     render() {
         const { dish } = this.props;
-  
+        console.log(this.state.addsList)
         return (
             <div key={dish.id} className={`oneDishViewContainer ${this.classAdd(dish.id)}`}>
                 <div className="oneDishViewBig">
@@ -92,7 +96,7 @@ class OneDishOrderDetails extends Component {
                                 />
                                 <p className="oneDishViewBig__additionals__item__name">
                                     {add.name}
-                                    <span className="oneDishViewBig__additionals__item__name--bold">{add.price.toFixed(2)} PLN</span>
+                                    <span className="oneDishViewBig__additionals__item__name--bold">{add.price ? add.price.toFixed(2) : null} PLN</span>
                                 </p>
                             </div>
                         ))}

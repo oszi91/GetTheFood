@@ -672,11 +672,7 @@
       }
    ],
    "deliveryAddress":[
-      {
-         "street":"Emaliowa",
-         "city":"Warszawa",
-         "zipCode":"02-295"
-      },
+    
       {
          "street":"Staszewskiego",
          "city":"Warszawa",
@@ -1155,11 +1151,6 @@
       }
    ],
    "deliveryAddress":[
-      {
-         "street":"Emaliowa",
-         "city":"Warszawa",
-         "zipCode":"02-295"
-      },
       {
          "street":"Staszewskiego",
          "city":"Warszawa",

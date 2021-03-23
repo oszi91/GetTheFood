@@ -8,11 +8,9 @@ class DishMinPrice extends Component {
         
         return (
             <div className="dishMinPrice">
-                <p className="dishMinPrice__text">{priceLeft} PLN left to the min. amount</p>
+                <p className="dishMinPrice__text">{priceLeft.toFixed(2)} PLN left to the min. amount</p>
             </div>
         );      
-        
-       
     }
 }
 
