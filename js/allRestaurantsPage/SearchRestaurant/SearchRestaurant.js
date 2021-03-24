@@ -28,9 +28,6 @@ class SearchRestaurant extends Component {
     }
 
     render() {
-
-        const search = this.state.searchVal;
-
         return (
             <>
                 <h2 className="allRestaurants__header">Find your favorite restaurant</h2>

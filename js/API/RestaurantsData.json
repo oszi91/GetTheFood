@@ -1,5 +1,5 @@
 {  
-   "foodCategoriesAll": ["american", "pizza", "burgers", "salads", "oriental"],
+   "foodCategoriesAll": ["all", "american", "pizza", "burgers", "salads", "oriental"],
    "restaurants": [{
    "id":91041926150,    
    "name":"Roberto",

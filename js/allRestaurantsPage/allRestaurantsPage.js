@@ -9,172 +9,190 @@ import TypeOfDish from './TypeOfDish/TypeOfDish';
 class AllRestaurantsPage extends Component {
 
     state = {
-        restaurantsList: [...this.props.data.restaurants],
+        restaurantsList: this.props.data.restaurants,
+        filtersList: {
+            searchRestaurant: () => res => res,
+            sortRestaurants: () => res => res,
+            foodCategory: () => res => res,
+            freeDelivery: () => res => res,
+            deliveryTime: () => res => res,
+            minCostDeliveryHandle: () => res => res,
+            restaurantRating: () => res => res,
+            openNowHandle: () => res => res,
+        }
     }
 
-    filterSearchRestaurant = (searchName) => {
-        const { restaurants } = this.props.data;
+    filterSearchRestaurant = searchName => {
 
-        let searchRes;
+        let searchRestaurant = res => res;
         if (searchName) {
-            searchRes = restaurants.filter(res => res.name.toLowerCase().indexOf(searchName.toLowerCase()) !== -1)
+            searchRestaurant = res => res.name.toLowerCase().indexOf(searchName.toLowerCase()) !== -1
         } else {
-            searchRes = restaurants;
+            searchRestaurant = res => res;
         }
 
         this.setState({
-            restaurantsList: searchRes
+            filtersList: { ...this.state.filtersList, searchRestaurant }
         })
     }
 
-    sortRestaurants = (sortVal) => {
-        const { restaurantsList } = this.state;
-        let restaurantsOrder;
+    sortRestaurants = sortVal => {
+        let sortRestaurants = res => res;
+
         switch (sortVal) {
             case 'alphabetically':
-                restaurantsOrder = restaurantsList.sort((a, b) => a.name.localeCompare(b.name))
+                sortRestaurants = (a, b) => a.name.localeCompare(b.name)
                 break;
             case 'min_order_amount':
-                restaurantsOrder = restaurantsList.sort((a, b) => a.minDeliveryPrice - b.minDeliveryPrice)
+                sortRestaurants = (a, b) => a.minDeliveryPrice - b.minDeliveryPrice
                 break;
             case 'delivery_time':
-                restaurantsOrder = restaurantsList.sort((a, b) => a.averageDeliveryTime - b.averageDeliveryTime)
+                sortRestaurants = (a, b) => a.averageDeliveryTime - b.averageDeliveryTime
                 break;
             case 'delivery_costs':
-                restaurantsOrder = restaurantsList.sort((a, b) => a.deliveryPrice - b.deliveryPrice)
+                sortRestaurants = (a, b) => a.deliveryPrice - b.deliveryPrice
                 break;
             case 'rating':
-                restaurantsOrder = restaurantsList.sort((a, b) => a.rating - b.rating);
+                sortRestaurants = (a, b) => a.rating - b.rating
                 break;
         }
 
         this.setState({
-            restaurantsList: restaurantsOrder
+            filtersList: { ...this.state.filtersList, sortRestaurants }
         })
     }
 
-    foodCategory = (category) => {
-        const { restaurantsList } = this.state;
-
-        let foodCat = restaurantsList.filter(restaurant => restaurant.foodCategories.some(res => res === category))
+    foodCategory = category => {
+   
+        let foodCategory = res => res;
+        if (category) {
+            foodCategory = res => res.foodCategories.some(r => r === category)
+        } else {
+            foodCategory = res => res;
+        }
 
         this.setState({
-            restaurantsList: foodCat
+            filtersList: { ...this.state.filtersList, foodCategory }
         })
     }
 
     freeDeliveryHandle = isFree => {
-        const { restaurantsList } = this.state;
-        let isDeliveryFree;
-
+      
+        let freeDelivery = res => res
         if (isFree) {
-            isDeliveryFree = this.props.data.restaurants;
-        } else {
-            isDeliveryFree = restaurantsList.filter(res => res.deliveryPrice === 0)
+            freeDelivery = res => res;
+        } else{
+            freeDelivery = res => res.deliveryPrice < 8;
         }
-
+    
         this.setState({
-            restaurantsList: isDeliveryFree
+            filtersList: { ...this.state.filtersList, freeDelivery }
         })
     }
 
     deliveryTimeHandle = delTime => {
-        const { restaurantsList } = this.state;
-        console.log(delTime)
-        let time;
+
+        let deliveryTime = res => res;
         switch (delTime) {
             case 'time_show_all':
-                time = restaurantsList
+                deliveryTime = res => res
                 break;
             case 'under30min':
-                time = restaurantsList.filter(res => res.averageDeliveryTime < 30);
+                deliveryTime = res => res.averageDeliveryTime < 30;
                 break;
             case 'under1h':
-                time = restaurantsList.filter(res => res.averageDeliveryTime < 60);
+                deliveryTime = res => res.averageDeliveryTime < 60;
                 break;
         }
 
         this.setState({
-            restaurantsList: time
+            filtersList: { ...this.state.filtersList, deliveryTime }
         })
     }
 
     minCostDeliveryHandle = minCost => {
-        const { restaurantsList } = this.state;
 
-        let cost;
+        let minCostDeliveryHandle = () => res => res;
         switch (minCost) {
             case 'price_show_all':
-                cost = restaurantsList
+                minCostDeliveryHandle = () => res => res;
                 break;
             case 'under30PLN':
-                cost = restaurantsList.filter(res => res.minDeliveryPrice < 30);
+                minCostDeliveryHandle = res => res.minDeliveryPrice < 30;
                 break;
             case 'under60PLN':
-                cost = restaurantsList.filter(res => res.minDeliveryPrice < 60);
+                minCostDeliveryHandle = res => res.minDeliveryPrice < 60;
                 break;
         }
 
         this.setState({
-            restaurantsList: cost
+            filtersList: { ...this.state.filtersList, minCostDeliveryHandle }
         })
     }
 
     restaurantRating = rating => {
-        const { restaurantsList } = this.state;
 
-        let stars;
+        let restaurantRating = () => res => res;
         switch (rating) {
             case '1':
-                stars = restaurantsList
+                restaurantRating = () => res => res;
                 break;
             case '2':
-                stars = restaurantsList.filter(res => res.rating >= 2);
+                restaurantRating = res => res.rating >= 2;
                 break;
             case '3':
-                stars = restaurantsList.filter(res => res.rating >= 3);
+                restaurantRating = res => res.rating >= 3;
                 break;
             case '4':
-                stars = restaurantsList.filter(res => res.rating >= 4);
+                restaurantRating = res => res.rating >= 4;
                 break;
             case '5':
-                stars = restaurantsList.filter(res => res.rating >= 4.50);
+                restaurantRating = res => res.rating >= 4.50;
                 break;
         }
 
         this.setState({
-            restaurantsList: stars
+            filtersList: { ...this.state.filtersList, restaurantRating }
         })
     }
 
     openNowHandle = hour => {
-        const { restaurantsList } = this.state;
 
         const getCurrHour = new Date().getHours();
-        let openRes;
-
+        
+        let openNowHandle= res => res;
         if (hour) {
-            openRes = restaurantsList.filter(res => res.openHours.some(resp => resp.from < getCurrHour && resp.to > getCurrHour))
+            openNowHandle = res => res.openHours.some(resp => resp.from < getCurrHour && resp.to > getCurrHour)
         } else {
-            openRes = this.props.data.restaurants;
+            openNowHandle = res => res;
         }
 
         this.setState({
-            restaurantsList: openRes
+            filtersList: { ...this.state.filtersList, openNowHandle }
         })
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.restaurantsList !== this.state.restaurantsList) {
-            this.setState({
-                restaurantsList: this.state.restaurantsList
-            })
-        }
     }
 
     render() {
         const { foodCategoriesAll } = this.props.data;
-        const { restaurantsList } = this.state;
+        const { restaurantsList, filtersList } = this.state;
+        const { freeDelivery, openNowHandle, foodCategory, 
+            searchRestaurant, sortRestaurants, deliveryTime,
+            minCostDeliveryHandle, restaurantRating } = filtersList;
+
+        let restaurantsNewList = [...restaurantsList];
+    
+        const updateFilters = () => {
+                restaurantsNewList = restaurantsNewList
+                .filter(freeDelivery)
+                .filter(openNowHandle)
+                .filter(foodCategory)
+                .filter(searchRestaurant)
+                .filter(deliveryTime)
+                .filter(minCostDeliveryHandle)
+                .filter(restaurantRating)
+                .sort(sortRestaurants)
+        }
+        updateFilters();
 
         return (
             <main className="allRestaurants__main">
@@ -191,7 +209,7 @@ class AllRestaurantsPage extends Component {
                                 foodCategories={foodCategoriesAll}
                                 foodCategory={this.foodCategory}
                             />
-                            <RestaurantsList restaurantsList={restaurantsList} />
+                            <RestaurantsList restaurantsList={restaurantsNewList} />
                         </div>
                         <Filters
                             freeDeliveryHandle={this.freeDeliveryHandle}
