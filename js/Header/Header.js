@@ -30,8 +30,7 @@ class Header extends Component {
 
         return (
             <>
-                <div className="header-background"></div>
-                <header className="header">
+                <header className={`header ${this.props.headerTop ? '' : 'header__hide'}`}>
                     <div className="container">
                         <nav className="nav">
                             <div className="nav__logo">

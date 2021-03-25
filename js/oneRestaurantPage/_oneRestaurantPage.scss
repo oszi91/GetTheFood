@@ -1,5 +1,4 @@
 .oneRestaurant__main {
-    margin-top: 70px;
     min-height: 100vh;
     width: 100%;
 }
@@ -74,7 +73,7 @@
                 display: flex;
                 justify-content: space-around;
                 margin: 5px 0;
-               
+
 
                 .typeOfDish__list__item {
                     background-color: white;
@@ -104,10 +103,10 @@
             border-bottom: 1px solid rgb(235, 235, 235);
         }
 
-        .emptyBasket{
+        .emptyBasket {
             margin: 50px 0;
 
-            .fas{
+            .fas {
                 margin-top: 25px;
                 font-size: 8rem;
                 color: rgb(224, 224, 224);
@@ -128,7 +127,7 @@
                 width: 100px;
                 line-height: 1.2;
 
-                &--adds{
+                &--adds {
                     font-weight: 300;
                     font-size: 0.8rem;
                 }
@@ -145,7 +144,8 @@
 
             &__btn {
                 font-size: 1.3rem;
-                &--edit{
+
+                &--edit {
                     font-size: 1rem;
                     font-weight: 600;
                     text-decoration: underline;
@@ -260,16 +260,16 @@
                 height: 100vh;
                 background-color: rgba(250, 250, 31, 0.5);
                 backdrop-filter: blur(5px);
-                
+
                 display: none;
                 justify-content: center;
                 align-items: center;
                 cursor: auto;
 
-                &__showDetails{
+                &__showDetails {
                     display: flex;
                 }
-    
+
                 .oneDishViewBig {
                     width: 50%;
                     min-height: 50%;
@@ -282,7 +282,7 @@
                     flex-direction: column;
                     position: relative;
 
-                    &__close{
+                    &__close {
                         position: absolute;
                         right: 3%;
                         top: 5%;
@@ -329,7 +329,7 @@
                         }
                     }
 
-                    &__quantity{
+                    &__quantity {
                         display: flex;
                         border-radius: 15px;
                         font-size: 1.5rem;
@@ -337,7 +337,9 @@
                         margin-top: 25px;
                         box-shadow: 2px 7px 20px 3px rgba(0, 0, 0, 0.15);
 
-                        &__add, &__minus, &__number{
+                        &__add,
+                        &__minus,
+                        &__number {
                             display: flex;
                             justify-content: center;
                             align-items: center;
@@ -346,13 +348,13 @@
                             padding: 25px;
                         }
 
-                        &__number{
+                        &__number {
                             border-right: 1px solid #e5e5e5;
                             border-left: 1px solid #e5e5e5;
                         }
                     }
 
-                    &__addToOrder{
+                    &__addToOrder {
                         margin-top: 25px;
                         color: white;
                         background-color: black;
@@ -365,6 +367,77 @@
 
                 }
             }
+
+        }
+    }
+}
+
+.checkoutContainer {
+    margin: 20px 0;
+    width: 75%;
+    background-color: white;
+    border-radius: 25px;
+
+    .checkout {
+        height: 100%;
+
+        &__header {
+            font-size: 3rem;
+            font-weight: 700;
+            padding: 15px;
+            text-align: center;
+        }
+
+        &__form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            background-color: #fafafa;
+            box-shadow: 2px 7px 10px 3px rgba(0, 0, 0, 0.15);
+
+            &__header {
+                padding: 10px;
+                font-weight: 700;
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            &__inputsContainer {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                width: 100%;
+
+                &__item {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 10px 0;
+
+                    &__label {
+                        padding: 5px 0;
+                    }
+
+                    &__input {
+                        width: 400px;
+                        border-radius: 7px;
+                        border: none;
+                        box-shadow: 2px 7px 40px 3px rgba(0, 0, 0, 0.15);
+                        padding: 10px;
+                    }
+
+                    &__error{
+                        margin-top: 7px;
+                        color: #b40d0d;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            .dishOrder{
+                margin: 50px auto;
+                width: 50%;
+            }
+
 
         }
     }

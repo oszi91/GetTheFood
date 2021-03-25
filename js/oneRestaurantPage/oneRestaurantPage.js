@@ -5,11 +5,13 @@ import OneRestaurantHeader from './OneRestaurantHeader/OneRestaurantHeader';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import changeNameToURL from '../Functions/changeNameToURL';
 import { Prompt } from 'react-router'
+import Checkout from './ShoppingCart/Checkout/Checkout';
 
 class OneRestaurantPage extends Component {
 
     state = {
-        order: []
+        order: [],
+        checkoutIsOpen: false
     }
 
     handleOrder = (dish, val) => {
@@ -29,13 +31,19 @@ class OneRestaurantPage extends Component {
         }
     }
 
+    handleCheckout = (checkoutIsOpen) => {
+        this.setState({
+            checkoutIsOpen
+        })
+    }
+
     componentDidUpdate = () => {
         if (this.state.order.length) {
-          window.onbeforeunload = () => true
+            window.onbeforeunload = () => true
         } else {
-          window.onbeforeunload = undefined
+            window.onbeforeunload = undefined
         }
-      }
+    }
 
     render() {
         const { restaurants } = this.props.data;
@@ -47,6 +55,8 @@ class OneRestaurantPage extends Component {
 
         const orderAmount = this.state.order.reduce((a, b) => a + b.price, 0);
 
+        console.log(this.state.checkoutIsOpen)
+
         return (
             oneRestaurant.map(restaurant => (
                 <main key={restaurant.id} className="oneRestaurant__main">
@@ -57,37 +67,43 @@ class OneRestaurantPage extends Component {
                     <OneRestaurantHeader name={restaurant.name} rating={restaurant.rating} photo={restaurant.photo} />
                     <div className="containerBig">
                         <div className="oneRestaurant__container">
-                            <div className="oneRestaurantMenu">
-                                {restaurant.menus.map(res => {
+                            <>
+                                {this.state.checkoutIsOpen ?
+                                    <div className="oneRestaurantMenu">
+                                        {restaurant.menus.map(res => {
 
-                                    const refs = res.menuSections.reduce((acc, value) => {
-                                        acc[value.sectionName] = React.createRef();
-                                        return acc;
-                                    }, {});
+                                            const refs = res.menuSections.reduce((acc, value) => {
+                                                acc[value.sectionName] = React.createRef();
+                                                return acc;
+                                            }, {});
 
-                                    const handleClick = id =>
-                                        refs[id].current.scrollIntoView({
-                                            behavior: 'smooth',
-                                            block: 'start',
-                                        });
+                                            const handleClick = id =>
+                                                refs[id].current.scrollIntoView({
+                                                    behavior: 'smooth',
+                                                    block: 'start',
+                                                });
 
-                                    return (
-                                        <React.Fragment key={restaurant.id}>
-                                            <FoodKind
-                                                foodCat={res.menuSections}
-                                                handleClick={handleClick}
-                                            />
-                                            <DishesList
-                                                foodMenu={res.menuSections}
-                                                reference={refs}
-                                                order={this.state.order}
-                                                handleOrder={this.handleOrder}
-                                            />
-                                        </React.Fragment>
-                                    )
+                                            return (
+                                                <React.Fragment key={restaurant.id}>
+                                                    <FoodKind
+                                                        foodCat={res.menuSections}
+                                                        handleClick={handleClick}
+                                                    />
+                                                    <DishesList
+                                                        foodMenu={res.menuSections}
+                                                        reference={refs}
+                                                        order={this.state.order}
+                                                        handleOrder={this.handleOrder}
+                                                    />
+                                                </React.Fragment>
+                                            )
+                                        }
+                                        )}
+                                    </div>
+                                    :
+                                    <Checkout address={this.props.address} />
                                 }
-                                )}
-                            </div>
+                            </>
                             <ShoppingCart
                                 foodMenu={restaurant.menus}
                                 orderAmount={orderAmount}
@@ -96,6 +112,8 @@ class OneRestaurantPage extends Component {
                                 freeDeliveryFrom={restaurant.freeDeliveryFrom}
                                 minDeliveryPrice={restaurant.minDeliveryPrice}
                                 handleOrder={this.handleOrder}
+                                handleCheckout={this.handleCheckout}
+                                checkoutIsOpen={this.state.checkoutIsOpen}
                             />
                         </div>
                     </div>

@@ -28,7 +28,7 @@ class AllRestaurantsPage extends Component {
         if (searchName) {
             searchRestaurant = res => res.name.toLowerCase().indexOf(searchName.toLowerCase()) !== -1
         } else {
-            searchRestaurant = res => res;
+            searchRestaurant = res => res
         }
 
         this.setState({
@@ -82,7 +82,7 @@ class AllRestaurantsPage extends Component {
         if (isFree) {
             freeDelivery = res => res;
         } else{
-            freeDelivery = res => res.deliveryPrice < 8;
+            freeDelivery = res => res.deliveryPrice === 0;
         }
     
         this.setState({

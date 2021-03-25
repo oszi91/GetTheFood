@@ -41,7 +41,6 @@ class OneDish extends Component {
                             handleOpenDetails={this.handleOpenDetails}
                             order={this.props.order}
                             handleOrder={this.props.handleOrder}
-                            price={this.props.price}
                             orderDetails={this.state.orderDetails}
                             id={this.state.id}
                         />

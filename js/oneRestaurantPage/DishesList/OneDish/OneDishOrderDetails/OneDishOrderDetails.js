@@ -75,7 +75,7 @@ class OneDishOrderDetails extends Component {
 
     render() {
         const { dish } = this.props;
-        console.log(this.state.addsList)
+       
         return (
             <div key={dish.id} className={`oneDishViewContainer ${this.classAdd(dish.id)}`}>
                 <div className="oneDishViewBig">

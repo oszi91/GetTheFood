@@ -17,10 +17,8 @@ class DishesList extends Component {
                         <ul className="dishesList">
                             <OneDish
                                 menu={res.menuItems}
-                                menuBack={this.props.foodMenu}
                                 order={this.props.order}
                                 handleOrder={this.props.handleOrder}
-                                price={this.props.price}
                             />
                         </ul>
                     </div>

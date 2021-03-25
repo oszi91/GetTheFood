@@ -1,10 +1,10 @@
-.header-background{
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 70px;
-    background-color: black;
-}
+// .header-background{
+//     position: absolute;
+//     top: 0;
+//     width: 100%;
+//     height: 70px;
+//     background-color: black;
+// }
 
 .header{
     background-color: rgba(0, 0, 0, 0.3);
@@ -12,6 +12,15 @@
     top: 0;
     width: 100%;
     z-index: 9999;
+    transition: .5s;
+
+    &__hide{
+        top: -70px;
+    }
+
+    &:hover{
+        background: black;
+    }
 }
 
 .nav{

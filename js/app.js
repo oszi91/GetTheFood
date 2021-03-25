@@ -18,10 +18,27 @@ class App extends Component {
     state = {
         data: RestaurantsData,
         address: '',
-        showSearchBar: false
+        showSearchBar: false,
+        headerTop: true
     }
 
     componentDidMount() {
+
+        let prevPosition = window.pageYOffset;
+        document.addEventListener('scroll', () => {
+            let currentPosition = window.pageYOffset;
+            if (prevPosition > currentPosition) {
+                this.setState({
+                    headerTop: true
+                })
+            } else{
+                this.setState({
+                    headerTop: false
+                })
+            }
+            prevPosition = currentPosition;
+        });
+
         this.setState({
             data: this.state.data
         })
@@ -39,7 +56,6 @@ class App extends Component {
 
         let restaurantsIndexToDelete = [];
         data.restaurants.forEach((res, i) => {
-
             if (address) {
                 const compare = res.deliveryAddress.filter(o1 => [address].some(o2 => o1.street === o2.street));
                 if (!compare.length) {
@@ -53,7 +69,7 @@ class App extends Component {
         })
 
         const newData = { ...data, restaurants: newRestaurantsList }
-     
+
         return (
             <BrowserRouter>
                 <Header
@@ -61,11 +77,14 @@ class App extends Component {
                     showSearchBar={this.state.showSearchBar}
                     data={data}
                     handleAddress={this.handleAddress}
+                    headerTop={this.state.headerTop}
                 />
                 <Switch>
                     <Route exact path={"/"} component={() => <StartPage data={data} handleAddress={this.handleAddress} />} />
                     <Route exact path={"/restaurants"} component={() => <AllRestaurantsPage data={newData} />} />
-                    <Route exact path={"/restaurants/:id"} render={(props) => <OneRestaurantPage data={data} {...props} />} />
+                    <Route exact path={"/restaurants/:id"} 
+                    render={(props) => <OneRestaurantPage data={data} address={this.state.address} {...props} />} 
+                    />
                 </Switch>
                 <Footer />
             </BrowserRouter>
