@@ -11,7 +11,7 @@ class StartPage extends Component {
         return (
             <div className="startPage">
                 <div className="searchPlace">
-                    <h1 className="searchPlace__text">Order your favourite food!</h1>
+                    <h1 className="searchPlace__text">Order your favorite food!</h1>
                     <h2 className="searchPlace__text searchPlace__text--smaller">Enter the address and start</h2>
                     <SearchBarAddress
                     data={this.props.data}

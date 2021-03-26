@@ -12,7 +12,11 @@ class RestaurantsList extends Component {
             <div className="allRestaurants__list__container">
                 <ul className="allRestaurants__list">
                     {restaurantsList.map(restaurant => (
-                    <RestaurantItem restaurant={restaurant} key={restaurant.id}/>
+                    <RestaurantItem 
+                    restaurant={restaurant} 
+                    key={restaurant.id} 
+                    address={this.props.address}
+                    />
                     ))}   
                 </ul>
             </div>

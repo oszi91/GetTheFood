@@ -20,8 +20,11 @@ class ShoppingCart extends Component {
 
     render() {
         const { minDeliveryPrice, orderAmount, handleCheckout } = this.props;
+        const {checkout} = this.state;
         const priceLeft = minDeliveryPrice - orderAmount;
 
+        const blockedBtn = !(orderAmount>=minDeliveryPrice);
+        const btnText = checkout ? 'Go back to menu' : `Order (${orderAmount.toFixed(2)} PLN)`;
         return (
             <>
                 <div className="oneRestaurantCart">
@@ -32,6 +35,7 @@ class ShoppingCart extends Component {
                                 order={this.props.order}
                                 foodMenu={this.props.foodMenu}
                                 handleOrder={this.props.handleOrder}
+                                checkout={this.state.checkout}
                             />
                             <SummaryOrder
                                 orderAmount={this.props.orderAmount}
@@ -53,10 +57,11 @@ class ShoppingCart extends Component {
                         orderAmount={this.props.orderAmount}
                         minDeliveryPrice={this.props.minDeliveryPrice}
                     />}
-                    <button 
-                    onClick={this.handleCheckoutOpen}
-                    className="dishOrder"
-                    >Order ({orderAmount.toFixed(2)} PLN)</button>
+                    <button
+                        disabled={blockedBtn}
+                        onClick={this.handleCheckoutOpen}
+                        className="dishOrder"
+                    >{btnText}</button>
                 </div>
             </>
         );

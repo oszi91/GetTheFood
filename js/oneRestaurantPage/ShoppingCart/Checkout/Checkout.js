@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {
+    Link
+} from 'react-router-dom';
+import ConfirmOrder from './ConfimOrder/ConfirmOrder';
 
 class Checkout extends Component {
     state = {
@@ -11,14 +15,21 @@ class Checkout extends Component {
         surname: '',
         email: '',
         phone: '',
-        errorsList: [],
-        confirmText: ''
+        errorsList: {},
+        confirmOrder: false,
+        orderProgress: 0,
+        order: this.props.order
+    }
+
+    handleOrderProgress = val => {
+        this.setState({
+            orderProgress: val
+        })
     }
 
     handleInput = e => {
         const value = e.target.value;
         const name = e.target.name;
-
 
         this.setState({
             [name]: value
@@ -54,27 +65,43 @@ class Checkout extends Component {
         }
 
         if (phone.length < 8 && isNaN(phone)) {
-            errorsList = { ...errorsList, email: `Field must contain min. 8 characters (numbers)` }
+            errorsList = { ...errorsList, phone: `Field must contain min. 8 characters (numbers)` }
         }
 
         this.setState({
             errorsList
         })
 
-        if(!errorsList){
+        if (!Object.keys(errorsList).length) {
             this.setState({
-                confirmText: 'Ok'
+                confirmOrder: true
             })
         }
     }
 
+    handleClearOrder = () => {
+        this.setState({
+            order: []
+        }, () => {
+            this.props.clearOrder(this.state.order)
+        })
+    }
+
     render() {
 
-        const { errorsList } = this.state;
+        const { errorsList, buildingNumber, apartmentNumber,
+            floor, gateCode, addNote, name, surname, email,
+            phone, confirmOrder, orderProgress } = this.state;
         const { address } = this.props;
 
         return (
             <div className="checkoutContainer">
+                {confirmOrder && 
+                 <ConfirmOrder
+                  orderProgress={orderProgress}
+                  handleOrderProgress={this.handleOrderProgress}
+                  />
+                }
                 <div className="checkout">
                     <h1 className="checkout__header">CHECKOUT</h1>
                     <form className="checkout__form" onSubmit={this.handleSubmit}>
@@ -92,7 +119,6 @@ class Checkout extends Component {
                                     value={address.street}
                                     disabled
                                 />
-                                <p className="checkout__form__inputsContainer__item__error">{errorsList.street}</p>
                             </div>
                             <div className="checkout__form__inputsContainer__item">
                                 <label className="checkout__form__inputsContainer__item__label" htmlFor="buildingNumber">Building number:</label>
@@ -101,7 +127,7 @@ class Checkout extends Component {
                                     type="text"
                                     id="buildingNumber"
                                     name="buildingNumber"
-                                    value={this.state.buildingNumber}
+                                    value={buildingNumber}
                                     onChange={this.handleInput}
                                 />
                                 <p className="checkout__form__inputsContainer__item__error">{errorsList.buildingNumber}</p>
@@ -113,10 +139,10 @@ class Checkout extends Component {
                                     type="text"
                                     id="apartmentNumber"
                                     name="apartmentNumber"
-                                    value={this.state.apartmentNumber}
+                                    value={apartmentNumber}
                                     onChange={this.handleInput}
                                 />
-                                <p className="checkout__form__inputsContainer__item__error">{errorsList.buildingNumber}</p>
+                                <p className="checkout__form__inputsContainer__item__error">{errorsList.apartmentNumber}</p>
                             </div>
                             <div className="checkout__form__inputsContainer__item">
                                 <label className="checkout__form__inputsContainer__item__label" htmlFor="zipCode">Zip code:</label>
@@ -128,7 +154,6 @@ class Checkout extends Component {
                                     value={address.zipCode}
                                     disabled
                                 />
-                                <p className="checkout__form__inputsContainer__item__error">{errorsList.zipCode}</p>
                             </div>
                             <div className="checkout__form__inputsContainer__item">
                                 <label className="checkout__form__inputsContainer__item__label" htmlFor="city">City:</label>
@@ -140,7 +165,6 @@ class Checkout extends Component {
                                     value={address.city}
                                     disabled
                                 />
-                                <p className="checkout__form__inputsContainer__item__error">{errorsList.emptyField}</p>
                             </div>
                             <div className="checkout__form__inputsContainer__item">
                                 <label className="checkout__form__inputsContainer__item__label" htmlFor="floor">Floor (optional):</label>
@@ -149,10 +173,9 @@ class Checkout extends Component {
                                     type="text"
                                     id="floor"
                                     name="floor"
-                                    value={this.state.floor}
+                                    value={floor}
                                     onChange={this.handleInput}
                                 />
-                                <p className="checkout__form__inputsContainer__item__error">{errorsList.street}</p>
                             </div>
                             <div className="checkout__form__inputsContainer__item">
                                 <label className="checkout__form__inputsContainer__item__label" htmlFor="gateCode">Gate code (optional):</label>
@@ -161,10 +184,9 @@ class Checkout extends Component {
                                     type="text"
                                     id="gateCode"
                                     name="gateCode"
-                                    value={this.state.gateCode}
+                                    value={gateCode}
                                     onChange={this.handleInput}
                                 />
-                                <p className="checkout__form__inputsContainer__item__error">{errorsList.street}</p>
                             </div>
                             <div className="checkout__form__inputsContainer__item">
                                 <label className="checkout__form__inputsContainer__item__label" htmlFor="addNote">Add note (optional):</label>
@@ -173,10 +195,9 @@ class Checkout extends Component {
                                     type="text"
                                     id="addNote"
                                     name="addNote"
-                                    value={this.state.addNote}
+                                    value={addNote}
                                     onChange={this.handleInput}
                                 />
-                                <p className="checkout__form__inputsContainer__item__error">{errorsList.street}</p>
                             </div>
                         </div>
                         <div className="checkout__form__header">
@@ -190,10 +211,10 @@ class Checkout extends Component {
                                     type="text"
                                     id="name"
                                     name="name"
-                                    value={this.state.name}
+                                    value={name}
                                     onChange={this.handleInput}
                                 />
-                                <p className="checkout__form__inputsContainer__item__error">{errorsList.street}</p>
+                                <p className="checkout__form__inputsContainer__item__error">{errorsList.name}</p>
                             </div>
                             <div className="checkout__form__inputsContainer__item">
                                 <label className="checkout__form__inputsContainer__item__label" htmlFor="surname">Surname:</label>
@@ -202,10 +223,10 @@ class Checkout extends Component {
                                     type="text"
                                     id="surname"
                                     name="surname"
-                                    value={this.state.surname}
+                                    value={surname}
                                     onChange={this.handleInput}
                                 />
-                                <p className="checkout__form__inputsContainer__item__error">{errorsList.street}</p>
+                                <p className="checkout__form__inputsContainer__item__error">{errorsList.surname}</p>
                             </div>
                             <div className="checkout__form__inputsContainer__item">
                                 <label className="checkout__form__inputsContainer__item__label" htmlFor="email">Email address:</label>
@@ -214,10 +235,10 @@ class Checkout extends Component {
                                     type="email"
                                     id="email"
                                     name="email"
-                                    value={this.state.email}
+                                    value={email}
                                     onChange={this.handleInput}
                                 />
-                                <p className="checkout__form__inputsContainer__item__error">{errorsList.street}</p>
+                                <p className="checkout__form__inputsContainer__item__error">{errorsList.email}</p>
                             </div>
                             <div className="checkout__form__inputsContainer__item">
                                 <label className="checkout__form__inputsContainer__item__label" htmlFor="phone">Phone number:</label>
@@ -226,15 +247,16 @@ class Checkout extends Component {
                                     type="tel"
                                     id="phone"
                                     name="phone"
-                                    value={this.state.phone}
+                                    value={phone}
                                     onChange={this.handleInput}
                                 />
-                                <p className="checkout__form__inputsContainer__item__error">{errorsList.street}</p>
+                                <p className="checkout__form__inputsContainer__item__error">{errorsList.phone}</p>
                             </div>
                         </div>
-                        <button className="dishOrder">Confirm and Order</button>
+                        <button onClick={this.handleClearOrder} className="dishOrder">Confirm and Order</button>
                     </form>
                 </div>
+
             </div>
         );
     }

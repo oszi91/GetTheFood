@@ -209,7 +209,10 @@ class AllRestaurantsPage extends Component {
                                 foodCategories={foodCategoriesAll}
                                 foodCategory={this.foodCategory}
                             />
-                            <RestaurantsList restaurantsList={restaurantsNewList} />
+                            <RestaurantsList 
+                            restaurantsList={restaurantsNewList} 
+                            address={this.props.address}
+                             />
                         </div>
                         <Filters
                             freeDeliveryHandle={this.freeDeliveryHandle}

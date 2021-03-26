@@ -15,6 +15,7 @@ class OneDishShoppingCart extends Component {
                     </p>
                     <button
                         className="dishContainer__btn"
+                        disabled={this.props.checkout}
                         onClick={() => this.props.handleOrder(dish.id, 'remove')}
                     >
                         <i className="fas fa-trash"></i>

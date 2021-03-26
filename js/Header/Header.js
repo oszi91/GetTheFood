@@ -11,9 +11,13 @@ class Header extends Component {
     }
 
     handleOpenAddressBar = () => {
-        this.setState({
-            isOpen: !this.state.isOpen
-        })
+        const blockChangeAddress = window.location.pathname === '/' || window.location.pathname === '/restaurants'; 
+
+        if(blockChangeAddress){
+            this.setState({
+                isOpen: !this.state.isOpen
+            })
+        }
     }
 
     handleCloseAddressBar = () => {
@@ -24,10 +28,13 @@ class Header extends Component {
 
     render() {
         const { address, showSearchBar } = this.props;
-
+        
         const addressToHeader = `${address.street}, ${address.zipCode} ${address.city}`;
         const addressTxt =  address ?  addressToHeader : 'Enter your address';
 
+        const blockChangeAddress = window.location.pathname === '/' || window.location.pathname === '/restaurants'; 
+        const cursorNotAllowed = blockChangeAddress ? '' : 'nav__address__notAllowed';
+    
         return (
             <>
                 <header className={`header ${this.props.headerTop ? '' : 'header__hide'}`}>
@@ -46,7 +53,8 @@ class Header extends Component {
                             <div className="nav__address">
                                 <p
                                     onClick={this.handleOpenAddressBar}
-                                    className="nav__address__text">
+                                    className={`nav__address__text ${cursorNotAllowed}`}
+                                    >
                                     {addressTxt}
                                 </p>
                             </div>

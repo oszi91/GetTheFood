@@ -19,11 +19,11 @@ class App extends Component {
         data: RestaurantsData,
         address: '',
         showSearchBar: false,
-        headerTop: true
+        headerTop: true,
+        blockAddress: false
     }
 
     componentDidMount() {
-
         let prevPosition = window.pageYOffset;
         document.addEventListener('scroll', () => {
             let currentPosition = window.pageYOffset;
@@ -31,17 +31,13 @@ class App extends Component {
                 this.setState({
                     headerTop: true
                 })
-            } else{
+            } else {
                 this.setState({
                     headerTop: false
                 })
             }
             prevPosition = currentPosition;
         });
-
-        this.setState({
-            data: this.state.data
-        })
     }
 
     handleAddress = address => {
@@ -78,12 +74,26 @@ class App extends Component {
                     data={data}
                     handleAddress={this.handleAddress}
                     headerTop={this.state.headerTop}
+                    blockAddress={this.state.blockAddress}
                 />
                 <Switch>
-                    <Route exact path={"/"} component={() => <StartPage data={data} handleAddress={this.handleAddress} />} />
-                    <Route exact path={"/restaurants"} component={() => <AllRestaurantsPage data={newData} />} />
-                    <Route exact path={"/restaurants/:id"} 
-                    render={(props) => <OneRestaurantPage data={data} address={this.state.address} {...props} />} 
+                    <Route exact path={"/"}
+                        component={() =>
+                            <StartPage
+                                data={data}
+                                handleAddress={this.handleAddress} />} />
+                    <Route exact path={"/restaurants"}
+                        component={() =>
+                            <AllRestaurantsPage
+                                data={newData}
+                                address={this.state.address}
+                                />} />
+                    <Route exact path={"/restaurants/:id"}
+                        render={(props) =>
+                            <OneRestaurantPage
+                                data={data}
+                                address={this.state.address}
+                                {...props} />}
                     />
                 </Switch>
                 <Footer />

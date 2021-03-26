@@ -5,11 +5,12 @@ import changeNameToURL from '../../../Functions/changeNameToURL';
 class RestaurantItem extends Component {
     state = {}
     render() {
-        const { name, photo, rating, deliveryPrice, averageDeliveryTime, minDeliveryPrice } = this.props.restaurant;
+        const { name, photo, rating, deliveryPrice, 
+            averageDeliveryTime, minDeliveryPrice } = this.props.restaurant;
         
         const restaurantURL = changeNameToURL(name);
         const currPath = window.location.pathname;
-       
+
         return (
                 <li className="allRestaurants__list__item">
                 <Link to={`${currPath}/${restaurantURL}`}>

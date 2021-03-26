@@ -4,7 +4,6 @@ class FreeDelivery extends Component {
     
     render() {
         const {orderAmount, freeDeliveryFrom} = this.props;
-        console.log(freeDeliveryFrom)
 
         const isFree = orderAmount >= freeDeliveryFrom;
         const deliveryText = isFree ? "Free Delivery" : `Free Delivery from ${freeDeliveryFrom} PLN`

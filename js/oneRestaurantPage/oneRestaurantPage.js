@@ -45,6 +45,12 @@ class OneRestaurantPage extends Component {
         }
     }
 
+    clearOrder = order => {
+        this.setState({
+            order
+        })
+    }
+
     render() {
         const { restaurants } = this.props.data;
         const { id } = this.props.match.params;
@@ -54,8 +60,6 @@ class OneRestaurantPage extends Component {
         ));
 
         const orderAmount = this.state.order.reduce((a, b) => a + b.price, 0);
-
-        console.log(this.state.checkoutIsOpen)
 
         return (
             oneRestaurant.map(restaurant => (
@@ -69,6 +73,9 @@ class OneRestaurantPage extends Component {
                         <div className="oneRestaurant__container">
                             <>
                                 {this.state.checkoutIsOpen ?
+                                
+                                    <Checkout address={this.props.address} clearOrder={this.clearOrder} />
+                                    :
                                     <div className="oneRestaurantMenu">
                                         {restaurant.menus.map(res => {
 
@@ -100,8 +107,6 @@ class OneRestaurantPage extends Component {
                                         }
                                         )}
                                     </div>
-                                    :
-                                    <Checkout address={this.props.address} />
                                 }
                             </>
                             <ShoppingCart

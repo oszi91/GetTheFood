@@ -58,6 +58,11 @@
         width: 60%;
         text-align: center;
         cursor: pointer;
+
+        &__notAllowed{
+            cursor: not-allowed;
+        }
+
         &__text{
             font-size: 1.5rem;
         }
