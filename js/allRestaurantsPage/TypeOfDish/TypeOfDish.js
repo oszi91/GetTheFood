@@ -4,7 +4,7 @@ class TypeOfDish extends Component {
 
     state = {
         active: false,
-        activeIndex: -1
+        activeIndex: 0
     }
 
     chooseDish = (e,index) => {

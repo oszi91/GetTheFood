@@ -6,6 +6,9 @@ import ShoppingCart from './ShoppingCart/ShoppingCart';
 import changeNameToURL from '../Functions/changeNameToURL';
 import { Prompt } from 'react-router'
 import Checkout from './ShoppingCart/Checkout/Checkout';
+import {
+    NavLink
+} from 'react-router-dom';
 
 class OneRestaurantPage extends Component {
 
@@ -70,6 +73,25 @@ class OneRestaurantPage extends Component {
                     />
                     <OneRestaurantHeader name={restaurant.name} rating={restaurant.rating} photo={restaurant.photo} />
                     <div className="containerBig">
+                    <div className="currentPage">
+                        <NavLink
+                            className="currentPage__item"
+                            activeClassName="currentPage__item--active"
+                            exact to='/'>
+                        Start Page</NavLink>
+                        <i className="fas fa-chevron-right"></i>
+                        <NavLink
+                            className="currentPage__item"
+                            activeClassName="currentPage__item--active"
+                            exact to='/restaurants'>
+                        Restaurants</NavLink>
+                        <i className="fas fa-chevron-right"></i>
+                        <NavLink
+                            className="currentPage__item"
+                            activeClassName="currentPage__item--active"
+                            to={window.location.pathname}>
+                        {restaurant.name}</NavLink>
+                    </div>
                         <div className="oneRestaurant__container">
                             <>
                                 {this.state.checkoutIsOpen ?

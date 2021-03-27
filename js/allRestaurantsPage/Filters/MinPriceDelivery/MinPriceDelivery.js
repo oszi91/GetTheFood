@@ -27,30 +27,34 @@ class MinPriceDelivery extends Component {
                             value="price_show_all"
                             checked={this.state.option === "price_show_all"}
                             onChange={e => this.radioChange(e)}
-                            />
-                        <label htmlFor="price_show_all"> Show all</label>
+                        />
+                        <label className="minPriceDelivery__form__radio__label"
+                            htmlFor="price_show_all"> Show all</label>
                     </div>
                     <div className="minPriceDelivery__form__radio">
                         <input
                             type="radio"
                             id="under30PLN"
                             name="price"
-                            value="under30PLN" 
+                            value="under30PLN"
                             checked={this.state.option === "under30PLN"}
                             onChange={e => this.radioChange(e)}
-                            />
-                        <label htmlFor="under30PLN"> less than 30 PLN</label>
+                        />
+                        <label className="minPriceDelivery__form__radio__label"
+                            htmlFor="under30PLN"> less than 30 PLN</label>
                     </div>
                     <div className="minPriceDelivery__form__radio">
                         <input
                             type="radio"
                             id="under60PLN"
                             name="price"
-                            value="under60PLN" 
+                            value="under60PLN"
                             checked={this.state.option === "under60PLN"}
                             onChange={e => this.radioChange(e)}
-                            />
-                        <label htmlFor="under60PLN"> less than 60 PLN</label>
+                        />
+                        <label
+                            className="minPriceDelivery__form__radio__label"
+                            htmlFor="under60PLN"> less than 60 PLN</label>
                     </div>
                 </form>
             </div>

@@ -4,6 +4,9 @@ import MainPhoto from './MainPhoto/MainPhoto';
 import RestaurantsList from './RestaurantsList/RestaurantsList';
 import SearchRestaurant from './SearchRestaurant/SearchRestaurant';
 import TypeOfDish from './TypeOfDish/TypeOfDish';
+import {
+    NavLink
+} from 'react-router-dom';
 
 
 class AllRestaurantsPage extends Component {
@@ -63,12 +66,12 @@ class AllRestaurantsPage extends Component {
     }
 
     foodCategory = category => {
-   
         let foodCategory = res => res;
-        if (category) {
-            foodCategory = res => res.foodCategories.some(r => r === category)
-        } else {
+
+        if (category === 'all') {
             foodCategory = res => res;
+        } else if (category) {
+            foodCategory = res => res.foodCategories.some(r => r === category)
         }
 
         this.setState({
@@ -77,14 +80,14 @@ class AllRestaurantsPage extends Component {
     }
 
     freeDeliveryHandle = isFree => {
-      
+
         let freeDelivery = res => res
         if (isFree) {
             freeDelivery = res => res;
-        } else{
+        } else {
             freeDelivery = res => res.deliveryPrice === 0;
         }
-    
+
         this.setState({
             filtersList: { ...this.state.filtersList, freeDelivery }
         })
@@ -159,8 +162,8 @@ class AllRestaurantsPage extends Component {
     openNowHandle = hour => {
 
         const getCurrHour = new Date().getHours();
-        
-        let openNowHandle= res => res;
+
+        let openNowHandle = res => res;
         if (hour) {
             openNowHandle = res => res.openHours.some(resp => resp.from < getCurrHour && resp.to > getCurrHour)
         } else {
@@ -175,14 +178,14 @@ class AllRestaurantsPage extends Component {
     render() {
         const { foodCategoriesAll } = this.props.data;
         const { restaurantsList, filtersList } = this.state;
-        const { freeDelivery, openNowHandle, foodCategory, 
+        const { freeDelivery, openNowHandle, foodCategory,
             searchRestaurant, sortRestaurants, deliveryTime,
             minCostDeliveryHandle, restaurantRating } = filtersList;
 
         let restaurantsNewList = [...restaurantsList];
-    
+
         const updateFilters = () => {
-                restaurantsNewList = restaurantsNewList
+            restaurantsNewList = restaurantsNewList
                 .filter(freeDelivery)
                 .filter(openNowHandle)
                 .filter(foodCategory)
@@ -198,6 +201,19 @@ class AllRestaurantsPage extends Component {
             <main className="allRestaurants__main">
                 <MainPhoto numberOfRestaurants={restaurantsList.length} />
                 <div className="containerBig">
+                    <div className="currentPage">
+                        <NavLink
+                            className="currentPage__item"
+                            activeClassName="currentPage__item--active"
+                            exact to='/'>
+                        Start Page</NavLink>
+                        <i className="fas fa-chevron-right"></i>
+                        <NavLink
+                            className="currentPage__item"
+                            activeClassName="currentPage__item--active"
+                            to={window.location.pathname}>
+                        Restaurants</NavLink>
+                    </div>
                     <div className="allRestaurants__container">
                         <div className="allRestaurants">
                             <SearchRestaurant
@@ -209,10 +225,11 @@ class AllRestaurantsPage extends Component {
                                 foodCategories={foodCategoriesAll}
                                 foodCategory={this.foodCategory}
                             />
-                            <RestaurantsList 
-                            restaurantsList={restaurantsNewList} 
-                            address={this.props.address}
-                             />
+                            <RestaurantsList
+
+                                restaurantsList={restaurantsNewList}
+                                address={this.props.address}
+                            />
                         </div>
                         <Filters
                             freeDeliveryHandle={this.freeDeliveryHandle}

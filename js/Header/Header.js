@@ -7,7 +7,25 @@ import SearchBarAddress from './../StartPage/SearchBarAddress/SearchBarAddress';
 class Header extends Component {
 
     state = {
-        isOpen: false
+        isOpen: false,
+        headerTop: true
+    }
+
+    componentDidMount() {
+        let prevPosition = window.pageYOffset;
+        document.addEventListener('scroll', () => {
+            let currentPosition = window.pageYOffset;
+            if (prevPosition > currentPosition) {
+                this.setState({
+                    headerTop: true
+                })
+            } else {
+                this.setState({
+                    headerTop: false
+                })
+            }
+            prevPosition = currentPosition;
+        });
     }
 
     handleOpenAddressBar = () => {
@@ -34,10 +52,10 @@ class Header extends Component {
 
         const blockChangeAddress = window.location.pathname === '/' || window.location.pathname === '/restaurants'; 
         const cursorNotAllowed = blockChangeAddress ? '' : 'nav__address__notAllowed';
-    
+       
         return (
             <>
-                <header className={`header ${this.props.headerTop ? '' : 'header__hide'}`}>
+                <header className={`header ${this.state.headerTop ? '' : 'header__hide'}`}>
                     <div className="container">
                         <nav className="nav">
                             <div className="nav__logo">

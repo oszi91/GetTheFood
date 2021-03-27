@@ -19,25 +19,7 @@ class App extends Component {
         data: RestaurantsData,
         address: '',
         showSearchBar: false,
-        headerTop: true,
         blockAddress: false
-    }
-
-    componentDidMount() {
-        let prevPosition = window.pageYOffset;
-        document.addEventListener('scroll', () => {
-            let currentPosition = window.pageYOffset;
-            if (prevPosition > currentPosition) {
-                this.setState({
-                    headerTop: true
-                })
-            } else {
-                this.setState({
-                    headerTop: false
-                })
-            }
-            prevPosition = currentPosition;
-        });
     }
 
     handleAddress = address => {
@@ -73,7 +55,6 @@ class App extends Component {
                     showSearchBar={this.state.showSearchBar}
                     data={data}
                     handleAddress={this.handleAddress}
-                    headerTop={this.state.headerTop}
                     blockAddress={this.state.blockAddress}
                 />
                 <Switch>

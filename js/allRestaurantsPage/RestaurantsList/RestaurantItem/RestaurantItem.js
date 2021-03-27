@@ -3,7 +3,11 @@ import {Link} from "react-router-dom";
 import changeNameToURL from '../../../Functions/changeNameToURL';
 
 class RestaurantItem extends Component {
-    state = {}
+    
+    scrollToTop = () => {
+        window.scrollTo(0, 0);
+    }
+
     render() {
         const { name, photo, rating, deliveryPrice, 
             averageDeliveryTime, minDeliveryPrice } = this.props.restaurant;
@@ -13,7 +17,7 @@ class RestaurantItem extends Component {
 
         return (
                 <li className="allRestaurants__list__item">
-                <Link to={`${currPath}/${restaurantURL}`}>
+                <Link to={`${currPath}/${restaurantURL}`} onClick={this.scrollToTop}>
                 <div className="restaurantOnListView">
                     <div className="restaurantOnListView__main">
                         <p className="restaurantOnListView__main__name">{name}</p>

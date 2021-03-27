@@ -27,7 +27,7 @@ class TimeDelivery extends Component {
                             checked={this.state.option === "time_show_all"}
                             onChange={e => this.radioChange(e)}
                         />
-                        <label htmlFor="time_show_all"> Show all</label>
+                        <label className="timeDelivery__form__radio__label" htmlFor="time_show_all"> Show all</label>
                     </div>
                     <div className="timeDelivery__form__radio">
                         <input
@@ -38,7 +38,7 @@ class TimeDelivery extends Component {
                             checked={this.state.option === "under30min"}
                             onChange={e => this.radioChange(e)}
                         />
-                        <label htmlFor="under30min"> Up to 30 min</label>
+                        <label className="timeDelivery__form__radio__label" htmlFor="under30min"> Up to 30 min</label>
                     </div>
                     <div className="timeDelivery__form__radio">
                         <input
@@ -49,7 +49,7 @@ class TimeDelivery extends Component {
                             checked={this.state.option === "under1h"}
                             onChange={e => this.radioChange(e)}
                         />
-                        <label htmlFor="under1h"> Up to 1 hour</label>
+                        <label className="timeDelivery__form__radio__label" htmlFor="under1h"> Up to 1 hour</label>
                     </div>
                 </form>
             </div>

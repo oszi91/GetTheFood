@@ -21,7 +21,7 @@
 
     &__img {
         display: block;
-        height: 30vh;
+        height: 35vh;
         width: 100%;
         object-fit: cover;
         object-position: 100% 50%;
@@ -30,7 +30,7 @@
 }
 
 .allRestaurants__container {
-    margin-top: 50px;
+    margin-top: 30px;
     width: 100%;
     display: flex;
     align-items: flex-start;
@@ -39,42 +39,43 @@
     .allRestaurants {
         width: 75%;
 
-        &__header{
+        &__header {
             font-size: 3rem;
             font-weight: 700;
         }
-    
-        &__search{
+
+        &__search {
             margin-top: 30px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             position: relative;
-    
-            &__input{
+
+            &__input {
                 width: 60%;
                 font-size: 1rem;
                 padding: 15px;
                 border: 1px solid lightgrey;
                 border-radius: 50px;
             }
-    
-            &__sort{
-               display: flex;
-               justify-content: space-between;
-               align-items: center;
-    
-               &__label{
-                   font-size: 1.2rem;
-                   margin-right: 10px;
-               }
-    
-               &__select{
-                border: 1px solid lightgrey;
-                font-size: 1rem;
-                padding: 15px;
-                border-radius: 50px;
-               }
+
+            &__sort {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                &__label {
+                    font-size: 1.2rem;
+                    margin-right: 10px;
+                }
+
+                &__select {
+                    border: 1px solid lightgrey;
+                    font-size: 1rem;
+                    padding: 15px;
+                    border-radius: 50px;
+                    cursor: pointer;
+                }
             }
         }
     }
@@ -82,38 +83,39 @@
 
 .allRestaurants__typeOfDish {
     margin: 15px 0;
-    padding: 5px;
-    background-color: lighten($color: #fafa1f, $amount: 20%);
+    padding: 10px;
+    background-color: lighten($color: #fafa1f, $amount: 35%);
     border-radius: 15px;
 
     .typeOfDish__list {
         display: flex;
-        justify-content: space-around;
-        margin: 10px 0;
+        justify-content: space-evenly;
 
-        .typeOfDish__list__item{
+        .typeOfDish__list__item {
             background-color: white;
-            box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.25);
-            padding: 15px;
-            border-radius: 15px;
+            box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.15);
+            padding: 10px 15px;
+            border-radius: 20px;
             font-weight: 600;
             cursor: pointer;
+            text-transform: capitalize;
+            border: 2px solid transparent;
 
-            &--active{
-                background-color: lightgrey;
+            &--active {
+                border: 2px solid rgb(201, 201, 201);
             }
         }
     }
 }
 
-.allRestaurants__list__container{
-    .allRestaurants__list{
+.allRestaurants__list__container {
+    .allRestaurants__list {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
         width: 100%;
-    
-        &__item{
+
+        &__item {
             width: 32%;
             margin: 15px 0;
         }
@@ -127,37 +129,43 @@
         overflow: hidden;
         border-radius: 15px;
         box-shadow: 2px 7px 20px 3px rgba(0, 0, 0, 0.25);
-    
-        &__main{
+        transition: .2s ease-in;
+
+        &:hover{
+            box-shadow: 2px 7px 30px 3px rgba(228, 231, 18, 0.25);
+        }
+
+        &__main {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100px;
-            
-    
-            &__name{
+
+
+            &__name {
                 font-size: 1.5rem;
                 margin: 15px 20px 15px 20px;
                 font-weight: 700;
                 text-align: center;
             }
-    
-            &__rating{
+
+            &__rating {
                 font-size: 1rem;
             }
         }
-    
-        &__more{
+
+        &__more {
             display: flex;
             justify-content: space-evenly;
             margin: 15px;
             font-size: 0.8rem;
         }
-    
-        &__photo{
-           height: 150px;
-            &__img{
+
+        &__photo {
+            height: 150px;
+
+            &__img {
                 width: 100%;
             }
         }
@@ -180,50 +188,85 @@
     align-items: center;
     margin-bottom: 30px;
 
-    &__text{
+    &__text {
         margin-right: 15px;
     }
 }
 
-.timeDelivery{
+.timeDelivery {
     margin-bottom: 30px;
 
-    &__form{
-        
-        &__text{
+    &__form {
+
+        &__text {
             font-weight: 600;
             margin-bottom: 15px;
         }
 
-        &__radio{
+        &__radio {
             font-size: 1.1rem;
             margin-bottom: 10px;
+
+            &__label {
+                margin-left: 5px;
+                cursor: pointer;
+            }
         }
     }
 }
 
-.minPriceDelivery{
+.minPriceDelivery {
     margin-bottom: 30px;
 
-    &__form{
-        
-        &__text{
+    &__form {
+
+        &__text {
             font-weight: 600;
             margin-bottom: 15px;
         }
 
-        &__radio{
+        &__radio {
             font-size: 1.1rem;
             margin-bottom: 10px;
+
+            &__label {
+                margin-left: 5px;
+                cursor: pointer;
+            }
         }
     }
 }
 
-.deliveryRating{
-    margin-bottom: 30px;
-    &__text{
-        margin-bottom: 15px;
+.deliveryRating {
+    &__text {
+        margin-bottom: 5px;
     }
+
+    .stars {
+        display: inline-block;
+       
+        &__item {
+            float: right;
+            color: #ddd;
+            padding: 10px 5px;
+            cursor: pointer;
+
+            &__active{
+                color:#fafa1f;
+            }
+
+            .fa{
+                pointer-events: none;
+            }
+        }
+
+        &__item:hover,
+        &__item:hover ~ li {
+            color: #fafa1f;
+        }
+    }
+
+    margin-bottom: 20px;
 }
 
 .openNow {
@@ -231,12 +274,30 @@
     align-items: center;
     margin-bottom: 30px;
 
-    &__text{
+    &__text {
         margin-right: 15px;
     }
 }
 
-.info{
+.info {
     width: 20%;
     height: 20vh;
+}
+
+.currentPage{
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: grey;
+    .fas{
+        color: #fafa1f;
+        margin: 0 5px;
+    }
+
+    &__item{
+        margin: 0 5px;
+        &--active{
+            color: #b40d0d;
+            font-weight: 500;
+        }
+    }
 }
