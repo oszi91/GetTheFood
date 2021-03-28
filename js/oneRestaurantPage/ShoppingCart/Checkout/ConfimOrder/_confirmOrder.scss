@@ -1,0 +1,95 @@
+.checkoutConfirm__container {
+    background-color: white;
+    z-index: 1;
+    width: 100%;
+    min-height: 100vh;
+    max-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .checkoutConfirm {
+        box-shadow: 2px 7px 20px 3px rgba(0, 0, 0, 0.15);
+        width: 75%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 50px;
+
+        &__main {
+            font-size: 5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+        }
+
+        &__text {
+            font-size: 1.5rem;
+            margin-bottom: 75px;
+        }
+
+        &__back {
+            font-size: 1.2rem;
+            background: black;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        &__status {
+            display: flex;
+            position: relative;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0;
+            width: 60%;
+            margin-bottom: 75px;
+
+            &::before {
+                content: " ";
+                width: calc(100% - 100px);
+                height: 1px;
+                background: rgb(199, 199, 199);
+                position: absolute;
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            &__item {
+                text-align: center;
+                list-style: none;
+                margin: 0 20px;
+                position: relative;
+
+                &::before {
+                    content: " ";
+                    width: 20px;
+                    height: 20px;
+                    border: solid 1px rgb(199, 199, 199);
+                    border-radius: 50%;
+                    display: block;
+                    margin: 0 auto 10px;
+                    background: white;
+                }
+
+                &.active::after {
+                    content: " ";
+                    width: 15px;
+                    height: 15px;
+                    position: absolute;
+                    top: 4px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    border-radius: 50%;
+                    display: block;
+                    background: rgb(199, 199, 199);
+                }
+
+            }
+        }
+    }
+}

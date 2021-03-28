@@ -95,7 +95,6 @@ class OneRestaurantPage extends Component {
                         <div className="oneRestaurant__container">
                             <>
                                 {this.state.checkoutIsOpen ?
-                                
                                     <Checkout address={this.props.address} clearOrder={this.clearOrder} />
                                     :
                                     <div className="oneRestaurantMenu">

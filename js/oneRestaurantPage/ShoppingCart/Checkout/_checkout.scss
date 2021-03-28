@@ -1,0 +1,72 @@
+.checkoutContainer {
+    margin: 20px 0;
+    width: 75%;
+    background-color: white;
+    border-radius: 25px;
+
+    .checkout {
+        height: 100%;
+
+        &__header {
+            font-size: 3rem;
+            font-weight: 700;
+            padding: 15px;
+            text-align: center;
+        }
+
+        &__form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            background-color: #fafafa;
+            box-shadow: 2px 7px 10px 3px rgba(0, 0, 0, 0.15);
+
+            &__header {
+                padding: 10px;
+                font-weight: 700;
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            &__inputsContainer {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                width: 100%;
+
+                &__item {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 10px 0;
+
+                    &__label {
+                        padding: 5px 0;
+                    }
+
+                    &__input {
+                        width: 400px;
+                        border-radius: 7px;
+                        border: none;
+                        box-shadow: 2px 7px 40px 3px rgba(0, 0, 0, 0.15);
+                        padding: 10px;
+                    }
+
+                    &__error {
+                        margin-top: 7px;
+                        color: #b40d0d;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            .dishOrder {
+                margin: 50px auto;
+                width: 50%;
+            }
+        }
+    }
+}
+
+.active {
+    font-weight: 600;
+}

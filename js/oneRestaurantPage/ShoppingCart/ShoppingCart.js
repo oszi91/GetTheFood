@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import OneDishShoppingCart from './OneDishShoppingCart/OneDishShoppingCart';
-import DishMinPrice from './SummaryOrder/DishMinPrice/DishMinPrice';
-import FreeDelivery from './SummaryOrder/FreeDelivery/FreeDelivery';
+import DishMinPrice from './DishMinPrice/DishMinPrice';
+import FreeDelivery from './FreeDelivery/FreeDelivery';
 import SummaryOrder from './SummaryOrder/SummaryOrder';
 
 class ShoppingCart extends Component {

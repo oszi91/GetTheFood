@@ -1,11 +1,12 @@
 {  
-   "foodCategoriesAll": ["all", "american", "pizza", "burgers", "salads", "oriental"],
-   "restaurants": [{
+   "foodCategoriesAll": ["all", "american", "pizza", "burgers", "salads", "oriental", "pasta", "chinese", "steaks", "beef", "fish"],
+   "restaurants": [
+{
    "id":2301636856,    
-   "name":"Roberto's Pizza",
+   "name":"Joanna's Pizza",
    "photo":"./../../images/food1.jpg",
    "openHours": [{"from": 10, "to": 18}],
-   "rating":"3.45",
+   "rating":"4.45",
    "deliveryPrice":7.00,
    "averageDeliveryTime":40,
    "freeDeliveryFrom":100.00,
@@ -279,6 +280,16 @@
          "street":"Derdowska",
          "city":"Warszawa",
          "zipCode":"02-295"
+      },
+      {
+         "street":"Marynarska",
+         "city":"Warszawa",
+         "zipCode":"02-295"
+      },
+      {
+         "street":"Pocieszka",
+         "city":"Warszawa",
+         "zipCode":"02-215"
       }
    ]
 },
@@ -287,7 +298,7 @@
    "name":"Rafaelo's Pizza Bar",
    "photo":"./../../images/food2.jpg",
    "openHours": [{"from": 10, "to": 21}],
-   "rating":"4.45",
+   "rating":"3.45",
    "deliveryPrice":8.00,
    "averageDeliveryTime":40,
    "freeDeliveryFrom":50.00,
@@ -543,7 +554,7 @@
 },
 {
    "id":5303351364,
-   "name":"Toni's Pizza Food",
+   "name":"Kali's Pizza Food",
    "photo":"./../../images/food3.jpg",
    "openHours": [{"from": 12, "to": 24}],
    "rating":"4.80",
@@ -552,7 +563,7 @@
    "freeDeliveryFrom":50,
    "minDeliveryPrice":50,
    "foodCategories":[
-      "american", "pizza"
+      "pizza"
    ],
    "menus":[
       {
@@ -692,6 +703,11 @@
          "street":"Derdowska",
          "city":"Warszawa",
          "zipCode":"02-295"
+      },
+      {
+         "street":"Pocieszka",
+         "city":"Warszawa",
+         "zipCode":"02-215"
       }
    ]
 },
@@ -700,7 +716,7 @@
    "name":"Domi's Burger",
    "photo":"./../../images/food4.jpg",
    "openHours": [{"from": 8, "to": 20}],
-   "rating":"4.80",
+   "rating":"3.30",
    "deliveryPrice":8.00,
    "averageDeliveryTime":40,
    "freeDeliveryFrom":50.00,
@@ -921,7 +937,7 @@
 },
 {
    "id":1019762810,
-   "name":"Silver Spurs Burger",
+   "name":"Majki Spurs Burger",
    "photo":"./../../images/food5.jpg",
    "openHours": [{"from": 12, "to": 22}],
    "rating":"4.10",
@@ -1175,16 +1191,16 @@
 },
 {
    "id":9153216150,
-   "name":"Eddy KingDong",
+   "name":"Filo KingDong",
    "photo":"./../../images/food6.jpg",
    "openHours": [{"from": 12, "to": 23}],
-   "rating":"4.20",
-   "deliveryPrice":12.00,
+   "rating":"3.10",
+   "deliveryPrice":15.00,
    "averageDeliveryTime":25,
    "freeDeliveryFrom":250.00,
    "minDeliveryPrice":20.00,
    "foodCategories":[
-      "oriental", "salads"
+      "oriental", "salads", "pasta", "chinese"
    ],
    "menus":[
       {
@@ -1429,6 +1445,11 @@
          "street":"Derdowska",
          "city":"Warszawa",
          "zipCode":"02-295"
+      },
+      {
+         "street":"Pocieszka",
+         "city":"Warszawa",
+         "zipCode":"02-215"
       }
    ]
 },
@@ -1443,7 +1464,7 @@
    "freeDeliveryFrom":150.00,
    "minDeliveryPrice":25.00,
    "foodCategories":[
-      "oriental", "salads"
+      "oriental", "salads", "pasta", "chinese"
    ],
    "menus":[
       {
@@ -1702,13 +1723,13 @@
    "freeDeliveryFrom":0.00,
    "minDeliveryPrice":25.00,
    "foodCategories":[
-      "oriental", "salads"
+      "steaks", "salads", "burgers", "american", "beef"
    ],
    "menus":[
       {
          "menuSections":[
             {
-               "sectionName":"Main",
+               "sectionName":"Steaks",
                "menuItems":[
                   {
                      "id":141421,
@@ -1961,13 +1982,13 @@
    "freeDeliveryFrom":0.00,
    "minDeliveryPrice":50.00,
    "foodCategories":[
-      "oriental", "salads"
+      "steaks", "salads", "beef"
    ],
    "menus":[
       {
          "menuSections":[
             {
-               "sectionName":"Main",
+               "sectionName":"Beefs",
                "menuItems":[
                   {
                      "id":141421,
@@ -2220,13 +2241,13 @@
    "freeDeliveryFrom":150.00,
    "minDeliveryPrice":25.00,
    "foodCategories":[
-      "oriental", "salads"
+      "burgers", "salads"
    ],
    "menus":[
       {
          "menuSections":[
             {
-               "sectionName":"Main",
+               "sectionName":"Burger",
                "menuItems":[
                   {
                      "id":141421,
@@ -2479,13 +2500,13 @@
    "freeDeliveryFrom":150.00,
    "minDeliveryPrice":25.00,
    "foodCategories":[
-      "oriental", "salads"
+      "oriental", "salads", "fish"
    ],
    "menus":[
       {
          "menuSections":[
             {
-               "sectionName":"Main",
+               "sectionName":"Fishes",
                "menuItems":[
                   {
                      "id":141421,
@@ -2724,6 +2745,11 @@
          "street":"Derdowska",
          "city":"Warszawa",
          "zipCode":"02-295"
+      },
+      {
+         "street":"Pocieszka",
+         "city":"Warszawa",
+         "zipCode":"02-215"
       }
    ]
 },
@@ -2738,13 +2764,13 @@
    "freeDeliveryFrom":150.00,
    "minDeliveryPrice":25.00,
    "foodCategories":[
-      "oriental", "salads"
+      "vege", "salads"
    ],
    "menus":[
       {
          "menuSections":[
             {
-               "sectionName":"Main",
+               "sectionName":"Vege",
                "menuItems":[
                   {
                      "id":141421,
@@ -2997,7 +3023,7 @@
    "freeDeliveryFrom":150.00,
    "minDeliveryPrice":25.00,
    "foodCategories":[
-      "oriental", "salads"
+      "beef", "salads", "american"
    ],
    "menus":[
       {
@@ -3256,13 +3282,13 @@
    "freeDeliveryFrom":25.00,
    "minDeliveryPrice":25.00,
    "foodCategories":[
-      "oriental", "salads"
+      "seafood", "salads", "fish"
    ],
    "menus":[
       {
          "menuSections":[
             {
-               "sectionName":"Main",
+               "sectionName":"SeaFood",
                "menuItems":[
                   {
                      "id":141421,
@@ -3501,12 +3527,17 @@
          "street":"Derdowska",
          "city":"Warszawa",
          "zipCode":"02-295"
+      },
+      {
+         "street":"Marynarska",
+         "city":"Warszawa",
+         "zipCode":"02-295"
       }
    ]
 },
 {
    "id":3697095242 ,
-   "name":"California Pizza Kitchen",
+   "name":"California Pasta Kitchen",
    "photo":"./../../images/food15.jpg",
    "openHours": [{"from": 6, "to": 23}],
    "rating":"4.50",
@@ -3515,7 +3546,7 @@
    "freeDeliveryFrom":0.00,
    "minDeliveryPrice":25.00,
    "foodCategories":[
-      "oriental", "salads"
+     "salads", "pasta", "pizza"
    ],
    "menus":[
       {
@@ -3758,6 +3789,11 @@
       },
       {
          "street":"Derdowska",
+         "city":"Warszawa",
+         "zipCode":"02-295"
+      },
+      {
+         "street":"Marynarska",
          "city":"Warszawa",
          "zipCode":"02-295"
       }

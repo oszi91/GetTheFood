@@ -1,0 +1,44 @@
+.dishContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    margin-bottom: 15px;
+
+    &__dishName {
+        font-weight: 600;
+        width: 100px;
+        line-height: 1.2;
+
+        &--adds {
+            font-weight: 300;
+            font-size: 0.8rem;
+        }
+    }
+
+    &__price {
+        font-size: 1rem;
+
+        &__quantity {
+            font-weight: 600;
+            margin-right: 5px;
+        }
+    }
+
+    &__btn {
+        font-size: 1.3rem;
+
+        &:disabled,
+        &[disabled] {
+            display: none;
+        }
+
+        &--edit {
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+    }
+}

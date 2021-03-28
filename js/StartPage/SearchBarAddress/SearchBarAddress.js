@@ -31,7 +31,7 @@ class SearchBarAddress extends Component {
     render() {
         const { searchAddress, addressListData, searchScore } = this.state;
         const { handleCloseAddressBar } = this.props;
-
+       
         const addressList =
             addressListData.restaurants
                 .map(res => res.deliveryAddress
@@ -44,8 +44,8 @@ class SearchBarAddress extends Component {
                         res.city.toLowerCase().includes(this.state.searchAddress.toLowerCase())
                     )
                     .map(res =>
-                    (<Link to="/restaurants">
-                        <li onClick={() => { this.saveAddress(res); handleCloseAddressBar ? handleCloseAddressBar() : null }} key={res.street} className="searchPlace__addressList__item">{res.street}, {res.zipCode} {res.city}</li>
+                    (<Link to="/restaurants" key={res.street} >
+                        <li onClick={() => { this.saveAddress(res); handleCloseAddressBar ? handleCloseAddressBar() : null }} className="searchPlace__addressList__item">{res.street}, {res.zipCode} {res.city}</li>
                     </Link>
                     )
                     ))

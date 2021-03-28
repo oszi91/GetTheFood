@@ -1,0 +1,21 @@
+.minPriceDelivery {
+    margin-bottom: 30px;
+
+    &__form {
+
+        &__text {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        &__radio {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+
+            &__label {
+                margin-left: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}

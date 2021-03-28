@@ -1,0 +1,39 @@
+.allRestaurants__header {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.allRestaurants__search {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    &__input {
+        width: 60%;
+        font-size: 1rem;
+        padding: 15px;
+        border: 1px solid lightgrey;
+        border-radius: 50px;
+    }
+
+    &__sort {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__label {
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+
+        &__select {
+            border: 1px solid lightgrey;
+            font-size: 1rem;
+            padding: 15px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+    }
+}

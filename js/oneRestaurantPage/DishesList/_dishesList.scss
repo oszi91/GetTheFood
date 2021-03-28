@@ -1,0 +1,20 @@
+.dishesList__container {
+
+    &__category {
+        margin-top: 50px;
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 700;
+        width: 100%;
+        box-shadow: 5px 15px 30px -16px rgba(0, 0, 0, 0.15);
+        padding: 10px;
+    }
+
+    .dishesList {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: 50px;
+    }
+}

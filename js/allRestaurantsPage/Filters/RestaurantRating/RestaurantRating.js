@@ -2,23 +2,28 @@ import React, { Component } from 'react';
 
 class RestaurantRating extends Component {
     state = {
-        stars: '',
-        select: 0
+        stars: ''
     }
 
     ratingHandle = (e) => {
-        const stars = e.target.dataset.id
+        const allStars = e.target.parentNode.children;
+        const activeStars = document.querySelectorAll('.stars__item__active');
+        const stars = e.target.dataset.id;
+
         this.setState({
             stars
         }, () => {
             this.props.restaurantRating(this.state.stars)
         })
+
+        activeStars.forEach(s => s.classList.remove('stars__item__active'))
+
+        for(let i = 0; i<=stars-1; i++){
+            allStars[allStars.length-1 - i].className = 'stars__item stars__item__active'
+        }
     }
 
     render() {
-
-        const isActive = ''
-
         return (
             <div className="deliveryRating">
                 <p className="deliveryRating__text">Restaurant ratings</p>

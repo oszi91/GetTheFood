@@ -1,0 +1,54 @@
+.allRestaurants__list__item {
+    width: 32%;
+    margin: 15px 0;
+}
+
+.restaurantOnListView {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 2px 7px 20px 3px rgba(0, 0, 0, 0.25);
+    transition: .2s ease-in;
+
+    &:hover{
+        box-shadow: 2px 7px 30px 3px rgba(228, 231, 18, 0.25);
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+
+
+        &__name {
+            font-size: 1.5rem;
+            margin: 15px 20px 15px 20px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        &__rating {
+            font-size: 1rem;
+        }
+    }
+
+    &__more {
+        display: flex;
+        justify-content: space-evenly;
+        margin: 15px;
+        font-size: 0.8rem;
+    }
+
+    &__photo {
+        height: 150px;
+
+        &__img {
+            width: 100%;
+        }
+    }
+}

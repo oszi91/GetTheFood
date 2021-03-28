@@ -3,7 +3,42 @@
 @import 'settings/base';
 
 @import './../js/Header/Header';
+
 @import './../js/StartPage/StartPage';
+@import './../js/StartPage/SearchBarAddress/SearchBarAddress';
+
 @import './../js/allRestaurantsPage/allRestaurantsPage';
+
+@import './../js/allRestaurantsPage/MainPhoto/mainPhoto';
+@import './../js/allRestaurantsPage/SearchRestaurant/searchRestaurant';
+@import './../js/allRestaurantsPage/TypeOfDish/typeOfDish';
+
+@import './../js/allRestaurantsPage/RestaurantsList/restaurantsList';
+@import './../js/allRestaurantsPage/RestaurantsList/RestaurantItem/restaurantItem';
+
+@import './../js/allRestaurantsPage/Filters/filters';
+@import './../js/allRestaurantsPage/Filters/FreeDelivery/freeDelivery';
+@import './../js/allRestaurantsPage/Filters/MinPriceDelivery/minPriceDelivery';
+@import './../js/allRestaurantsPage/Filters/OpenNow/openNow';
+@import './../js/allRestaurantsPage/Filters/RestaurantRating/restaurantRating';
+@import './../js/allRestaurantsPage/Filters/TimeDelivery/timeDelivery';
+
 @import './../js/oneRestaurantPage/oneRestaurantPage';
+
+@import './../js/oneRestaurantPage/OneRestaurantHeader/oneRestaurantHeader';
+
+@import './../js/oneRestaurantPage/DishesList/dishesList';
+@import './../js/oneRestaurantPage/DishesList/OneDish/oneDish';
+@import './../js/oneRestaurantPage/DishesList/OneDish/OneDishOrderDetails/oneDishOrderDetails';
+
+@import './../js/oneRestaurantPage/ShoppingCart/shoppingCart';
+@import './../js/oneRestaurantPage/ShoppingCart/FreeDelivery/freeDelivery';
+@import './../js/oneRestaurantPage/ShoppingCart/DishMinPrice/dishMinPrice';
+@import './../js/oneRestaurantPage/ShoppingCart/SummaryOrder/summaryOrder';
+@import './../js/oneRestaurantPage/ShoppingCart/OneDishShoppingCart/oneDishShoppingCart';
+@import './../js/oneRestaurantPage/ShoppingCart/Checkout/checkout';
+@import './../js/oneRestaurantPage/ShoppingCart/Checkout/ConfimOrder/confirmOrder';
+
+@import './../js/oneRestaurantPage/FoodKind/foodKind';
+
 @import './../js/Footer/Footer';

@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import {
-    Link
-} from 'react-router-dom';
 import ConfirmOrder from './ConfimOrder/ConfirmOrder';
 
 class Checkout extends Component {

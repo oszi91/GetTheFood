@@ -226,7 +226,6 @@ class AllRestaurantsPage extends Component {
                                 foodCategory={this.foodCategory}
                             />
                             <RestaurantsList
-
                                 restaurantsList={restaurantsNewList}
                                 address={this.props.address}
                             />

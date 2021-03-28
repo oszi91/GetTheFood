@@ -8,7 +8,8 @@ class Header extends Component {
 
     state = {
         isOpen: false,
-        headerTop: true
+        headerTop: true,
+        cursor: true
     }
 
     componentDidMount() {
@@ -28,10 +29,22 @@ class Header extends Component {
         });
     }
 
-    handleOpenAddressBar = () => {
+    handleCursor = () => {
         const blockChangeAddress = window.location.pathname === '/' || window.location.pathname === '/restaurants'; 
 
         if(blockChangeAddress){
+            this.setState({
+                cursor: true
+            })
+        } else{
+            this.setState({
+                cursor: false
+            })
+        }
+    }
+
+    handleOpenAddressBar = () => {
+        if(this.state.cursor){
             this.setState({
                 isOpen: !this.state.isOpen
             })
@@ -50,12 +63,14 @@ class Header extends Component {
         const addressToHeader = `${address.street}, ${address.zipCode} ${address.city}`;
         const addressTxt =  address ?  addressToHeader : 'Enter your address';
 
-        const blockChangeAddress = window.location.pathname === '/' || window.location.pathname === '/restaurants'; 
-        const cursorNotAllowed = blockChangeAddress ? '' : 'nav__address__notAllowed';
+        const cursorNotAllowed = this.state.cursor ? '' : 'nav__address__notAllowed';
        
         return (
             <>
-                <header className={`header ${this.state.headerTop ? '' : 'header__hide'}`}>
+                <header 
+                className={`header ${this.state.headerTop ? '' : 'header__hide'}`}
+                onMouseEnter={this.handleCursor}
+                >
                     <div className="container">
                         <nav className="nav">
                             <div className="nav__logo">
@@ -78,7 +93,7 @@ class Header extends Component {
                             </div>
                             <div className="nav__basket">
                                 <Link to="./">
-                                    <i className="fas fa-shopping-cart"></i>
+                                    {/* <i className="fas fa-shopping-cart"></i> */}
                                 </Link>
                             </div>
                         </nav>

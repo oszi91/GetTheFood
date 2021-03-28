@@ -6,39 +6,6 @@
     background-position: center;
 }
 
-.searchBarAddress__container{
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    left: 50%;
-    transform: translateX(-50%);
-    backdrop-filter: blur(5px);
-    background-color: rgba($color: #000000, $alpha: 0.5);
-    .searchBarAddress{
-        margin-top: 50px;
-        border-radius: 25px;
-        height: 50vh;
-        background-color: white;
-        position: relative;
-
-        &__close{
-            position: absolute;
-            right: 2%;
-            top: 2%;
-            font-size: 2rem;
-            z-index: 1;
-            cursor: pointer;
-        }
-        
-        .searchPlace__form__input{
-            width: 100%;
-            border-radius: 25px 25px 0 0;
-        }
-    }
-}
-
 .searchPlace {
     background-color: rgba(0, 0, 0, 0.3);
     width: 100%;
@@ -48,8 +15,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-
+    
     &__text {
         color: white;
         font-size: 4rem;
@@ -62,64 +28,4 @@
             margin-bottom: 20px;
         }
     }
-
-    &__form {
-        position: relative;
-        height: 50px;
-        &__input {
-            font-size: 1rem;
-            padding: 15px 40px;
-            border: none;
-            min-width: 500px;
-            border-radius: 50px;
-            height: 50px;
-            &::placeholder{
-                color: lightgrey;
-            }
-            &--active{
-                border-radius: 25px 25px 0 0;
-            }
-        }
-
-        &__icon{
-            height: 50px;
-            position: absolute;
-            left: 3%;
-            top: 0;
-            display: flex;
-            align-items: center;
-            font-size: 1rem;
-            color: lightgrey;
-        }
-
-        &__btn {
-            display: flex;
-            align-items: center;
-            height: 50px;
-            min-width: 100px;
-            background-color: rgb(180, 13, 13);
-            border: 1px solid rgb(180, 13, 13);
-            font-size: 1.3rem;
-            padding: 15px;
-            border-radius: 0 50px 50px 0;
-            font-weight: 400;
-            color: white;
-        }
-    }
-
-    &__addressList{
-        background-color: white;
-        border-radius: 0 0 25px 25px;
-        overflow: hidden;
-        &__item{
-            text-align: center;
-            padding: 7px;
-            cursor: pointer;
-            &:hover{
-                background: rgb(243, 243, 243);
-            }
-        }
-    }
-
-
 }

@@ -1,0 +1,57 @@
+.searchPlace__form {
+    position: relative;
+    height: 50px;
+    &__input {
+        font-size: 1rem;
+        padding: 15px 40px;
+        border: none;
+        min-width: 500px;
+        border-radius: 50px;
+        height: 50px;
+        &::placeholder{
+            color: lightgrey;
+        }
+        &--active{
+            border-radius: 25px 25px 0 0;
+        }
+    }
+
+    &__icon{
+        height: 50px;
+        position: absolute;
+        left: 3%;
+        top: 0;
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        color: lightgrey;
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        min-width: 100px;
+        background-color: rgb(180, 13, 13);
+        border: 1px solid rgb(180, 13, 13);
+        font-size: 1.3rem;
+        padding: 15px;
+        border-radius: 0 50px 50px 0;
+        font-weight: 400;
+        color: white;
+    }
+}
+
+.searchPlace__addressList{
+    background-color: white;
+    border-radius: 0 0 25px 25px;
+    overflow: hidden;
+    &__item{
+        text-align: center;
+        padding: 7px;
+        cursor: pointer;
+        &:hover{
+            background: rgb(243, 243, 243);
+        }
+    }
+}

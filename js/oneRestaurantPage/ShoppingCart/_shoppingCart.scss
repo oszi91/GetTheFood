@@ -1,0 +1,28 @@
+.oneRestaurantCart {
+    position: sticky;
+    top: 70px;
+    margin-left: 25px;
+    width: 25%;
+    font-size: 1.5rem;
+    text-align: center;
+
+    &__header {
+        font-weight: 700;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgb(235, 235, 235);
+    }
+
+    .emptyBasket {
+        margin: 50px 0;
+
+        .fas {
+            margin-top: 25px;
+            font-size: 8rem;
+            color: rgb(224, 224, 224);
+        }
+    }
+
+   
+}

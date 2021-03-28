@@ -1,0 +1,28 @@
+.allRestaurants__typeOfDish {
+    margin: 15px 0;
+    padding: 10px;
+    background-color: lighten($color: #fafa1f, $amount: 35%);
+    border-radius: 15px;
+
+    .typeOfDish__list {
+        display: flex;
+
+        .typeOfDish__list__item {
+            background-color: white;
+            padding: 5px 0;
+            margin: 0 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: capitalize;
+            border: 2px solid transparent;
+            text-align: center;
+
+
+            &--active {
+                height: 100%;
+                color: #b40d0d;
+            }
+        }
+    }
+}

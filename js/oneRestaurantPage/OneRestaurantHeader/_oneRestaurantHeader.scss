@@ -1,0 +1,50 @@
+.oneRestaurantPhoto {
+    width: 100%;
+    position: relative;
+
+    &__textBox {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        height: 125px;
+        min-width: 400px;
+        position: absolute;
+        left: 50%;
+        bottom: -125px;
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+        font-weight: 700;
+        z-index: 1;
+        color: black;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 -0.25rem 2em rgba(0, 0, 0, 0.2);
+        padding: 20px;
+
+        &__text {
+            display: block;
+            text-align: center;
+            margin-bottom: 15px;
+
+        }
+
+        &__rating {
+            font-size: 1.5rem;
+            font-weight: 500;
+
+            .fa {
+                margin-left: 5px;
+            }
+        }
+    }
+
+    &__img {
+        display: block;
+        height: 30vh;
+        width: 100%;
+        object-fit: cover;
+        object-position: 100% 50%;
+        filter: grayscale(75%);
+    }
+}

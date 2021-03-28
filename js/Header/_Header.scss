@@ -75,3 +75,36 @@
         text-align: end;
     }
 }
+
+.searchBarAddress__container{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: 50%;
+    transform: translateX(-50%);
+    backdrop-filter: blur(5px);
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    .searchBarAddress{
+        margin-top: 50px;
+        border-radius: 25px;
+        height: 50vh;
+        background-color: white;
+        position: relative;
+
+        &__close{
+            position: absolute;
+            right: 2%;
+            top: 2%;
+            font-size: 2rem;
+            z-index: 1;
+            cursor: pointer;
+        }
+        
+        .searchPlace__form__input{
+            width: 100%;
+            border-radius: 25px 25px 0 0;
+        }
+    }
+}

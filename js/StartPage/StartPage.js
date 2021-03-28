@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import {
-    Link
-} from 'react-router-dom';
 import SearchBarAddress from './SearchBarAddress/SearchBarAddress';
 
 class StartPage extends Component {
 
-   
     render() {
         return (
             <div className="startPage">
