@@ -17,7 +17,7 @@ class RestaurantItem extends Component {
 
         return (
                 <li className="allRestaurants__list__item">
-                <Link to={`${currPath}/${restaurantURL}`} onClick={this.scrollToTop}>
+                <Link to={`restaurants/${restaurantURL}`} onClick={this.scrollToTop}>
                 <div className="restaurantOnListView">
                     <div className="restaurantOnListView__main">
                         <p className="restaurantOnListView__main__name">{name}</p>

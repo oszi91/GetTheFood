@@ -7,14 +7,14 @@ module.exports = {
     "./js/app.js",
   ],
   output: {
-    filename: "js/out.js",
+    filename: "./js/out.js",
+    publicPath: '/',
     path: path.resolve(__dirname, "build"),
     sourceMapFilename: "[name].js.map"
   },
   devtool: "source-map",
   devServer: {
-    port: 3001,
-    "historyApiFallback": true
+    port: 3001
   },
   module: {
     rules: [

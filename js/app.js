@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {
-    BrowserRouter,
+    HashRouter,
     Route,
     Switch
 } from 'react-router-dom';
@@ -49,7 +49,7 @@ class App extends Component {
         const newData = { ...data, restaurants: newRestaurantsList }
 
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <Header
                     address={this.state.address}
                     showSearchBar={this.state.showSearchBar}
@@ -78,7 +78,7 @@ class App extends Component {
                     />
                 </Switch>
                 <Footer />
-            </BrowserRouter>
+            </HashRouter>
         )
     }
 }
