@@ -2,6 +2,7 @@
   "name": "get-the-food",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://oszi91.github.io/GetTheFood/",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
