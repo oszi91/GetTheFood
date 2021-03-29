@@ -2,13 +2,14 @@
   "name": "get-the-food",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://oszi91.github.io/GetTheFood/",
+  "homepage": "https://oszi91.github.io/GetTheFood",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production --env production",
     "start": "webpack-cli serve --mode development --host 0.0.0.0",
-    "predeploy": "npm run build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +30,7 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^3.6.0",
     "file-loader": "^6.2.0",
+    "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^5.3.1",
     "json-loader": "^0.5.7",
     "node-sass": "^5.0.0",
