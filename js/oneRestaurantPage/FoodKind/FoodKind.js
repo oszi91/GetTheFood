@@ -7,7 +7,6 @@ class FoodKind extends Component {
     render() {
         const responsive = {
             superLargeDesktop: {
-                // the naming can be any, depends on you.
                 breakpoint: { max: 4000, min: 3000 },
                 items: 5
             },
@@ -17,12 +16,12 @@ class FoodKind extends Component {
 
             },
             tablet: {
-                breakpoint: { max: 1024, min: 464 },
+                breakpoint: { max: 1024, min: 767 },
                 items: 5
             },
             mobile: {
-                breakpoint: { max: 464, min: 0 },
-                items: 1
+                breakpoint: { max: 767, min: 0 },
+                items: 2
             }
         };
 
@@ -37,8 +36,7 @@ class FoodKind extends Component {
                     responsive={responsive}
                     ssr={true}
                     keyBoardControl={true}
-                    customTransition="all .5"
-                    transitionDuration={500}
+                    removeArrowOnDeviceType={["mobile"]}
                     deviceType={this.props.deviceType}
                     itemClass="typeOfDish__list__item"
                     responsive={responsive}

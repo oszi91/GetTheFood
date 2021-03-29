@@ -25,9 +25,12 @@ class ShoppingCart extends Component {
 
         const blockedBtn = !(orderAmount>=minDeliveryPrice);
         const btnText = checkout ? 'Go back to menu' : `Order (${orderAmount.toFixed(2)} PLN)`;
+
+        const isCartOpen = this.props.isOrderOpenMobile ? "oneRestaurantCart oneRestaurantCart--isHide" : "oneRestaurantCart"
+
         return (
             <>
-                <div className="oneRestaurantCart">
+                <div className={isCartOpen}>
                     <h2 className="oneRestaurantCart__header">Your order</h2>
                     {orderAmount ?
                         <>
@@ -62,6 +65,7 @@ class ShoppingCart extends Component {
                         onClick={this.handleCheckoutOpen}
                         className="dishOrder"
                     >{btnText}</button>
+                    <div onClick={() => this.props.handleMobileOrder(false)} className="oneRestaurantCart__close"><i className="fas fa-times-circle"></i></div>
                 </div>
             </>
         );

@@ -1,6 +1,10 @@
 .allRestaurants__list__item {
     width: 32%;
     margin: 15px 0;
+
+    @include phone{
+        width: 100%;
+    }
 }
 
 .restaurantOnListView {

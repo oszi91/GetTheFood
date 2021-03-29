@@ -30,13 +30,13 @@ class Header extends Component {
     }
 
     handleCursor = () => {
-        const blockChangeAddress = window.location.pathname === '/' || window.location.pathname === '/restaurants'; 
+        const blockChangeAddress = window.location.pathname === '/' || window.location.pathname === '/restaurants';
 
-        if(blockChangeAddress){
+        if (blockChangeAddress) {
             this.setState({
                 cursor: true
             })
-        } else{
+        } else {
             this.setState({
                 cursor: false
             })
@@ -44,7 +44,7 @@ class Header extends Component {
     }
 
     handleOpenAddressBar = () => {
-        if(this.state.cursor){
+        if (this.state.cursor) {
             this.setState({
                 isOpen: !this.state.isOpen
             })
@@ -59,17 +59,17 @@ class Header extends Component {
 
     render() {
         const { address, showSearchBar } = this.props;
-        
+
         const addressToHeader = `${address.street}, ${address.zipCode} ${address.city}`;
-        const addressTxt =  address ?  addressToHeader : 'Enter your address';
+        const addressTxt = address ? addressToHeader : 'Enter your address';
 
         const cursorNotAllowed = this.state.cursor ? '' : 'nav__address__notAllowed';
-       
+
         return (
             <>
-                <header 
-                className={`header ${this.state.headerTop ? '' : 'header__hide'}`}
-                onMouseEnter={this.handleCursor}
+                <header
+                    className={`header ${this.state.headerTop ? '' : 'header__hide'}`}
+                    onMouseEnter={this.handleCursor}
                 >
                     <div className="container">
                         <nav className="nav">
@@ -87,8 +87,15 @@ class Header extends Component {
                                 <p
                                     onClick={this.handleOpenAddressBar}
                                     className={`nav__address__text ${cursorNotAllowed}`}
-                                    >
+                                >
                                     {addressTxt}
+                                </p>
+                            </div>
+                            <div className="nav__address__mobile">
+                                <p className={address ? "nav__address__mobile__text" : ""}
+                                    onClick={this.handleOpenAddressBar}
+                                >
+                                    {address ? ('St. ' + address.street + ' ...') : <i className="fas fa-search-location"></i>}
                                 </p>
                             </div>
                             <div className="nav__basket">

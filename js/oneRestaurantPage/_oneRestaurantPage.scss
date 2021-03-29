@@ -1,6 +1,34 @@
 .oneRestaurant__main {
     min-height: 100vh;
     width: 100%;
+
+    @include phone{
+        .currentPage{
+            margin-top: 80px;
+        }
+    }
+
+    .basket__mobileBtn{
+
+        display: none;
+
+        @include phone{
+            display: block;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            padding: 15px;
+            text-align: center;
+            background: black;
+            color: white;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+      
+    }
+    
 }
 
 .oneRestaurant__container {
@@ -10,8 +38,15 @@
     align-items: flex-start;
     min-height: 50vh;
 
+    @include phone{
+        margin-top: 25px;
+    }
+
     .oneRestaurantMenu {
         width: 75%;
+        @include phone{
+            width: 100%;
+        }
     }
 
     .dishOrder {
@@ -28,7 +63,13 @@
         &[disabled] {
             cursor: not-allowed;
         }
+
+        @include phone{
+            width: 95%;
+        }
     }
+
+   
 }
 
 

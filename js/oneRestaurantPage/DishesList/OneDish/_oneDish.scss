@@ -3,6 +3,10 @@
     margin: 15px 0;
     cursor: pointer;
 
+    @include phone{
+        width: 100%;
+    }
+
     .oneDishView {
         display: flex;
         width: 100%;

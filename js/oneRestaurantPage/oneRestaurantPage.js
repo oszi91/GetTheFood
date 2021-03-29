@@ -14,7 +14,14 @@ class OneRestaurantPage extends Component {
 
     state = {
         order: [],
-        checkoutIsOpen: false
+        checkoutIsOpen: false,
+        isOrderOpenMobile: false
+    }
+
+    handleMobileOrder = val => {
+            this.setState({
+                isOrderOpenMobile: val
+            })
     }
 
     handleOrder = (dish, val) => {
@@ -63,6 +70,8 @@ class OneRestaurantPage extends Component {
         ));
 
         const orderAmount = this.state.order.reduce((a, b) => a + b.price, 0);
+
+       
 
         return (
             oneRestaurant.map(restaurant => (
@@ -140,8 +149,13 @@ class OneRestaurantPage extends Component {
                                 handleOrder={this.handleOrder}
                                 handleCheckout={this.handleCheckout}
                                 checkoutIsOpen={this.state.checkoutIsOpen}
+                                isOrderOpenMobile={this.state.isOrderOpenMobile}
+                                handleMobileOrder={this.handleMobileOrder}
                             />
                         </div>
+                        {this.state.order.length > 0 && 
+                        <div onClick={() => this.handleMobileOrder(true)} className="basket__mobileBtn">Show order {orderAmount} PLN</div>
+                        }
                     </div>
                 </main>
             ))

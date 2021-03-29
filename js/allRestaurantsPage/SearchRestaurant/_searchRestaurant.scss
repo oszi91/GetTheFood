@@ -1,6 +1,10 @@
 .allRestaurants__header {
     font-size: 3rem;
     font-weight: 700;
+
+    @include phone{
+        font-size: 1.2rem;
+    }
 }
 
 .allRestaurants__search {
@@ -10,18 +14,49 @@
     justify-content: space-between;
     position: relative;
 
+    @include phone{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        z-index: 9999;
+        background: white;
+    }
+
     &__input {
         width: 60%;
         font-size: 1rem;
         padding: 15px;
         border: 1px solid lightgrey;
         border-radius: 50px;
+
+        @include phone{
+            padding: 10px;
+            width: 85%;
+        }
+    }
+
+    &__filters{
+        display: none;
+        @include phone{
+            font-size: 1.8rem;
+            color: lightgrey;
+            display: block;
+        }
     }
 
     &__sort {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        @include phone{
+            display: none;
+            margin-bottom: 15px;
+            width: 100%;
+            justify-content: center;
+        }
 
         &__label {
             font-size: 1.2rem;
@@ -34,6 +69,11 @@
             padding: 15px;
             border-radius: 50px;
             cursor: pointer;
+
+            @include phone{
+                padding: 10px;
+                margin: 0;
+            }
         }
     }
 }

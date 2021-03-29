@@ -6,12 +6,44 @@
     font-size: 1.5rem;
     text-align: center;
 
+    @include phone{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        z-index: 99999999;
+        height: 100vh;
+        width: 100%;
+        background: white;
+        display: none;
+        
+        &--isHide{
+            display: block;
+        }
+    }
+
     &__header {
         font-weight: 700;
         margin-top: 15px;
         margin-bottom: 25px;
         padding-bottom: 15px;
         border-bottom: 1px solid rgb(235, 235, 235);
+        @include phone{
+            margin-top: 150px;
+        }
+    }
+
+    &__close{
+        display: none;
+        @include phone{
+            display: block;
+            position: absolute;
+            top: 2%;
+            right: 5%;
+            font-size: 2rem;
+            z-index: 99999999;
+        }
     }
 
     .emptyBasket {

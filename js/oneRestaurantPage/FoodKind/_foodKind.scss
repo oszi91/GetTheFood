@@ -5,5 +5,8 @@
 
     .typeOfDish__list{
         justify-content: center;
+        @include phone{
+            justify-content: flex-start;
+        }
     }
 }

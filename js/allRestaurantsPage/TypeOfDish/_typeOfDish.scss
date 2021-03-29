@@ -18,6 +18,9 @@
             border: 2px solid transparent;
             text-align: center;
 
+            @include phone{
+                margin: 0 3px;
+            }
 
             &--active {
                 height: 100%;

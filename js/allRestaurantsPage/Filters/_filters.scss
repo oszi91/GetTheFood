@@ -6,4 +6,78 @@
     padding: 15px 50px 0 50px;
     margin-left: 25px;
     font-size: 1.3rem;
+
+    .allRestaurants__header {
+        display: none;
+    }
+
+    .allRestaurants__search {
+        display: none;
+    }
+
+    @include phone {
+        position: fixed;
+        width: 100%;
+        display: none;
+        top: 0;
+        min-height: 100vh;
+        margin: 0;
+        left: 0;
+        right: 0;
+        background-color: white;
+        z-index: 99999;
+
+        &--isHide{
+            display: block;
+        }
+
+        .allRestaurants__search {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+
+            &__sort {
+                display: flex;
+            }
+
+            &__input {
+                display: none;
+            }
+
+            &__filters {
+                display: none;
+            }
+        }
+    }
+
+    &__results {
+        display: none;
+
+        @include phone {
+            // display: none;
+            display: block;
+            padding: 15px;
+            color: white;
+            background: black;
+            border-radius: 15px;
+            text-align: center;
+
+            &--bold {
+                font-weight: 700;
+            }
+        }
+    }
+
+    &__close{
+        display: none;
+        @include phone{
+            display: block;
+            position: absolute;
+            top: 2%;
+            right: 5%;
+            font-size: 2rem;
+            z-index: 99999999;
+        }
+    }
 }

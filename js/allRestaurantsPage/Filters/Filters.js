@@ -4,17 +4,29 @@ import MinPriceDelivery from './MinPriceDelivery/MinPriceDelivery';
 import OpenNow from './OpenNow/OpenNow';
 import TimeDelivery from './TimeDelivery/TimeDelivery';
 import RestaurantRating from './RestaurantRating/RestaurantRating';
+import SearchRestaurant from '../SearchRestaurant/SearchRestaurant'
 
 class Filters extends Component {
-    state = {}
+
     render() {
+        const isFiltersOpen = this.props.showHideFilters ? "allFood__filters allFood__filters--isHide" : "allFood__filters";
+
         return (
-            <div className="allFood__filters">
+            <div className={isFiltersOpen}>
+                <SearchRestaurant
+                    restaurantsList={this.props.restaurantsList}
+                    filterSearchRestaurant={this.props.filterSearchRestaurant}
+                    sortRestaurants={this.props.sortRestaurants}
+                />
                 <FreeDelivery freeDeliveryHandle={this.props.freeDeliveryHandle} />
-                <TimeDelivery deliveryTimeHandle={this.props.deliveryTimeHandle}/>
+                <TimeDelivery deliveryTimeHandle={this.props.deliveryTimeHandle} />
                 <MinPriceDelivery minCostDeliveryHandle={this.props.minCostDeliveryHandle} />
                 <RestaurantRating restaurantRating={this.props.restaurantRating} />
-                <OpenNow openNowHandle={this.props.openNowHandle} />
+                <OpenNow />
+                <div onClick={() => this.props.handleMobileFilters(false)} className="allFood__filters__results">Show Results
+                (<span className="allFood__filters__results--bold">{this.props.numberOfRestaurants}</span>)
+                </div>
+                <div onClick={() => this.props.handleMobileFilters(false)} className="allFood__filters__close"><i className="fas fa-times-circle"></i></div>
             </div>
         );
     }

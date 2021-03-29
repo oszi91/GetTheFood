@@ -41,6 +41,10 @@ class ConfirmOrder extends Component {
         clearTimeout(this.timeoutDelivered)
     }
 
+    scrollToTop = () => {
+        window.scrollTo(0, 0);
+    }
+
     render() {
         const { orderProgress } = this.props;
 
@@ -58,7 +62,7 @@ class ConfirmOrder extends Component {
                         <div className={`checkoutConfirm__status__item ${orderProgress === 2 ? 'active' : ''}`}>On the way</div>
                         <div className={`checkoutConfirm__status__item ${orderProgress === 3 ? 'active' : ''}`}>Delivered</div>
                     </div>
-                    <Link className="checkoutConfirm__back" to='/restaurants'>Go back to restaurant list</Link>
+                    <Link onClick={this.scrollToTop} className="checkoutConfirm__back" to='/restaurants'>Go back to restaurant list</Link>
                 </div>
             </div>
             );

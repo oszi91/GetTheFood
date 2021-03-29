@@ -22,7 +22,14 @@ class AllRestaurantsPage extends Component {
             minCostDeliveryHandle: () => res => res,
             restaurantRating: () => res => res,
             openNowHandle: () => res => res,
-        }
+        },
+        showHideFilters: false
+    }
+
+    handleMobileFilters = showHideFilters => {
+        this.setState({
+            showHideFilters
+        })
     }
 
     filterSearchRestaurant = searchName => {
@@ -199,20 +206,20 @@ class AllRestaurantsPage extends Component {
 
         return (
             <main className="allRestaurants__main">
-                <MainPhoto numberOfRestaurants={restaurantsList.length} />
+                <MainPhoto numberOfRestaurants={restaurantsNewList.length} />
                 <div className="containerBig">
                     <div className="currentPage">
                         <NavLink
                             className="currentPage__item"
                             activeClassName="currentPage__item--active"
                             exact to='/'>
-                        Start Page</NavLink>
+                            Start Page</NavLink>
                         <i className="fas fa-chevron-right"></i>
                         <NavLink
                             className="currentPage__item"
                             activeClassName="currentPage__item--active"
                             to={window.location.pathname}>
-                        Restaurants</NavLink>
+                            Restaurants</NavLink>
                     </div>
                     <div className="allRestaurants__container">
                         <div className="allRestaurants">
@@ -220,6 +227,8 @@ class AllRestaurantsPage extends Component {
                                 restaurantsList={restaurantsList}
                                 filterSearchRestaurant={this.filterSearchRestaurant}
                                 sortRestaurants={this.sortRestaurants}
+                                handleMobileFilters={this.handleMobileFilters}
+                                showHideFilters={this.state.showHideFilters}
                             />
                             <TypeOfDish
                                 foodCategories={foodCategoriesAll}
@@ -236,6 +245,12 @@ class AllRestaurantsPage extends Component {
                             minCostDeliveryHandle={this.minCostDeliveryHandle}
                             restaurantRating={this.restaurantRating}
                             openNowHandle={this.openNowHandle}
+                            numberOfRestaurants={restaurantsNewList.length}
+                            restaurantsList={restaurantsList}
+                            filterSearchRestaurant={this.filterSearchRestaurant}
+                            sortRestaurants={this.sortRestaurants}
+                            handleMobileFilters={this.handleMobileFilters}
+                            showHideFilters={this.state.showHideFilters}
                         />
                     </div>
                 </div>

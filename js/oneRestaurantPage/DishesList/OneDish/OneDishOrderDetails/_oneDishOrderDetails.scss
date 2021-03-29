@@ -28,6 +28,12 @@
         flex-direction: column;
         position: relative;
 
+        @include phone {
+            width: 95%;
+            height: 98%;
+            max-height: 98%;
+        }
+
         &__close {
             position: absolute;
             right: 3%;
@@ -35,6 +41,10 @@
             font-size: 3rem;
             color: darken(#b40d0d, 10%);
             cursor: pointer;
+
+            @include phone {
+                top: 1%;
+            }
         }
 
         &__name {
@@ -44,12 +54,20 @@
             margin-bottom: 25px;
             text-align: center;
             max-width: 90%;
+
+            @include phone {
+                margin-bottom: 10px;
+            }
         }
 
         &__ingriedents {
             font-size: 1.3rem;
             text-align: center;
             margin-bottom: 25px;
+
+            @include phone {
+                margin-bottom: 0;
+            }
         }
 
         &__additionals {
@@ -86,6 +104,10 @@
             margin-top: 25px;
             box-shadow: 2px 7px 20px 3px rgba(0, 0, 0, 0.15);
 
+            @include phone {
+                margin: 0;
+            }
+
             &__add,
             &__minus,
             &__number {
@@ -111,6 +133,12 @@
             padding: 15px;
             font-size: 1.5rem;
             border-radius: 25px;
+
+            @include phone {
+                width: 95%;
+                font-size: 1.2rem;
+                margin: 0;
+            }
         }
     }
 }

@@ -1,6 +1,11 @@
 .dishesList__container {
 
     &__category {
+
+        &:first-child {
+            margin-top: 25px;
+        }
+
         margin-top: 50px;
         text-align: center;
         font-size: 3rem;

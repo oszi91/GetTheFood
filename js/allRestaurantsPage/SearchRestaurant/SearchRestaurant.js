@@ -38,13 +38,16 @@ class SearchRestaurant extends Component {
                         type="text"
                         placeholder="the name of the restaurant"
                     />
+                    <div onClick={() => this.props.handleMobileFilters(true)} className="allRestaurants__search__filters">
+                        <i className="fas fa-sliders-h"></i>
+                    </div>
                     <div className="allRestaurants__search__sort">
-                        <label className="allRestaurants__search__sort__label" htmlFor="sort">Sort by:</label>
-                        <select 
-                        className="allRestaurants__search__sort__select" 
-                        name="sort"
-                        value={this.state.sortVal}
-                        onChange={this.handleSelect}
+                        <label className="allRestaurants__search__sort__label" htmlFor="sort">Sort:</label>
+                        <select
+                            className="allRestaurants__search__sort__select"
+                            name="sort"
+                            value={this.state.sortVal}
+                            onChange={this.handleSelect}
                         >
                             <option value="alphabetically">Alphabetically</option>
                             <option value="min_order_amount">Min. order amount</option>

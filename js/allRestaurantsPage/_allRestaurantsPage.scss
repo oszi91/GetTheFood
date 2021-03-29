@@ -12,6 +12,9 @@
 
     .allRestaurants {
         width: 75%;
+        @include phone{
+            width: 100%;
+        }
     }
 }
 
@@ -24,6 +27,11 @@
     margin-top: 15px;
     font-size: 0.8rem;
     color: grey;
+
+    @include phone{
+        font-size: 0.6rem;
+    }
+
     .fas{
         color: #fafa1f;
         margin: 0 5px;

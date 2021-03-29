@@ -84,8 +84,12 @@ class Checkout extends Component {
         })
     }
 
-    render() {
+    scrollToTop = () => {
+        window.scrollTo(0, 0);
+    }
 
+    render() {
+        console.log(this.props.order)
         const { errorsList, buildingNumber, apartmentNumber,
             floor, gateCode, addNote, name, surname, email,
             phone, confirmOrder, orderProgress } = this.state;
@@ -250,7 +254,7 @@ class Checkout extends Component {
                                 <p className="checkout__form__inputsContainer__item__error">{errorsList.phone}</p>
                             </div>
                         </div>
-                        <button onClick={this.handleClearOrder} className="dishOrder">Confirm and Order</button>
+                        <button onClick={() => {this.handleClearOrder(); this.scrollToTop()}} className="dishOrder">Confirm and Order</button>
                     </form>
                 </div>
 
