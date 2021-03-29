@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "homepage": "http://oszi91.github.io/GetTheFood/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oszi91/GetTheFood.git"
+  },
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

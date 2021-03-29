@@ -7,8 +7,7 @@ module.exports = {
     "./js/app.js",
   ],
   output: {
-    filename: "./js/out.js",
-    publicPath: '/',
+    filename: "js/out.js",
     path: path.resolve(__dirname, "build"),
     sourceMapFilename: "[name].js.map"
   },
