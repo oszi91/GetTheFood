@@ -98,7 +98,7 @@ class OneRestaurantPage extends Component {
                         <NavLink
                             className="currentPage__item"
                             activeClassName="currentPage__item--active"
-                            to={window.location.pathname}>
+                            to={`/restaurants/${changeNameToURL(restaurant.name)}`}>
                         {restaurant.name}</NavLink>
                     </div>
                         <div className="oneRestaurant__container">

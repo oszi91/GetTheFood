@@ -218,7 +218,7 @@ class AllRestaurantsPage extends Component {
                         <NavLink
                             className="currentPage__item"
                             activeClassName="currentPage__item--active"
-                            to={window.location.pathname}>
+                            to='/restaurants'>
                             Restaurants</NavLink>
                     </div>
                     <div className="allRestaurants__container">
