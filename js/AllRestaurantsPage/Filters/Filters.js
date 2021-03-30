@@ -5,6 +5,7 @@ import OpenNow from './OpenNow/OpenNow';
 import TimeDelivery from './TimeDelivery/TimeDelivery';
 import RestaurantRating from './RestaurantRating/RestaurantRating';
 import SearchRestaurant from '../SearchRestaurant/SearchRestaurant'
+import { scrollToTop } from '../../Functions/scrollToTop';
 
 class Filters extends Component {
 
@@ -23,7 +24,7 @@ class Filters extends Component {
                 <MinPriceDelivery minCostDeliveryHandle={this.props.minCostDeliveryHandle} />
                 <RestaurantRating restaurantRating={this.props.restaurantRating} />
                 <OpenNow openNowHandle={this.props.openNowHandle}/>
-                <div onClick={() => this.props.handleMobileFilters(false)} className="allFood__filters__results">Show Results
+                <div onClick={() => {this.props.handleMobileFilters(false); scrollToTop()}} className="allFood__filters__results">Show Results
                 (<span className="allFood__filters__results--bold">{this.props.numberOfRestaurants}</span>)
                 </div>
                 <div onClick={() => this.props.handleMobileFilters(false)} className="allFood__filters__close"><i className="fas fa-times-circle"></i></div>

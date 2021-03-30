@@ -57,7 +57,7 @@ class OneDishOrderDetails extends Component {
             orderDetails: {
                 name: dish,
                 id: id,
-                price: this.state.onlyDishPrice + this.state.addsPrice,
+                price: this.state.onlyDishPrice + this.state.quantity * this.state.addsPrice,
                 quantity: this.state.quantity,
                 additionals: this.state.addsPrice ? true : false,
                 addsList: this.state.addsList
@@ -75,6 +75,7 @@ class OneDishOrderDetails extends Component {
 
     render() {
         const { dish } = this.props;
+        const {onlyDishPrice, quantity, addsPrice} = this.state;
 
         return (
             <div key={dish.id} className={`oneDishViewContainer ${this.classAdd(dish.id)}`}>
@@ -110,7 +111,7 @@ class OneDishOrderDetails extends Component {
                     <button
                         onClick={() => { this.handleOrder('addOrModify', dish.name, dish.id); this.props.handleOpenDetails(dish.id) }}
                         className="oneDishViewBig__addToOrder"
-                    >Add to Order <span>({(this.state.onlyDishPrice + this.state.addsPrice).toFixed(2)} PLN)</span></button>
+                    >Add to Order <span>({(onlyDishPrice + quantity * addsPrice).toFixed(2)} PLN)</span></button>
                 </div>
             </div>
         );

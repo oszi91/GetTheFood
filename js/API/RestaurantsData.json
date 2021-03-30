@@ -488,35 +488,21 @@
                "sectionName":"Beverages",
                "menuItems":[
                   {
-                     "id":54774574,
+                     "id":12324421236421,
                      "name":"Soda",
                      "ingriedents":"",
                      "price":5.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+                        
                      ]
                   },
                   {
-                     "id":867865754,
+                     "id":1232541532311,
                      "name":"Cola",
                      "ingriedents":"",
                      "price":7.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+               
                      ]
                   }
                ]
@@ -655,26 +641,23 @@
             },
             {
                "sectionName":"Beverages",
-               "additionals":[
-                  "extra cheese"
-               ],
                "menuItems":[
                   {
-                     "id":123244646456421240000,
+                     "id":12324421236421,
                      "name":"Soda",
                      "ingriedents":"",
-                     "price":5,
+                     "price":5.00,
                      "additionals":[
-                        "extra cheese"
+                        
                      ]
                   },
                   {
-                     "id":1.2325414364465366e+21,
+                     "id":1232541532311,
                      "name":"Cola",
                      "ingriedents":"",
-                     "price":7,
+                     "price":7.00,
                      "additionals":[
-                        "extra cheese"
+               
                      ]
                   }
                ]
@@ -1130,35 +1113,21 @@
                "sectionName":"Beverages",
                "menuItems":[
                   {
-                     "id":12324636456421237000,
+                     "id":12324421236421,
                      "name":"Soda",
                      "ingriedents":"",
                      "price":5.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+                        
                      ]
                   },
                   {
-                     "id":1232636536532311,
+                     "id":1232541532311,
                      "name":"Cola",
                      "ingriedents":"",
                      "price":7.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+               
                      ]
                   }
                ]
@@ -1384,35 +1353,21 @@
                "sectionName":"Beverages",
                "menuItems":[
                   {
-                     "id":123244124456421230000,
+                     "id":12324421236421,
                      "name":"Soda",
                      "ingriedents":"",
                      "price":5.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+                        
                      ]
                   },
                   {
-                     "id":12324216532311,
+                     "id":1232541532311,
                      "name":"Cola",
                      "ingriedents":"",
                      "price":7.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+               
                      ]
                   }
                ]
@@ -1648,35 +1603,21 @@
                "sectionName":"Beverages",
                "menuItems":[
                   {
-                     "id":123244216421,
+                     "id":12324421236421,
                      "name":"Soda",
                      "ingriedents":"",
                      "price":5.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+                        
                      ]
                   },
                   {
-                     "id":123412311,
+                     "id":1232541532311,
                      "name":"Cola",
                      "ingriedents":"",
                      "price":7.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+               
                      ]
                   }
                ]
@@ -1907,35 +1848,21 @@
                "sectionName":"Beverages",
                "menuItems":[
                   {
-                     "id":123244216421,
+                     "id":12324421236421,
                      "name":"Soda",
                      "ingriedents":"",
                      "price":5.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+                        
                      ]
                   },
                   {
-                     "id":123412311,
+                     "id":1232541532311,
                      "name":"Cola",
                      "ingriedents":"",
                      "price":7.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+               
                      ]
                   }
                ]
@@ -2166,35 +2093,21 @@
                "sectionName":"Beverages",
                "menuItems":[
                   {
-                     "id":123244216421,
+                     "id":12324421236421,
                      "name":"Soda",
                      "ingriedents":"",
                      "price":5.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+                        
                      ]
                   },
                   {
-                     "id":123412311,
+                     "id":1232541532311,
                      "name":"Cola",
                      "ingriedents":"",
                      "price":7.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+               
                      ]
                   }
                ]
@@ -2425,35 +2338,21 @@
                "sectionName":"Beverages",
                "menuItems":[
                   {
-                     "id":123244216421,
+                     "id":12324421236421,
                      "name":"Soda",
                      "ingriedents":"",
                      "price":5.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+                        
                      ]
                   },
                   {
-                     "id":123412311,
+                     "id":1232541532311,
                      "name":"Cola",
                      "ingriedents":"",
                      "price":7.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+               
                      ]
                   }
                ]
@@ -2684,35 +2583,21 @@
                "sectionName":"Beverages",
                "menuItems":[
                   {
-                     "id":123244216421,
+                     "id":12324421236421,
                      "name":"Soda",
                      "ingriedents":"",
                      "price":5.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+                        
                      ]
                   },
                   {
-                     "id":123412311,
+                     "id":1232541532311,
                      "name":"Cola",
                      "ingriedents":"",
                      "price":7.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+               
                      ]
                   }
                ]
@@ -2948,35 +2833,21 @@
                "sectionName":"Beverages",
                "menuItems":[
                   {
-                     "id":123244216421,
+                     "id":12324421236421,
                      "name":"Soda",
                      "ingriedents":"",
                      "price":5.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+                        
                      ]
                   },
                   {
-                     "id":123412311,
+                     "id":1232541532311,
                      "name":"Cola",
                      "ingriedents":"",
                      "price":7.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+               
                      ]
                   }
                ]
@@ -3207,35 +3078,21 @@
                "sectionName":"Beverages",
                "menuItems":[
                   {
-                     "id":123244216421,
+                     "id":12324421236421,
                      "name":"Soda",
                      "ingriedents":"",
                      "price":5.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+                        
                      ]
                   },
                   {
-                     "id":123412311,
+                     "id":1232541532311,
                      "name":"Cola",
                      "ingriedents":"",
                      "price":7.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+               
                      ]
                   }
                ]
@@ -3466,35 +3323,21 @@
                "sectionName":"Beverages",
                "menuItems":[
                   {
-                     "id":123244216421,
+                     "id":12324421236421,
                      "name":"Soda",
                      "ingriedents":"",
                      "price":5.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+                        
                      ]
                   },
                   {
-                     "id":123412311,
+                     "id":1232541532311,
                      "name":"Cola",
                      "ingriedents":"",
                      "price":7.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+               
                      ]
                   }
                ]
@@ -3730,35 +3573,21 @@
                "sectionName":"Beverages",
                "menuItems":[
                   {
-                     "id":123244216421,
+                     "id":12324421236421,
                      "name":"Soda",
                      "ingriedents":"",
                      "price":5.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+                        
                      ]
                   },
                   {
-                     "id":123412311,
+                     "id":1232541532311,
                      "name":"Cola",
                      "ingriedents":"",
                      "price":7.00,
                      "additionals":[
-                        {"name": "extra cheese", "price": 5.00
-                           },  
-                        {"name": "double meat", "price": 7.00
-                              },  
-                        {"name": "red sauce", "price": 3.00
-                              }  ,  
-                         {"name": "white sauce", "price": 3.00
-                        }  
+               
                      ]
                   }
                ]
