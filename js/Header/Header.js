@@ -30,7 +30,7 @@ class Header extends Component {
     }
 
     handleCursor = () => {
-        const blockChangeAddress = window.location.pathname === '/' || window.location.pathname === '/restaurants';
+        const blockChangeAddress = window.location.hash === '#/' || window.location.hash === '#/restaurants';
 
         if (blockChangeAddress) {
             this.setState({

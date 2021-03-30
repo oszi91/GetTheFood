@@ -8,7 +8,6 @@ class OpenNow extends Component {
 
     handleCheck = () => {
        
-
         this.setState({
             isChecked: !this.state.isChecked
         }, () =>  this.props.openNowHandle(this.state.isChecked))

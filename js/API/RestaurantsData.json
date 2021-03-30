@@ -4,7 +4,7 @@
 {
    "id":2301636856,    
    "name":"Joanna's Pizza",
-   "photo":"./../../images/food1.jpg",
+   "photo":"./images/food1.jpg",
    "openHours": [{"from": 10, "to": 18}],
    "rating":"4.45",
    "deliveryPrice":7.00,
@@ -296,7 +296,7 @@
 {
    "id":2897201869, 
    "name":"Rafaelo's Pizza Bar",
-   "photo":"./../../images/food2.jpg",
+   "photo":"./images/food2.jpg",
    "openHours": [{"from": 10, "to": 21}],
    "rating":"3.45",
    "deliveryPrice":8.00,
@@ -555,7 +555,7 @@
 {
    "id":5303351364,
    "name":"Kali's Pizza Food",
-   "photo":"./../../images/food3.jpg",
+   "photo":"./images/food3.jpg",
    "openHours": [{"from": 12, "to": 24}],
    "rating":"4.80",
    "deliveryPrice":8,
@@ -714,7 +714,7 @@
 {
    "id":1291695539,
    "name":"Domi's Burger",
-   "photo":"./../../images/food4.jpg",
+   "photo":"./images/food4.jpg",
    "openHours": [{"from": 8, "to": 20}],
    "rating":"3.30",
    "deliveryPrice":8.00,
@@ -938,7 +938,7 @@
 {
    "id":1019762810,
    "name":"Majki Spurs Burger",
-   "photo":"./../../images/food5.jpg",
+   "photo":"./images/food5.jpg",
    "openHours": [{"from": 12, "to": 22}],
    "rating":"4.10",
    "deliveryPrice":15.00,
@@ -1192,7 +1192,7 @@
 {
    "id":9153216150,
    "name":"Filo KingDong",
-   "photo":"./../../images/food6.jpg",
+   "photo":"./images/food6.jpg",
    "openHours": [{"from": 12, "to": 23}],
    "rating":"3.10",
    "deliveryPrice":15.00,
@@ -1456,7 +1456,7 @@
 {
    "id":1431042839,
    "name":"Golden Dong",
-   "photo":"./../../images/food7.jpg",
+   "photo":"./images/food7.jpg",
    "openHours": [{"from": 6, "to": 23}],
    "rating":"4.80",
    "deliveryPrice":5.00,
@@ -1715,7 +1715,7 @@
 {
    "id":1224555164 ,
    "name":"Charlie Brown's Steakhouse",
-   "photo":"./../../images/food8.jpg",
+   "photo":"./images/food8.jpg",
    "openHours": [{"from": 6, "to": 23}],
    "rating":"2.70",
    "deliveryPrice":0.00,
@@ -1974,7 +1974,7 @@
 {
    "id":2467932543,
    "name":"Uno Chicago Grill",
-   "photo":"./../../images/food9.jpg",
+   "photo":"./images/food9.jpg",
    "openHours": [{"from": 6, "to": 23}],
    "rating":"3.80",
    "deliveryPrice":0.00,
@@ -2233,7 +2233,7 @@
 {
    "id":1585361101,
    "name":"Planet Hollywood",
-   "photo":"./../../images/food10.jpg",
+   "photo":"./images/food10.jpg",
    "openHours": [{"from": 6, "to": 23}],
    "rating":"2.80",
    "deliveryPrice":15.00,
@@ -2492,7 +2492,7 @@
 {
    "id":8818600495,
    "name":"Benihana",
-   "photo":"./../../images/food11.jpg",
+   "photo":"./images/food11.jpg",
    "openHours": [{"from": 6, "to": 20}],
    "rating":"3.90",
    "deliveryPrice":5.00,
@@ -2756,7 +2756,7 @@
 {
    "id":7998016665,
    "name":"Bluepoint Sage Cafe",
-   "photo":"./../../images/food12.jpg",
+   "photo":"./images/food12.jpg",
    "openHours": [{"from": 6, "to": 23}],
    "rating":"4.20",
    "deliveryPrice":5.00,
@@ -3015,7 +3015,7 @@
 {
    "id":9419395662,
    "name":"Smokey Bones",
-   "photo":"./../../images/food13.jpg",
+   "photo":"./images/food13.jpg",
    "openHours": [{"from": 3, "to": 15}],
    "rating":"4.85",
    "deliveryPrice":5.00,
@@ -3274,7 +3274,7 @@
 {
    "id":4730543238 ,
    "name":"Red Lobster",
-   "photo":"./../../images/food14.jpg",
+   "photo":"./images/food14.jpg",
    "openHours": [{"from": 6, "to": 19}],
    "rating":"3.80",
    "deliveryPrice":7.00,
@@ -3538,7 +3538,7 @@
 {
    "id":3697095242 ,
    "name":"California Pasta Kitchen",
-   "photo":"./../../images/food15.jpg",
+   "photo":"./images/food15.jpg",
    "openHours": [{"from": 6, "to": 23}],
    "rating":"4.50",
    "deliveryPrice":0.00,

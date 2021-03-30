@@ -22,7 +22,7 @@ class Filters extends Component {
                 <TimeDelivery deliveryTimeHandle={this.props.deliveryTimeHandle} />
                 <MinPriceDelivery minCostDeliveryHandle={this.props.minCostDeliveryHandle} />
                 <RestaurantRating restaurantRating={this.props.restaurantRating} />
-                <OpenNow />
+                <OpenNow openNowHandle={this.props.openNowHandle}/>
                 <div onClick={() => this.props.handleMobileFilters(false)} className="allFood__filters__results">Show Results
                 (<span className="allFood__filters__results--bold">{this.props.numberOfRestaurants}</span>)
                 </div>
