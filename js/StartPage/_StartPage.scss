@@ -1,14 +1,14 @@
 .startPage {
     width: 100%;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba($color: $color2, $alpha: 0.3);
     background-image: url('https://oszi91.github.io/GetTheFood/images/background.jpg');
     background-size: cover;
     background-position: center;
 }
 
 .searchPlace {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba($color: $color2, $alpha: 0.3);
     width: 100%;
     height: 100vh;
     border-radius: 0 0 50px 50px;
@@ -18,7 +18,7 @@
     flex-direction: column;
     
     &__text {
-        color: white;
+        color: $color1;
         font-size: 4rem;
         margin-bottom: 30px;
         font-weight: 800;

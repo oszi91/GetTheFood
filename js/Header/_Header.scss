@@ -1,5 +1,5 @@
 .header {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba($color: $color2, $alpha: 0.3);
     position: fixed;
     top: 0;
     left: 0;
@@ -14,7 +14,7 @@
     }
 
     &:hover {
-        background: black;
+        background: rgba($color: $color2, $alpha: 0.6);
     }
 }
 
@@ -24,7 +24,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: $color1;
 
     @include phone {
         justify-content: space-between;
@@ -34,7 +34,7 @@
         width: 20%;
         font-family: $font-logo;
         font-size: 2.2rem;
-        color: rgb(255, 255, 255);
+        color: $color1;
 
         @include phone {
             width: auto;
@@ -44,6 +44,10 @@
         &__text {
             display: flex;
             align-items: center;
+            transition: 0.2s;
+            &:hover{
+                transform: scale(1.05);
+            }
 
             .fas {
                 @include phone {
@@ -55,11 +59,11 @@
             }
 
             &--color-one {
-                color: rgb(180, 13, 13);
+                color: $color3;
             }
 
             &--color-two {
-                color: rgb(250, 250, 31);
+                color: $color4;
             }
         }
     }
@@ -92,7 +96,7 @@
 
             &__text {
                 font-size: 1rem;
-                border-bottom: 1px solid white;
+                border-bottom: 1px solid $color1;
                 padding-bottom: 2px;
                 margin-right: 15px;
             }
@@ -103,7 +107,6 @@
         @include phone {
             display: none;
         }
-
         font-size: 1.5rem;
         width: 20%;
         text-align: end;
@@ -120,7 +123,7 @@
     left: 50%;
     transform: translateX(-50%);
     backdrop-filter: blur(5px);
-    background-color: rgba($color: #000000, $alpha: 0.5);
+    background-color: rgba($color: $color2, $alpha: 0.5);
 
     @include phone {
         left: 0;
@@ -133,7 +136,7 @@
         margin-top: 50px;
         border-radius: 25px;
         height: 50vh;
-        background-color: white;
+        background-color: $color1;
         position: relative;
 
         @include phone {
@@ -154,7 +157,6 @@
         }
 
         .searchPlace__form__input {
-
             @include phone {
                 min-width: 100px;
 
@@ -162,7 +164,7 @@
                     font-size: 0.8rem;
                 }
             }
-
+            
             width: 100%;
             border-radius: 25px 25px 0 0;
         }

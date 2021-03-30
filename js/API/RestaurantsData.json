@@ -556,9 +556,6 @@
          "menuSections":[
             {
                "sectionName":"Pizzas",
-               "additionals":[
-                  "extra cheese"
-               ],
                "menuItems":[
                   {
                      "id":1233764252421,
@@ -566,7 +563,14 @@
                      "ingriedents":"Sauce, mozzarella cheese",
                      "price":25,
                      "additionals":[
-                        "extra cheese"
+                        {"name": "extra cheese", "price": 5.00
+                           },  
+                        {"name": "double meat", "price": 7.00
+                              },  
+                        {"name": "red sauce", "price": 3.00
+                              }  ,  
+                         {"name": "white sauce", "price": 3.00
+                        }  
                      ]
                   },
                   {
@@ -575,7 +579,14 @@
                      "ingriedents":"Sauce, mozzarella cheese",
                      "price":28,
                      "additionals":[
-                        "extra cheese"
+                        {"name": "extra cheese", "price": 5.00
+                           },  
+                        {"name": "double meat", "price": 7.00
+                              },  
+                        {"name": "red sauce", "price": 3.00
+                              }  ,  
+                         {"name": "white sauce", "price": 3.00
+                        }  
                      ]
                   },
                   {
@@ -584,7 +595,14 @@
                      "ingriedents":"Marinara sauce, EVOO, basil, grated cheese, fresh mozzarella",
                      "price":30,
                      "additionals":[
-                        "extra cheese"
+                        {"name": "extra cheese", "price": 5.00
+                           },  
+                        {"name": "double meat", "price": 7.00
+                              },  
+                        {"name": "red sauce", "price": 3.00
+                              }  ,  
+                         {"name": "white sauce", "price": 3.00
+                        }  
                      ]
                   },
                   {
@@ -593,7 +611,14 @@
                      "ingriedents":"Sautéed spinach, seasoned ricotta, mozzarella cheese",
                      "price":32,
                      "additionals":[
-                        "extra cheese"
+                        {"name": "extra cheese", "price": 5.00
+                           },  
+                        {"name": "double meat", "price": 7.00
+                              },  
+                        {"name": "red sauce", "price": 3.00
+                              }  ,  
+                         {"name": "white sauce", "price": 3.00
+                        }  
                      ]
                   },
                   {
@@ -602,7 +627,14 @@
                      "ingriedents":"Breaded eggplant, seasoned ricotta, mozzarella cheese",
                      "price":34,
                      "additionals":[
-                        "extra cheese"
+                        {"name": "extra cheese", "price": 5.00
+                           },  
+                        {"name": "double meat", "price": 7.00
+                              },  
+                        {"name": "red sauce", "price": 3.00
+                              }  ,  
+                         {"name": "white sauce", "price": 3.00
+                        }  
                      ]
                   }
                ]
@@ -616,7 +648,14 @@
                      "ingriedents":"Five jumbo housemade mozzarella sticks served with tomato sauce",
                      "price":13,
                      "additionals":[
-                        "extra cheese"
+                        {"name": "extra cheese", "price": 5.00
+                           },  
+                        {"name": "double meat", "price": 7.00
+                              },  
+                        {"name": "red sauce", "price": 3.00
+                              }  ,  
+                         {"name": "white sauce", "price": 3.00
+                        }  
                      ]
                   },
                   {
@@ -625,7 +664,14 @@
                      "ingriedents":"portobello mushrooms topped with spinach, roasted red peppers",
                      "price":15,
                      "additionals":[
-                        "extra cheese"
+                        {"name": "extra cheese", "price": 5.00
+                           },  
+                        {"name": "double meat", "price": 7.00
+                              },  
+                        {"name": "red sauce", "price": 3.00
+                              }  ,  
+                         {"name": "white sauce", "price": 3.00
+                        }  
                      ]
                   },
                   {
@@ -634,7 +680,14 @@
                      "ingriedents":"Clams oreganata, grilled shrimp, stuffed tomato oreganata,",
                      "price":18,
                      "additionals":[
-                        "extra cheese"
+                        {"name": "extra cheese", "price": 5.00
+                           },  
+                        {"name": "double meat", "price": 7.00
+                              },  
+                        {"name": "red sauce", "price": 3.00
+                              }  ,  
+                         {"name": "white sauce", "price": 3.00
+                        }  
                      ]
                   }
                ]

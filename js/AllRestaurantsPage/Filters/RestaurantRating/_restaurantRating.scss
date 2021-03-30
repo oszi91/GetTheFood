@@ -13,7 +13,7 @@
             cursor: pointer;
 
             &__active{
-                color:#fafa1f;
+                color:$color4;
             }
 
             .fa{
@@ -23,7 +23,7 @@
 
         &__item:hover,
         &__item:hover ~ li {
-            color: #fafa1f;
+            color: $color4;
         }
     }
 

@@ -9,7 +9,6 @@
     }
 
     .basket__mobileBtn{
-
         display: none;
 
         @include phone{
@@ -20,15 +19,12 @@
             left: 0;
             padding: 15px;
             text-align: center;
-            background: black;
-            color: white;
+            background: $color2;
+            color: $color1;
             font-weight: 600;
             font-size: 1.5rem;
         }
-
-      
     }
-    
 }
 
 .oneRestaurant__container {
@@ -51,7 +47,7 @@
 
     .dishOrder {
         margin-top: 20px;
-        background-color: black;
+        background-color: $color2;
         color: white;
         font-weight: 500;
         font-size: 1.4rem;

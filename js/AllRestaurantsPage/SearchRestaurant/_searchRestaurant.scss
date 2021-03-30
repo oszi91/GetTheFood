@@ -21,15 +21,21 @@
         right: 0;
         padding: 10px;
         z-index: 9999;
-        background: white;
+        background: $color1;
     }
 
     &__input {
         width: 60%;
         font-size: 1rem;
         padding: 15px;
-        border: 1px solid lightgrey;
+        border: 1px solid $color5;
         border-radius: 50px;
+        transition: 0.2s;
+
+        &:hover{
+            box-shadow: 2px 7px 10px 3px rgba($color: $color2, $alpha: 0.1);
+            border: 1px solid transparent;
+        }
 
         @include phone{
             padding: 10px;
@@ -41,7 +47,7 @@
         display: none;
         @include phone{
             font-size: 1.8rem;
-            color: lightgrey;
+            color: $color5;
             display: block;
         }
     }
@@ -64,11 +70,17 @@
         }
 
         &__select {
-            border: 1px solid lightgrey;
+            border: 1px solid $color5;
             font-size: 1rem;
             padding: 15px;
             border-radius: 50px;
             cursor: pointer;
+            transition: 0.2s;
+
+            &:hover{
+                box-shadow: 2px 7px 10px 3px rgba($color: $color2, $alpha: 0.1);
+                border: 1px solid transparent;
+            }
 
             @include phone{
                 padding: 10px;
@@ -77,3 +89,4 @@
         }
     }
 }
+

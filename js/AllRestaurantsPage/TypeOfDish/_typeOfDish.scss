@@ -1,14 +1,14 @@
 .allRestaurants__typeOfDish {
     margin: 15px 0;
     padding: 10px;
-    background-color: lighten($color: #fafa1f, $amount: 35%);
+    background-color: lighten($color: $color4, $amount: 35%);
     border-radius: 15px;
 
     .typeOfDish__list {
         display: flex;
 
         .typeOfDish__list__item {
-            background-color: white;
+            background-color: $color1;
             padding: 5px 0;
             margin: 0 10px;
             border-radius: 20px;
@@ -17,14 +17,14 @@
             text-transform: capitalize;
             border: 2px solid transparent;
             text-align: center;
-
+            
             @include phone{
                 margin: 0 3px;
             }
 
             &--active {
                 height: 100%;
-                color: #b40d0d;
+                color: $color3;
             }
         }
     }

@@ -1,7 +1,7 @@
 .footer {
     display: block;
     width: 100%;
-    background: linear-gradient(to bottom, #b2b7bb, #9ba0a3);
+    background: $footer-bcg;
     height: 200px;
    
 
@@ -14,9 +14,9 @@
 
     .aboutMe {
         &__contact {
-            color: white;
+            color: $color1;
             font-size: 2.5rem;
-            border-bottom: 1px solid white;
+            border-bottom: 1px solid $color1;
             margin-bottom: 15px;
             text-transform: uppercase;
 
@@ -31,9 +31,9 @@
             &__link {
                 font-size: 1.2rem;
                 transition: .2s;
-                color: white;
+                color: $color1;
                 &:hover {
-                    color: darken($color: white, $amount: 8%);
+                    color: darken($color: $color1, $amount: 8%);
                 }
 
                 @include phone{
@@ -45,10 +45,10 @@
         .fas,
         .fab {
             font-size: 1rem;
-            background-color: white;
+            background-color: $color1;
             border-radius: 50%;
             padding: 5px;
-            color: black;
+            color: $color2;
             margin-right: 5px;
         }
     }

@@ -16,7 +16,7 @@
         height: 50px;
 
         &::placeholder {
-            color: lightgrey;
+            color: $color5;
 
             @include phone {
                 font-size: 0.8rem;
@@ -41,26 +41,12 @@
         display: flex;
         align-items: center;
         font-size: 1rem;
-        color: lightgrey;
-    }
-
-    &__btn {
-        display: flex;
-        align-items: center;
-        height: 50px;
-        min-width: 100px;
-        background-color: rgb(180, 13, 13);
-        border: 1px solid rgb(180, 13, 13);
-        font-size: 1.3rem;
-        padding: 15px;
-        border-radius: 0 50px 50px 0;
-        font-weight: 400;
-        color: white;
+        color: $color5;
     }
 }
 
 .searchPlace__addressList {
-    background-color: white;
+    background-color: $color1;
     border-radius: 0 0 25px 25px;
     overflow: hidden;
 
@@ -70,7 +56,7 @@
         cursor: pointer;
 
         &:hover {
-            background: rgb(243, 243, 243);
+            background: $color6;
         }
     }
 }

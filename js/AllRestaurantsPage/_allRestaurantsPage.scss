@@ -26,21 +26,21 @@
 .currentPage{
     margin-top: 15px;
     font-size: 0.8rem;
-    color: grey;
+    color: darken($color5,15%);
 
     @include phone{
         font-size: 0.6rem;
     }
 
     .fas{
-        color: #fafa1f;
+        color: $color4;
         margin: 0 5px;
     }
 
     &__item{
         margin: 0 5px;
         &--active{
-            color: #b40d0d;
+            color: $color3;
             font-weight: 500;
         }
     }
@@ -48,7 +48,7 @@
 
 .react-multiple-carousel__arrow{
     right: 0 !important;
-    background: #b40d0d !important;
+    background: $color3 !important;
 }
 
 .react-multiple-carousel__arrow--left{

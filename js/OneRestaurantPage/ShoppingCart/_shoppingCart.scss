@@ -17,7 +17,7 @@
         overflow-y: scroll;
         max-height: 100vh;
         width: 100%;
-        background: white;
+        background: $color1;
         display: none;
         z-index: 999999;
 
@@ -31,7 +31,7 @@
         margin-top: 15px;
         margin-bottom: 25px;
         padding-bottom: 15px;
-        border-bottom: 1px solid rgb(235, 235, 235);
+        border-bottom: 1px solid darken($color6,5%);
 
         @include phone {
             margin-top: 50px;
@@ -57,9 +57,7 @@
         .fas {
             margin-top: 25px;
             font-size: 8rem;
-            color: rgb(224, 224, 224);
+            color: darken($color6,5%);
         }
     }
-
-
 }

@@ -2,7 +2,7 @@
     position: sticky;
     top: 70px;
     width: 25%;
-    border-left: 1px solid rgb(212, 212, 212);
+    border-left: 1px solid $color5;
     padding: 15px 50px 0 50px;
     margin-left: 25px;
     font-size: 1.3rem;
@@ -24,7 +24,7 @@
         margin: 0;
         left: 0;
         right: 0;
-        background-color: white;
+        background-color: $color1;
         z-index: 99999;
 
         &--isHide{
@@ -55,11 +55,10 @@
         display: none;
 
         @include phone {
-            // display: none;
             display: block;
             padding: 15px;
-            color: white;
-            background: black;
+            color: $color1;
+            background: $color2;
             border-radius: 15px;
             text-align: center;
 

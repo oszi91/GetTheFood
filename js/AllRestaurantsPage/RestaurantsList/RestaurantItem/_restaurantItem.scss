@@ -14,11 +14,11 @@
     width: 100%;
     overflow: hidden;
     border-radius: 15px;
-    box-shadow: 2px 7px 20px 3px rgba(0, 0, 0, 0.25);
+    box-shadow: 2px 7px 20px 3px rgba($color: $color2, $alpha: 0.25);
     transition: .2s ease-in;
 
     &:hover{
-        box-shadow: 2px 7px 30px 3px rgba(228, 231, 18, 0.25);
+        box-shadow: 2px 7px 30px 3px rgba($color: darken($color4,10%), $alpha: 0.25);
     }
 
     &__main {
@@ -27,7 +27,6 @@
         justify-content: center;
         align-items: center;
         height: 100px;
-
 
         &__name {
             font-size: 1.5rem;

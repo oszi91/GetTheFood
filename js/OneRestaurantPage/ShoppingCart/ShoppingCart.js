@@ -3,6 +3,7 @@ import OneDishShoppingCart from './OneDishShoppingCart/OneDishShoppingCart';
 import DishMinPrice from './DishMinPrice/DishMinPrice';
 import FreeDelivery from './FreeDelivery/FreeDelivery';
 import SummaryOrder from './SummaryOrder/SummaryOrder';
+import { scrollToTop } from '../../Functions/scrollToTop';
 
 class ShoppingCart extends Component {
 
@@ -62,7 +63,7 @@ class ShoppingCart extends Component {
                     />}
                     <button
                         disabled={blockedBtn}
-                        onClick={this.handleCheckoutOpen}
+                        onClick={() => {this.handleCheckoutOpen(); scrollToTop()}}
                         className="dishOrder"
                     >{btnText}</button>
                     <div onClick={() => this.props.handleMobileOrder(false)} className="oneRestaurantCart__close"><i className="fas fa-times-circle"></i></div>
