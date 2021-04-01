@@ -5,7 +5,7 @@ class TimeDelivery extends Component {
         option: 'time_show_all'
     }
 
-    radioChange = (e) => {
+    radioChange = e => {
         this.setState({
             option: e.target.value
         }, () => {
@@ -14,6 +14,8 @@ class TimeDelivery extends Component {
     }
 
     render() {
+        const {option} = this.state;
+
         return (
             <div className="timeDelivery">
                 <form className="timeDelivery__form">
@@ -24,7 +26,7 @@ class TimeDelivery extends Component {
                             id="time_show_all"
                             name="time"
                             value="time_show_all"
-                            checked={this.state.option === "time_show_all"}
+                            checked={option === "time_show_all"}
                             onChange={e => this.radioChange(e)}
                         />
                         <label className="timeDelivery__form__radio__label" htmlFor="time_show_all"> Show all</label>
@@ -35,7 +37,7 @@ class TimeDelivery extends Component {
                             id="under30min"
                             name="time"
                             value="under30min"
-                            checked={this.state.option === "under30min"}
+                            checked={option === "under30min"}
                             onChange={e => this.radioChange(e)}
                         />
                         <label className="timeDelivery__form__radio__label" htmlFor="under30min"> Up to 30 min</label>
@@ -46,7 +48,7 @@ class TimeDelivery extends Component {
                             id="under1h"
                             name="time"
                             value="under1h"
-                            checked={this.state.option === "under1h"}
+                            checked={option === "under1h"}
                             onChange={e => this.radioChange(e)}
                         />
                         <label className="timeDelivery__form__radio__label" htmlFor="under1h"> Up to 1 hour</label>

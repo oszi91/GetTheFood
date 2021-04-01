@@ -29,6 +29,11 @@
            
         }
 
+        @include tablet{
+            font-size: 2rem;
+            min-width: 200px;
+        }
+
         &__text {
             display: block;
             text-align: center;
@@ -52,5 +57,10 @@
         object-fit: cover;
         object-position: 100% 50%;
         filter: grayscale(75%);
+
+        @include tablet{
+            height: 15vh;
+        }
     }
+
 }

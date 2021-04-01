@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ConfirmOrder from './ConfimOrder/ConfirmOrder';
+import InputCheckout from './InputCheckout/InputCheckout';
+import { scrollToTop } from '../../../Functions/scrollToTop';
 
 class Checkout extends Component {
     state = {
@@ -35,11 +37,12 @@ class Checkout extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        let errorsList = {};
 
         const { buildingNumber, apartmentNumber,
             name, surname, email, phone } = this.state;
 
+        let errorsList = {};
+        const hasNumber = txt => /\d/.test(txt);
 
         if (buildingNumber.length <= 0) {
             errorsList = { ...errorsList, buildingNumber: `Field can't be empty` }
@@ -49,12 +52,12 @@ class Checkout extends Component {
             errorsList = { ...errorsList, apartmentNumber: `Field can't be empty` }
         }
 
-        if (name.length < 2) {
-            errorsList = { ...errorsList, name: `Field must contain min. 2 characters` }
+        if (name.length < 2 || hasNumber(name)) {
+            errorsList = { ...errorsList, name: `Field must contain min. 2 characters (cannot be numbers)` }
         }
 
-        if (surname.length < 2) {
-            errorsList = { ...errorsList, surname: `Field must contain min. 2 characters` }
+        if (surname.length < 2 || hasNumber(surname)) {
+            errorsList = { ...errorsList, surname: `Field must contain min. 2 characters (cannot be numbers)` }
         }
 
         if (email.length < 3 && email.indexOf("@") < 0) {
@@ -84,24 +87,20 @@ class Checkout extends Component {
         })
     }
 
-    scrollToTop = () => {
-        window.scrollTo(0, 0);
-    }
-
     render() {
-        console.log(this.props.order)
         const { errorsList, buildingNumber, apartmentNumber,
             floor, gateCode, addNote, name, surname, email,
             phone, confirmOrder, orderProgress } = this.state;
-        const { address } = this.props;
+        const { address, averageDeliveryTime } = this.props;
 
         return (
             <div className="checkoutContainer">
-                {confirmOrder && 
-                 <ConfirmOrder
-                  orderProgress={orderProgress}
-                  handleOrderProgress={this.handleOrderProgress}
-                  />
+                {confirmOrder &&
+                    <ConfirmOrder
+                        orderProgress={orderProgress}
+                        handleOrderProgress={this.handleOrderProgress}
+                        averageDeliveryTime={averageDeliveryTime}
+                    />
                 }
                 <div className="checkout">
                     <h1 className="checkout__header">CHECKOUT</h1>
@@ -110,151 +109,93 @@ class Checkout extends Component {
                             <h3 className="checkout__form__header">Address info</h3>
                         </div>
                         <div className="checkout__form__inputsContainer">
-                            <div className="checkout__form__inputsContainer__item">
-                                <label className="checkout__form__inputsContainer__item__label" htmlFor="street">Street:</label>
-                                <input
-                                    className="checkout__form__inputsContainer__item__input"
-                                    type="text"
-                                    id="street"
-                                    name="street"
-                                    value={address.street}
-                                    disabled
-                                />
-                            </div>
-                            <div className="checkout__form__inputsContainer__item">
-                                <label className="checkout__form__inputsContainer__item__label" htmlFor="buildingNumber">Building number:</label>
-                                <input
-                                    className="checkout__form__inputsContainer__item__input"
-                                    type="text"
-                                    id="buildingNumber"
-                                    name="buildingNumber"
-                                    value={buildingNumber}
-                                    onChange={this.handleInput}
-                                />
-                                <p className="checkout__form__inputsContainer__item__error">{errorsList.buildingNumber}</p>
-                            </div>
-                            <div className="checkout__form__inputsContainer__item">
-                                <label className="checkout__form__inputsContainer__item__label" htmlFor="apartmentNumber">Apartment number:</label>
-                                <input
-                                    className="checkout__form__inputsContainer__item__input"
-                                    type="text"
-                                    id="apartmentNumber"
-                                    name="apartmentNumber"
-                                    value={apartmentNumber}
-                                    onChange={this.handleInput}
-                                />
-                                <p className="checkout__form__inputsContainer__item__error">{errorsList.apartmentNumber}</p>
-                            </div>
-                            <div className="checkout__form__inputsContainer__item">
-                                <label className="checkout__form__inputsContainer__item__label" htmlFor="zipCode">Zip code:</label>
-                                <input
-                                    className="checkout__form__inputsContainer__item__input"
-                                    type="text"
-                                    id="zipCode"
-                                    name="zipCode"
-                                    value={address.zipCode}
-                                    disabled
-                                />
-                            </div>
-                            <div className="checkout__form__inputsContainer__item">
-                                <label className="checkout__form__inputsContainer__item__label" htmlFor="city">City:</label>
-                                <input
-                                    className="checkout__form__inputsContainer__item__input"
-                                    type="text"
-                                    id="city"
-                                    name="city"
-                                    value={address.city}
-                                    disabled
-                                />
-                            </div>
-                            <div className="checkout__form__inputsContainer__item">
-                                <label className="checkout__form__inputsContainer__item__label" htmlFor="floor">Floor (optional):</label>
-                                <input
-                                    className="checkout__form__inputsContainer__item__input"
-                                    type="text"
-                                    id="floor"
-                                    name="floor"
-                                    value={floor}
-                                    onChange={this.handleInput}
-                                />
-                            </div>
-                            <div className="checkout__form__inputsContainer__item">
-                                <label className="checkout__form__inputsContainer__item__label" htmlFor="gateCode">Gate code (optional):</label>
-                                <input
-                                    className="checkout__form__inputsContainer__item__input"
-                                    type="text"
-                                    id="gateCode"
-                                    name="gateCode"
-                                    value={gateCode}
-                                    onChange={this.handleInput}
-                                />
-                            </div>
-                            <div className="checkout__form__inputsContainer__item">
-                                <label className="checkout__form__inputsContainer__item__label" htmlFor="addNote">Add note (optional):</label>
-                                <input
-                                    className="checkout__form__inputsContainer__item__input"
-                                    type="text"
-                                    id="addNote"
-                                    name="addNote"
-                                    value={addNote}
-                                    onChange={this.handleInput}
-                                />
-                            </div>
+                            <InputCheckout
+                                label={"street"}
+                                htmlTxt={"Street"}
+                                value={address.street}
+                                isDisabled={true}
+                            />
+                            <InputCheckout
+                                label={"buildingNumber"}
+                                htmlTxt={"Building number"}
+                                value={buildingNumber}
+                                handleFunction={this.handleInput}
+                                err={errorsList.buildingNumber}
+                            />
+                            <InputCheckout
+                                label={"apartmentNumber"}
+                                htmlTxt={"Apartment number"}
+                                value={apartmentNumber}
+                                handleFunction={this.handleInput}
+                                err={errorsList.apartmentNumber}
+                            />
+                            <InputCheckout
+                                label={"zipCode"}
+                                htmlTxt={"Zip code"}
+                                value={address.zipCode}
+                                isDisabled={true}
+                            />
+                            <InputCheckout
+                                label={"city"}
+                                htmlTxt={"City"}
+                                value={address.city}
+                                isDisabled={true}
+                            />
+                            <InputCheckout
+                                label={"floor"}
+                                htmlTxt={"Floor (optional)"}
+                                value={floor}
+                                handleFunction={this.handleInput}
+                            />
+                            <InputCheckout
+                                label={"gateCode"}
+                                htmlTxt={"Gate code (optional)"}
+                                value={gateCode}
+                                handleFunction={this.handleInput}
+                            />
+                            <InputCheckout
+                                label={"addNote"}
+                                htmlTxt={"Add note (optional)"}
+                                value={addNote}
+                                handleFunction={this.handleInput}
+                            />
                         </div>
                         <div className="checkout__form__header">
                             <h3 className="checkout__form__header">Personal info</h3>
                         </div>
                         <div className="checkout__form__inputsContainer">
-                            <div className="checkout__form__inputsContainer__item">
-                                <label className="checkout__form__inputsContainer__item__label" htmlFor="name">Name:</label>
-                                <input
-                                    className="checkout__form__inputsContainer__item__input"
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    value={name}
-                                    onChange={this.handleInput}
-                                />
-                                <p className="checkout__form__inputsContainer__item__error">{errorsList.name}</p>
-                            </div>
-                            <div className="checkout__form__inputsContainer__item">
-                                <label className="checkout__form__inputsContainer__item__label" htmlFor="surname">Surname:</label>
-                                <input
-                                    className="checkout__form__inputsContainer__item__input"
-                                    type="text"
-                                    id="surname"
-                                    name="surname"
-                                    value={surname}
-                                    onChange={this.handleInput}
-                                />
-                                <p className="checkout__form__inputsContainer__item__error">{errorsList.surname}</p>
-                            </div>
-                            <div className="checkout__form__inputsContainer__item">
-                                <label className="checkout__form__inputsContainer__item__label" htmlFor="email">Email address:</label>
-                                <input
-                                    className="checkout__form__inputsContainer__item__input"
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    value={email}
-                                    onChange={this.handleInput}
-                                />
-                                <p className="checkout__form__inputsContainer__item__error">{errorsList.email}</p>
-                            </div>
-                            <div className="checkout__form__inputsContainer__item">
-                                <label className="checkout__form__inputsContainer__item__label" htmlFor="phone">Phone number:</label>
-                                <input
-                                    className="checkout__form__inputsContainer__item__input"
-                                    type="tel"
-                                    id="phone"
-                                    name="phone"
-                                    value={phone}
-                                    onChange={this.handleInput}
-                                />
-                                <p className="checkout__form__inputsContainer__item__error">{errorsList.phone}</p>
-                            </div>
+                            <InputCheckout
+                                label={"name"}
+                                htmlTxt={"Name"}
+                                value={name}
+                                handleFunction={this.handleInput}
+                                err={errorsList.name}
+                            />
+                            <InputCheckout
+                                label={"surname"}
+                                htmlTxt={"Surname"}
+                                value={surname}
+                                handleFunction={this.handleInput}
+                                err={errorsList.surname}
+                            />
+                            <InputCheckout
+                                label={"email"}
+                                htmlTxt={"Email address"}
+                                value={email}
+                                handleFunction={this.handleInput}
+                                type={"email"}
+                                err={errorsList.email}
+                            />
+                            <InputCheckout
+                                label={"phone"}
+                                htmlTxt={"Phone number"}
+                                value={phone}
+                                handleFunction={this.handleInput}
+                                type={"tel"}
+                                err={errorsList.phone}
+                            />
                         </div>
-                        <button onClick={() => {this.handleClearOrder(); this.scrollToTop()}} className="dishOrder">Confirm and Order</button>
+                        <button onClick={() => { this.handleClearOrder(); scrollToTop() }} className="dishOrder">Confirm and Order</button>
                     </form>
                 </div>
 

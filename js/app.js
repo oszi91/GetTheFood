@@ -29,7 +29,7 @@ class App extends Component {
     }
 
     render() {
-        const { data, address } = this.state;
+        const { data, address, showSearchBar, blockAddress } = this.state;
         if (!data) return null;
 
         let restaurantsIndexToDelete = [];
@@ -51,30 +51,32 @@ class App extends Component {
         return (
             <HashRouter>
                 <Header
-                    address={this.state.address}
-                    showSearchBar={this.state.showSearchBar}
+                    address={address}
+                    showSearchBar={showSearchBar}
                     data={data}
                     handleAddress={this.handleAddress}
-                    blockAddress={this.state.blockAddress}
+                    blockAddress={blockAddress}
                 />
                 <Switch>
                     <Route exact path={"/"}
                         component={() =>
                             <StartPage
                                 data={data}
-                                handleAddress={this.handleAddress} />} />
+                                handleAddress={this.handleAddress}
+                            />} />
                     <Route exact path={"/restaurants"}
                         component={() =>
                             <AllRestaurantsPage
                                 data={newData}
-                                address={this.state.address}
-                                />} />
+                                address={address}
+                            />} />
                     <Route exact path={"/restaurants/:id"}
                         render={(props) =>
                             <OneRestaurantPage
                                 data={data}
-                                address={this.state.address}
-                                {...props} />}
+                                address={address}
+                                {...props}
+                            />}
                     />
                 </Switch>
                 <Footer />

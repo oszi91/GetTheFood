@@ -10,24 +10,33 @@ import { scrollToTop } from '../../Functions/scrollToTop';
 class Filters extends Component {
 
     render() {
-        const isFiltersOpen = this.props.showHideFilters ? "allFood__filters allFood__filters--isHide" : "allFood__filters";
+        const { showHideFilters, restaurantsList, filterSearchRestaurant,
+            sortRestaurants, freeDeliveryHandle, deliveryTimeHandle,
+            minCostDeliveryHandle, restaurantRating, openNowHandle,
+            numberOfRestaurants, handleMobileFilters } = this.props;
+
+        const isFiltersOpen = showHideFilters ? "allFood__filters allFood__filters--isHide" : "allFood__filters";
 
         return (
             <div className={isFiltersOpen}>
                 <SearchRestaurant
-                    restaurantsList={this.props.restaurantsList}
-                    filterSearchRestaurant={this.props.filterSearchRestaurant}
-                    sortRestaurants={this.props.sortRestaurants}
+                    restaurantsList={restaurantsList}
+                    filterSearchRestaurant={filterSearchRestaurant}
+                    sortRestaurants={sortRestaurants}
                 />
-                <FreeDelivery freeDeliveryHandle={this.props.freeDeliveryHandle} />
-                <TimeDelivery deliveryTimeHandle={this.props.deliveryTimeHandle} />
-                <MinPriceDelivery minCostDeliveryHandle={this.props.minCostDeliveryHandle} />
-                <RestaurantRating restaurantRating={this.props.restaurantRating} />
-                <OpenNow openNowHandle={this.props.openNowHandle}/>
-                <div onClick={() => {this.props.handleMobileFilters(false); scrollToTop()}} className="allFood__filters__results">Show Results
-                (<span className="allFood__filters__results--bold">{this.props.numberOfRestaurants}</span>)
+                <FreeDelivery freeDeliveryHandle={freeDeliveryHandle} />
+                <TimeDelivery deliveryTimeHandle={deliveryTimeHandle} />
+                <MinPriceDelivery minCostDeliveryHandle={minCostDeliveryHandle} />
+                <RestaurantRating restaurantRating={restaurantRating} />
+                <OpenNow openNowHandle={openNowHandle} />
+                <div onClick={() => { handleMobileFilters(false); scrollToTop() }} className="allFood__filters__results">Show Results
+                (<span className="allFood__filters__results--bold">{numberOfRestaurants}</span>)
                 </div>
-                <div onClick={() => this.props.handleMobileFilters(false)} className="allFood__filters__close"><i className="fas fa-times-circle"></i></div>
+                <div
+                    onClick={() => handleMobileFilters(false)}
+                    className="allFood__filters__close">
+                    <i className="fas fa-times-circle"></i>
+                </div>
             </div>
         );
     }

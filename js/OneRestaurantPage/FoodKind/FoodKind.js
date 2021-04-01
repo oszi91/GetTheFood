@@ -5,15 +5,11 @@ import "react-multi-carousel/lib/styles.css";
 class FoodKind extends Component {
 
     render() {
+
         const responsive = {
-            superLargeDesktop: {
-                breakpoint: { max: 4000, min: 3000 },
-                items: 5
-            },
             desktop: {
                 breakpoint: { max: 3000, min: 1024 },
                 items: 8,
-
             },
             tablet: {
                 breakpoint: { max: 1024, min: 767 },
@@ -25,7 +21,7 @@ class FoodKind extends Component {
             }
         };
 
-        const {foodCat} = this.props;
+        const {foodCat, handleClick} = this.props;
        
         return (
             <div className="allRestaurants__typeOfDish">
@@ -43,7 +39,7 @@ class FoodKind extends Component {
                 >
                     {foodCat.map(cat => 
                     <div 
-                    onClick={() => this.props.handleClick(cat.sectionName)}
+                    onClick={() => handleClick(cat.sectionName)}
                     key={cat.sectionName} 
                     className="typeOfDish__list__item">{cat.sectionName}</div>
                     )}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
     Link
 } from 'react-router-dom';
+import { scrollToTop } from '../../../../Functions/scrollToTop';
 
 class ConfirmOrder extends Component {
 
@@ -41,15 +42,11 @@ class ConfirmOrder extends Component {
         clearTimeout(this.timeoutDelivered)
     }
 
-    scrollToTop = () => {
-        window.scrollTo(0, 0);
-    }
-
     render() {
-        const { orderProgress } = this.props;
+        const { orderProgress, averageDeliveryTime } = this.props;
 
         const orderProgressTxt = ['Wait for restaurant confirmation',
-            'Your order will be delivered at 12', 'Your order is on its way', 'Your order has been delivered'];
+            `Your order will be delivered in ${averageDeliveryTime} min.`, 'Your order is on its way', 'Your order has been delivered'];
 
         return (
             <div className="checkoutConfirm__container">
@@ -62,7 +59,7 @@ class ConfirmOrder extends Component {
                         <div className={`checkoutConfirm__status__item ${orderProgress === 2 ? 'active' : ''}`}>On the way</div>
                         <div className={`checkoutConfirm__status__item ${orderProgress === 3 ? 'active' : ''}`}>Delivered</div>
                     </div>
-                    <Link onClick={this.scrollToTop} className="checkoutConfirm__back" to='/restaurants'>Go back to restaurant list</Link>
+                    <Link onClick={scrollToTop} className="checkoutConfirm__back" to='/restaurants'>Go back to restaurant list</Link>
                 </div>
             </div>
             );

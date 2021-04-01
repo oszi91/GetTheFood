@@ -15,6 +15,8 @@ class MinPriceDelivery extends Component {
     }
 
     render() {
+        const {option} = this.state;
+
         return (
             <div className="minPriceDelivery">
                 <form className="minPriceDelivery__form">
@@ -25,7 +27,7 @@ class MinPriceDelivery extends Component {
                             id="price_show_all"
                             name="price"
                             value="price_show_all"
-                            checked={this.state.option === "price_show_all"}
+                            checked={option === "price_show_all"}
                             onChange={e => this.radioChange(e)}
                         />
                         <label className="minPriceDelivery__form__radio__label"
@@ -37,7 +39,7 @@ class MinPriceDelivery extends Component {
                             id="under30PLN"
                             name="price"
                             value="under30PLN"
-                            checked={this.state.option === "under30PLN"}
+                            checked={option === "under30PLN"}
                             onChange={e => this.radioChange(e)}
                         />
                         <label className="minPriceDelivery__form__radio__label"
@@ -49,7 +51,7 @@ class MinPriceDelivery extends Component {
                             id="under60PLN"
                             name="price"
                             value="under60PLN"
-                            checked={this.state.option === "under60PLN"}
+                            checked={option === "under60PLN"}
                             onChange={e => this.radioChange(e)}
                         />
                         <label

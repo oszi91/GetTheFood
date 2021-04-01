@@ -6,8 +6,7 @@ import {
 class SearchBarAddress extends Component {
     state = {
         searchAddress: '',
-        addressListData: { ...this.props.data },
-        searchScore: 0
+        addressListData: { ...this.props.data }
     }
 
     handleInput = e => {
@@ -16,20 +15,12 @@ class SearchBarAddress extends Component {
         })
     }
 
-    saveAddress = (address) => {
+    saveAddress = address => {
         this.props.handleAddress(address);
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.searchScore !== this.state.searchScore) {
-            this.setState({
-                searchScore: this.list.children.length
-            })
-        }
-    }
-
     render() {
-        const { searchAddress, addressListData, searchScore } = this.state;
+        const { searchAddress, addressListData } = this.state;
         const { handleCloseAddressBar } = this.props;
        
         const addressList =
@@ -59,11 +50,11 @@ class SearchBarAddress extends Component {
                     placeholder={'e.g. Emaliowa, 02-295 Warszawa'}
                     className={`searchPlace__form__input ${inputIsActive}`}
                     type="text"
-                    value={this.state.searchAddress}
+                    value={searchAddress}
                     onChange={this.handleInput}
                 />
                 <div className="searchPlace__form__icon"><i className="fas fa-search"></i></div>
-                <ul className="searchPlace__addressList" ref={list => this.list = list}>
+                <ul className="searchPlace__addressList">
                     {searchAddress && addressList}
                 </ul>
             </form>

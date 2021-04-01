@@ -15,6 +15,8 @@ class OpenNow extends Component {
     }
 
     render() { 
+        const {isChecked} = this.state;
+
         return ( 
             <div className="openNow">
             <p className="openNow__text">Open now</p>
@@ -23,7 +25,7 @@ class OpenNow extends Component {
                     <input 
                     className="switch__input" 
                     type="checkbox" 
-                    value={this.state.isChecked}
+                    value={isChecked}
                      onClick={this.handleCheck}
                     />
                     <span className="slider"></span>

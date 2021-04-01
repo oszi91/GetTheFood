@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import {
-    Link
-} from 'react-router-dom';
 import SearchBarAddress from './../StartPage/SearchBarAddress/SearchBarAddress';
+import AddressHeader from './AddressHeader/AddressHeader';
+import AddressHeaderMobile from './AddressHeaderMobile/AddressHeaderMobile';
+import Logo from './Logo/Logo';
 
 class Header extends Component {
 
@@ -58,60 +58,46 @@ class Header extends Component {
     }
 
     render() {
-        const { address, showSearchBar } = this.props;
+        const { address, showSearchBar, data, handleAddress } = this.props;
+        const { headerTop, cursor, isOpen } = this.state;
 
         const addressToHeader = `${address.street}, ${address.zipCode} ${address.city}`;
         const addressTxt = address ? addressToHeader : 'Enter your address';
 
-        const cursorNotAllowed = this.state.cursor ? '' : 'nav__address__notAllowed';
-
         return (
             <>
                 <header
-                    className={`header ${this.state.headerTop ? '' : 'header__hide'}`}
+                    className={`header ${headerTop ? '' : 'header__hide'}`}
                     onMouseEnter={this.handleCursor}
+                    onTouchStartCapture={this.handleCursor}
                 >
                     <div className="container">
                         <nav className="nav">
-                            <div className="nav__logo">
-                                <Link to="/">
-                                    <p className="nav__logo__text">
-                                        Get
-                                <span className="nav__logo__text--color-one">The</span>
-                                        <span className="nav__logo__text--color-two">Food!</span>
-                                        <i className="fas fa-hamburger"></i>
-                                    </p>
-                                </Link>
-                            </div>
-                            <div className="nav__address">
-                                <p
-                                    onClick={this.handleOpenAddressBar}
-                                    className={`nav__address__text ${cursorNotAllowed}`}
-                                >
-                                    {addressTxt}
-                                </p>
-                            </div>
-                            <div className="nav__address__mobile">
-                                <p className={address ? "nav__address__mobile__text" : ""}
-                                    onClick={this.handleOpenAddressBar}
-                                >
-                                    {address ? ('St. ' + address.street + ' ...') : <i className="fas fa-search-location"></i>}
-                                </p>
-                            </div>
-                            <div className="nav__basket">
-                                <Link to="./">
-                                    {/* <i className="fas fa-shopping-cart"></i> */}
-                                </Link>
+                            <Logo />
+                            <AddressHeader
+                                cursor={cursor}
+                                handleOpenAddressBar={this.handleOpenAddressBar}
+                                addressTxt={addressTxt}
+                            />
+                            <AddressHeaderMobile
+                                address={address}
+                                handleOpenAddressBar={this.handleOpenAddressBar}
+                            />
+                            <div className="nav__empty">
                             </div>
                         </nav>
                     </div>
-                    {this.state.isOpen && <div className="searchBarAddress__container">
+                    {isOpen && <div className="searchBarAddress__container">
                         <div className="searchBarAddress">
-                            <div onClick={this.handleCloseAddressBar} className="searchBarAddress__close"><i className="fas fa-times-circle"></i></div>
+                            <div
+                                onClick={this.handleCloseAddressBar}
+                                className="searchBarAddress__close">
+                                <i className="fas fa-times-circle"></i>
+                            </div>
                             <SearchBarAddress
                                 showSearchBar={showSearchBar}
-                                data={this.props.data}
-                                handleAddress={this.props.handleAddress}
+                                data={data}
+                                handleAddress={handleAddress}
                                 handleCloseAddressBar={this.handleCloseAddressBar}
                             />
                         </div>

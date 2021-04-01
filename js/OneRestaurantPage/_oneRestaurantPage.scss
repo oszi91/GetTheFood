@@ -43,6 +43,10 @@
         @include phone{
             width: 100%;
         }
+
+        @include tablet{
+            width: 70%;
+        }
     }
 
     .dishOrder {

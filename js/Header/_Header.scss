@@ -42,10 +42,11 @@
         }
 
         &__text {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             transition: 0.2s;
-            &:hover{
+
+            &:hover {
                 transform: scale(1.05);
             }
 
@@ -71,17 +72,18 @@
     &__address {
         width: 60%;
         text-align: center;
-        cursor: pointer;
 
         @include phone {
             display: none;
         }
 
         &__notAllowed {
-            cursor: not-allowed;
+            cursor: not-allowed !important;
         }
 
         &__text {
+            cursor: pointer;
+            display: inline;
             font-size: 1.5rem;
         }
 
@@ -103,10 +105,11 @@
         }
     }
 
-    &__basket {
+    &__empty {
         @include phone {
             display: none;
         }
+
         font-size: 1.5rem;
         width: 20%;
         text-align: end;
@@ -164,7 +167,7 @@
                     font-size: 0.8rem;
                 }
             }
-            
+
             width: 100%;
             border-radius: 25px 25px 0 0;
         }

@@ -12,13 +12,15 @@
         font-size: 3rem;
         font-weight: 800;
         z-index: 1;
+        text-align: center;
+
         @include phone{
             font-size: 1.5rem;
             left: 5%;
             right: 5%;
             transform: none;
-            text-align: center;
         }
+
     }
 
     &__img {
@@ -30,6 +32,11 @@
         filter: grayscale(75%);
 
         @include phone{
+            height: 25vh;
+            object-position: 100% 0;
+        }
+
+        @include tablet{
             height: 25vh;
             object-position: 100% 0;
         }

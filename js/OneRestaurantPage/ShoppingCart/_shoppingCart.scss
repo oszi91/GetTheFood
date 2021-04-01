@@ -26,6 +26,10 @@
         }
     }
 
+    @include tablet{
+        width: 30%;
+    }
+
     &__header {
         font-weight: 700;
         margin-top: 15px;

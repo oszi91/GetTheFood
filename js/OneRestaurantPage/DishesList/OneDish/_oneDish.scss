@@ -7,6 +7,10 @@
         width: 100%;
     }
 
+    @include tablet{
+        width: 48%;
+    }
+
     .oneDishView {
         display: flex;
         width: 100%;

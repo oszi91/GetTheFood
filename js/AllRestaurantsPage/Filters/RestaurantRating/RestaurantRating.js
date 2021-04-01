@@ -5,7 +5,7 @@ class RestaurantRating extends Component {
         stars: ''
     }
 
-    ratingHandle = (e) => {
+    ratingHandle = e => {
         const allStars = e.target.parentNode.children;
         const activeStars = document.querySelectorAll('.stars__item__active');
         const stars = e.target.dataset.id;

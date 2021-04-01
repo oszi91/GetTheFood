@@ -37,6 +37,10 @@
             border: 1px solid transparent;
         }
 
+        &:focus{
+            border: 1px solid $color4;
+        }
+
         @include phone{
             padding: 10px;
             width: 85%;

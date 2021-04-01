@@ -4,10 +4,7 @@ import MainPhoto from './MainPhoto/MainPhoto';
 import RestaurantsList from './RestaurantsList/RestaurantsList';
 import SearchRestaurant from './SearchRestaurant/SearchRestaurant';
 import TypeOfDish from './TypeOfDish/TypeOfDish';
-import {
-    NavLink
-} from 'react-router-dom';
-
+import CurrentPageNav from '../CurrentPageNav/CurrentPageNav';
 
 class AllRestaurantsPage extends Component {
 
@@ -15,7 +12,7 @@ class AllRestaurantsPage extends Component {
         restaurantsList: this.props.data.restaurants,
         filtersList: {
             searchRestaurant: () => res => res,
-            sortRestaurants: () => res => res,
+            sortRestaurants: (a, b) => b.rating - a.rating,
             foodCategory: () => res => res,
             freeDelivery: () => res => res,
             deliveryTime: () => res => res,
@@ -63,7 +60,7 @@ class AllRestaurantsPage extends Component {
                 sortRestaurants = (a, b) => a.deliveryPrice - b.deliveryPrice
                 break;
             case 'rating':
-                sortRestaurants = (a, b) => a.rating - b.rating
+                sortRestaurants = (a, b) => b.rating - a.rating
                 break;
         }
 
@@ -87,8 +84,8 @@ class AllRestaurantsPage extends Component {
     }
 
     freeDeliveryHandle = isFree => {
+        let freeDelivery = res => res;
 
-        let freeDelivery = res => res
         if (isFree) {
             freeDelivery = res => res;
         } else {
@@ -101,8 +98,8 @@ class AllRestaurantsPage extends Component {
     }
 
     deliveryTimeHandle = delTime => {
-
         let deliveryTime = res => res;
+
         switch (delTime) {
             case 'time_show_all':
                 deliveryTime = res => res
@@ -121,8 +118,8 @@ class AllRestaurantsPage extends Component {
     }
 
     minCostDeliveryHandle = minCost => {
-
         let minCostDeliveryHandle = () => res => res;
+
         switch (minCost) {
             case 'price_show_all':
                 minCostDeliveryHandle = () => res => res;
@@ -141,8 +138,8 @@ class AllRestaurantsPage extends Component {
     }
 
     restaurantRating = rating => {
-
         let restaurantRating = () => res => res;
+
         switch (rating) {
             case '1':
                 restaurantRating = () => res => res;
@@ -167,7 +164,6 @@ class AllRestaurantsPage extends Component {
     }
 
     openNowHandle = hour => {
-
         const getCurrHour = new Date().getHours();
 
         let openNowHandle = res => res;
@@ -183,8 +179,8 @@ class AllRestaurantsPage extends Component {
     }
 
     render() {
-        const { foodCategoriesAll } = this.props.data;
-        const { restaurantsList, filtersList } = this.state;
+        const { foodCategoriesAll, address } = this.props.data;
+        const { restaurantsList, filtersList, showHideFilters } = this.state;
         const { freeDelivery, openNowHandle, foodCategory,
             searchRestaurant, sortRestaurants, deliveryTime,
             minCostDeliveryHandle, restaurantRating } = filtersList;
@@ -209,17 +205,9 @@ class AllRestaurantsPage extends Component {
                 <MainPhoto numberOfRestaurants={restaurantsNewList.length} />
                 <div className="containerBig">
                     <div className="currentPage">
-                        <NavLink
-                            className="currentPage__item"
-                            activeClassName="currentPage__item--active"
-                            exact to='/'>
-                            Start Page</NavLink>
+                        <CurrentPageNav page={'/'} pageName={'Start Page'}/>
                         <i className="fas fa-chevron-right"></i>
-                        <NavLink
-                            className="currentPage__item"
-                            activeClassName="currentPage__item--active"
-                            to='/restaurants'>
-                            Restaurants</NavLink>
+                        <CurrentPageNav page={'/restaurants'} pageName={'Restaurants'}/>
                     </div>
                     <div className="allRestaurants__container">
                         <div className="allRestaurants">
@@ -236,7 +224,7 @@ class AllRestaurantsPage extends Component {
                             />
                             <RestaurantsList
                                 restaurantsList={restaurantsNewList}
-                                address={this.props.address}
+                                address={address}
                             />
                         </div>
                         <Filters
@@ -250,7 +238,7 @@ class AllRestaurantsPage extends Component {
                             filterSearchRestaurant={this.filterSearchRestaurant}
                             sortRestaurants={this.sortRestaurants}
                             handleMobileFilters={this.handleMobileFilters}
-                            showHideFilters={this.state.showHideFilters}
+                            showHideFilters={showHideFilters}
                         />
                     </div>
                 </div>

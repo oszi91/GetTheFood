@@ -28,17 +28,20 @@ class SearchRestaurant extends Component {
     }
 
     render() {
+        const {handleMobileFilters} = this.props;
+        const {searchVal, sortVal} = this.state;
+
         return (
             <>
                 <h2 className="allRestaurants__header">Find your favorite restaurant</h2>
                 <div className="allRestaurants__search">
                     <input className="allRestaurants__search__input"
-                        value={this.state.searchVal}
+                        value={searchVal}
                         onChange={this.handleInput}
                         type="text"
                         placeholder="the name of the restaurant"
                     />
-                    <div onClick={() => this.props.handleMobileFilters(true)} className="allRestaurants__search__filters">
+                    <div onClick={() => handleMobileFilters(true)} className="allRestaurants__search__filters">
                         <i className="fas fa-sliders-h"></i>
                     </div>
                     <div className="allRestaurants__search__sort">
@@ -46,14 +49,14 @@ class SearchRestaurant extends Component {
                         <select
                             className="allRestaurants__search__sort__select"
                             name="sort"
-                            value={this.state.sortVal}
+                            value={sortVal}
                             onChange={this.handleSelect}
                         >
-                            <option value="alphabetically">Alphabetically</option>
+                            <option value="rating">Rating</option>
                             <option value="min_order_amount">Min. order amount</option>
                             <option value="delivery_time">Delivery time</option>
                             <option value="delivery_costs">Delivery costs</option>
-                            <option value="rating">Rating</option>
+                            <option value="alphabetically">Alphabetically</option>
                         </select>
                     </div>
                 </div>

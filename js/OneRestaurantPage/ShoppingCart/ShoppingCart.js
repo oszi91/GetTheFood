@@ -20,14 +20,15 @@ class ShoppingCart extends Component {
     }
 
     render() {
-        const { minDeliveryPrice, orderAmount, handleCheckout } = this.props;
-        const {checkout} = this.state;
+        const { minDeliveryPrice, orderAmount, order,
+            foodMenu, handleOrder, deliveryPrice,
+            freeDeliveryFrom, handleMobileOrder, isOrderOpenMobile } = this.props;
+        const { checkout } = this.state;
+
         const priceLeft = minDeliveryPrice - orderAmount;
-
-        const blockedBtn = !(orderAmount>=minDeliveryPrice);
+        const blockedBtn = !(orderAmount >= minDeliveryPrice);
         const btnText = checkout ? 'Go back to menu' : `Order (${orderAmount.toFixed(2)} PLN)`;
-
-        const isCartOpen = this.props.isOrderOpenMobile ? "oneRestaurantCart oneRestaurantCart--isHide" : "oneRestaurantCart"
+        const isCartOpen = isOrderOpenMobile ? "oneRestaurantCart oneRestaurantCart--isHide" : "oneRestaurantCart"
 
         return (
             <>
@@ -36,15 +37,15 @@ class ShoppingCart extends Component {
                     {orderAmount ?
                         <>
                             <OneDishShoppingCart
-                                order={this.props.order}
-                                foodMenu={this.props.foodMenu}
-                                handleOrder={this.props.handleOrder}
-                                checkout={this.state.checkout}
+                                order={order}
+                                foodMenu={foodMenu}
+                                handleOrder={handleOrder}
+                                checkout={checkout}
                             />
                             <SummaryOrder
-                                orderAmount={this.props.orderAmount}
-                                deliveryPrice={this.props.deliveryPrice}
-                                freeDeliveryFrom={this.props.freeDeliveryFrom}
+                                orderAmount={orderAmount}
+                                deliveryPrice={deliveryPrice}
+                                freeDeliveryFrom={freeDeliveryFrom}
                             />
                         </>
                         :
@@ -54,19 +55,23 @@ class ShoppingCart extends Component {
                         </div>
                     }
                     <FreeDelivery
-                        orderAmount={this.props.orderAmount}
-                        freeDeliveryFrom={this.props.freeDeliveryFrom}
+                        orderAmount={orderAmount}
+                        freeDeliveryFrom={freeDeliveryFrom}
                     />
                     {priceLeft > 0 && <DishMinPrice
-                        orderAmount={this.props.orderAmount}
-                        minDeliveryPrice={this.props.minDeliveryPrice}
+                        orderAmount={orderAmount}
+                        minDeliveryPrice={minDeliveryPrice}
                     />}
                     <button
                         disabled={blockedBtn}
-                        onClick={() => {this.handleCheckoutOpen(); scrollToTop()}}
+                        onClick={() => { this.handleCheckoutOpen(); scrollToTop() }}
                         className="dishOrder"
                     >{btnText}</button>
-                    <div onClick={() => this.props.handleMobileOrder(false)} className="oneRestaurantCart__close"><i className="fas fa-times-circle"></i></div>
+                    <div
+                        onClick={() => handleMobileOrder(false)}
+                        className="oneRestaurantCart__close">
+                        <i className="fas fa-times-circle"></i>
+                    </div>
                 </div>
             </>
         );

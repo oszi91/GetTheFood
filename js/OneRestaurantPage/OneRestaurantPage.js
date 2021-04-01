@@ -6,9 +6,7 @@ import ShoppingCart from './ShoppingCart/ShoppingCart';
 import changeNameToURL from '../Functions/changeNameToURL';
 import { Prompt } from 'react-router'
 import Checkout from './ShoppingCart/Checkout/Checkout';
-import {
-    NavLink
-} from 'react-router-dom';
+import CurrentPageNav from '../CurrentPageNav/CurrentPageNav';
 
 class OneRestaurantPage extends Component {
 
@@ -18,10 +16,18 @@ class OneRestaurantPage extends Component {
         isOrderOpenMobile: false
     }
 
+    componentDidUpdate = () => {
+        if (this.state.order.length) {
+            window.onbeforeunload = () => true
+        } else {
+            window.onbeforeunload = undefined
+        }
+    }
+
     handleMobileOrder = val => {
-            this.setState({
-                isOrderOpenMobile: val
-            })
+        this.setState({
+            isOrderOpenMobile: val
+        })
     }
 
     handleOrder = (dish, val) => {
@@ -41,18 +47,10 @@ class OneRestaurantPage extends Component {
         }
     }
 
-    handleCheckout = (checkoutIsOpen) => {
+    handleCheckout = checkoutIsOpen => {
         this.setState({
             checkoutIsOpen
         })
-    }
-
-    componentDidUpdate = () => {
-        if (this.state.order.length) {
-            window.onbeforeunload = () => true
-        } else {
-            window.onbeforeunload = undefined
-        }
     }
 
     clearOrder = order => {
@@ -62,49 +60,47 @@ class OneRestaurantPage extends Component {
     }
 
     render() {
+        const {address} = this.props;
         const { restaurants } = this.props.data;
+        const { order, checkoutIsOpen, isOrderOpenMobile } = this.state;
         const { id } = this.props.match.params;
 
         const oneRestaurant = restaurants.filter(restaurant => (
             changeNameToURL(restaurant.name) == id
         ));
 
-        const orderAmount = this.state.order.reduce((a, b) => a + b.price, 0);
-
-       
+        const orderAmount = order.reduce((a, b) => a + b.price, 0);
 
         return (
             oneRestaurant.map(restaurant => (
                 <main key={restaurant.id} className="oneRestaurant__main">
                     <Prompt
-                        when={this.state.order.length > 0}
+                        when={order.length > 0}
                         message='If you leave the website you will lose your order. Are you sure you want to do this?'
                     />
                     <OneRestaurantHeader name={restaurant.name} rating={restaurant.rating} photo={restaurant.photo} />
                     <div className="containerBig">
-                    <div className="currentPage">
-                        <NavLink
-                            className="currentPage__item"
-                            activeClassName="currentPage__item--active"
-                            exact to='/'>
-                        Start Page</NavLink>
-                        <i className="fas fa-chevron-right"></i>
-                        <NavLink
-                            className="currentPage__item"
-                            activeClassName="currentPage__item--active"
-                            exact to='/restaurants'>
-                        Restaurants</NavLink>
-                        <i className="fas fa-chevron-right"></i>
-                        <NavLink
-                            className="currentPage__item"
-                            activeClassName="currentPage__item--active"
-                            to={`/restaurants/${changeNameToURL(restaurant.name)}`}>
-                        {restaurant.name}</NavLink>
-                    </div>
+                        <div className="currentPage">
+                            <CurrentPageNav
+                                page={'/'}
+                                pageName={'Start Page'} />
+                            <i className="fas fa-chevron-right"></i>
+                            <CurrentPageNav
+                                page={'/restaurants'}
+                                pageName={'Restaurants'} />
+                            <i className="fas fa-chevron-right"></i>
+                            <CurrentPageNav
+                                page={`/restaurants/${changeNameToURL(restaurant.name)}`}
+                                pageName={restaurant.name} />
+                        </div>
                         <div className="oneRestaurant__container">
                             <>
                                 {this.state.checkoutIsOpen ?
-                                    <Checkout address={this.props.address} clearOrder={this.clearOrder} />
+                                    <Checkout 
+                                    address={address} 
+                                    clearOrder={this.clearOrder}
+                                    averageDeliveryTime={restaurant.averageDeliveryTime}
+                                     />
                                     :
                                     <div className="oneRestaurantMenu">
                                         {restaurant.menus.map(res => {
@@ -129,7 +125,7 @@ class OneRestaurantPage extends Component {
                                                     <DishesList
                                                         foodMenu={res.menuSections}
                                                         reference={refs}
-                                                        order={this.state.order}
+                                                        order={order}
                                                         handleOrder={this.handleOrder}
                                                     />
                                                 </React.Fragment>
@@ -142,19 +138,19 @@ class OneRestaurantPage extends Component {
                             <ShoppingCart
                                 foodMenu={restaurant.menus}
                                 orderAmount={orderAmount}
-                                order={this.state.order}
+                                order={order}
                                 deliveryPrice={restaurant.deliveryPrice}
                                 freeDeliveryFrom={restaurant.freeDeliveryFrom}
                                 minDeliveryPrice={restaurant.minDeliveryPrice}
                                 handleOrder={this.handleOrder}
                                 handleCheckout={this.handleCheckout}
-                                checkoutIsOpen={this.state.checkoutIsOpen}
-                                isOrderOpenMobile={this.state.isOrderOpenMobile}
+                                checkoutIsOpen={checkoutIsOpen}
+                                isOrderOpenMobile={isOrderOpenMobile}
                                 handleMobileOrder={this.handleMobileOrder}
                             />
                         </div>
-                        {this.state.order.length > 0 && 
-                        <div onClick={() => this.handleMobileOrder(true)} className="basket__mobileBtn">Show order {orderAmount} PLN</div>
+                        {order.length > 0 &&
+                            <div onClick={() => this.handleMobileOrder(true)} className="basket__mobileBtn">Show order {orderAmount} PLN</div>
                         }
                     </div>
                 </main>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class DishMinPrice extends Component {
-    state = {}
+   
     render() {
         const {minDeliveryPrice, orderAmount} = this.props;
         const priceLeft = minDeliveryPrice - orderAmount;

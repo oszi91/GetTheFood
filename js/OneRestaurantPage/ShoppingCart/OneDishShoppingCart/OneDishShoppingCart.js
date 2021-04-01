@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 class OneDishShoppingCart extends Component {
 
     render() {
+        const { order, handleOrder } = this.props;
+
         return (
-            this.props.order.map(dish => (
+            order.map(dish => (
                 <div key={dish.name} className="dishContainer">
                     <div className="dishContainer__dishName__container">
                         <p className="dishContainer__dishName">{dish.name}</p>
@@ -16,7 +18,7 @@ class OneDishShoppingCart extends Component {
                     <button
                         className="dishContainer__btn"
                         disabled={this.props.checkout}
-                        onClick={() => this.props.handleOrder(dish.id, 'remove')}
+                        onClick={() => handleOrder(dish.id, 'remove')}
                     >
                         <i className="fas fa-trash"></i>
                     </button>

@@ -15,35 +15,16 @@
         @include phone{
             width: 100%;
         }
+
+        @include tablet{
+            width: 70%;
+        }
     }
 }
 
 .info {
     width: 20%;
     height: 20vh;
-}
-
-.currentPage{
-    margin-top: 15px;
-    font-size: 0.8rem;
-    color: darken($color5,15%);
-
-    @include phone{
-        font-size: 0.6rem;
-    }
-
-    .fas{
-        color: $color4;
-        margin: 0 5px;
-    }
-
-    &__item{
-        margin: 0 5px;
-        &--active{
-            color: $color3;
-            font-weight: 500;
-        }
-    }
 }
 
 .react-multiple-carousel__arrow{

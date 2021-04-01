@@ -21,20 +21,21 @@ class TypeOfDish extends Component {
 
     render() {
         const { foodCategories } = this.props;
+        const {activeIndex} = this.state;
+
+        const isActive = i => i === activeIndex ? 
+        "typeOfDish__list__item typeOf typeOfDish__list__item--active" : 
+        "typeOfDish__list__item";
+
         const responsive = {
-            superLargeDesktop: {
-                // the naming can be any, depends on you.
-                breakpoint: { max: 4000, min: 3000 },
-                items: 5
-            },
             desktop: {
                 breakpoint: { max: 3000, min: 1024 },
-                items: 8,
+                items: 7,
 
             },
             tablet: {
                 breakpoint: { max: 1024, min: 767 },
-                items: 5
+                items: 4
             },
             mobile: {
                 breakpoint: { max: 767, min: 0 },
@@ -58,7 +59,7 @@ class TypeOfDish extends Component {
                 >
                     {foodCategories.map((food, index) => (
                         <div
-                            className={index === this.state.activeIndex ? "typeOfDish__list__item typeOf typeOfDish__list__item--active" : "typeOfDish__list__item"}
+                            className={isActive(index)}
                             data-value={food}
                             key={food}
                             onClick={(e) => this.chooseDish(e, index)}
