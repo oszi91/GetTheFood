@@ -4,42 +4,63 @@ import MinPriceDelivery from './MinPriceDelivery/MinPriceDelivery';
 import OpenNow from './OpenNow/OpenNow';
 import TimeDelivery from './TimeDelivery/TimeDelivery';
 import RestaurantRating from './RestaurantRating/RestaurantRating';
-import SearchRestaurant from '../SearchRestaurant/SearchRestaurant'
+import SearchRestaurant from '../SearchRestaurant/SearchRestaurant';
 import { scrollToTop } from '../../Functions/scrollToTop';
 
 class Filters extends Component {
+	render() {
+		const {
+			showHideFilters,
+			restaurantsList,
+			filterSearchRestaurant,
+			sortRestaurants,
+			freeDeliveryHandle,
+			deliveryTimeHandle,
+			minCostDeliveryHandle,
+			restaurantRating,
+			openNowHandle,
+			numberOfRestaurants,
+			handleMobileFilters,
+		} = this.props;
 
-    render() {
-        const { showHideFilters, restaurantsList, filterSearchRestaurant,
-            sortRestaurants, freeDeliveryHandle, deliveryTimeHandle,
-            minCostDeliveryHandle, restaurantRating, openNowHandle,
-            numberOfRestaurants, handleMobileFilters } = this.props;
+		const isFiltersOpen = showHideFilters
+			? 'allFood__filters allFood__filters--isHide'
+			: 'allFood__filters';
 
-        const isFiltersOpen = showHideFilters ? "allFood__filters allFood__filters--isHide" : "allFood__filters";
-
-        return (
-            <div className={isFiltersOpen}>
-                <SearchRestaurant
-                    restaurantsList={restaurantsList}
-                    filterSearchRestaurant={filterSearchRestaurant}
-                    sortRestaurants={sortRestaurants}
-                />
-                <FreeDelivery freeDeliveryHandle={freeDeliveryHandle} />
-                <TimeDelivery deliveryTimeHandle={deliveryTimeHandle} />
-                <MinPriceDelivery minCostDeliveryHandle={minCostDeliveryHandle} />
-                <RestaurantRating restaurantRating={restaurantRating} />
-                <OpenNow openNowHandle={openNowHandle} />
-                <div onClick={() => { handleMobileFilters(false); scrollToTop() }} className="allFood__filters__results">Show Results
-                (<span className="allFood__filters__results--bold">{numberOfRestaurants}</span>)
-                </div>
-                <div
-                    onClick={() => handleMobileFilters(false)}
-                    className="allFood__filters__close">
-                    <i className="fas fa-times-circle"></i>
-                </div>
-            </div>
-        );
-    }
+		return (
+			<div className={isFiltersOpen}>
+				<SearchRestaurant
+					restaurantsList={restaurantsList}
+					filterSearchRestaurant={filterSearchRestaurant}
+					sortRestaurants={sortRestaurants}
+				/>
+				<FreeDelivery freeDeliveryHandle={freeDeliveryHandle} />
+				<TimeDelivery deliveryTimeHandle={deliveryTimeHandle} />
+				<MinPriceDelivery minCostDeliveryHandle={minCostDeliveryHandle} />
+				<RestaurantRating restaurantRating={restaurantRating} />
+				<OpenNow openNowHandle={openNowHandle} />
+				<div
+					onClick={() => {
+						handleMobileFilters(false);
+						scrollToTop();
+					}}
+					className="allFood__filters__results"
+				>
+					Show Results (
+					<span className="allFood__filters__results--bold">
+						{numberOfRestaurants}
+					</span>
+					)
+				</div>
+				<div
+					onClick={() => handleMobileFilters(false)}
+					className="allFood__filters__close"
+				>
+					<i className="fas fa-times-circle"></i>
+				</div>
+			</div>
+		);
+	}
 }
 
 export default Filters;
