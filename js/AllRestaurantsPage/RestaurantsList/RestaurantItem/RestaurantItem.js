@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import changeNameToURL from '../../../Functions/changeNameToURL';
-import { scrollToTop } from '../../../Functions/scrollToTop';
+
+import changeNameToURL from '../../../utils/general/changeNameToURL';
+import scrollToTop from '../../../utils/general/scrollToTop';
 
 class RestaurantItem extends Component {
 	render() {

@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
+
+import deliveryTimeFilter from '../utils/filtersToSearch/deliveryTimeFilter';
+import searchRestaurantFilter from '../utils/filtersToSearch/searchRestaurantFilter';
+import sortRestaurantsFilter from '../utils/filtersToSearch/sortRestaurantsFilter';
+import foodCategoryFilter from '../utils/filtersToSearch/foodCategoryFilter';
+import freeDeliveryFilter from '../utils/filtersToSearch/freeDeliveryFilter';
+import minCostDeliveryFilter from '../utils/filtersToSearch/minCostDeliveryFilter';
+import restaurantRatingFilter from '../utils/filtersToSearch/restaurantRatingFilter';
+
+import CurrentPageNav from '../CurrentPageNav/CurrentPageNav';
 import Filters from './Filters/Filters';
 import MainPhoto from './MainPhoto/MainPhoto';
 import RestaurantsList from './RestaurantsList/RestaurantsList';
 import SearchRestaurant from './SearchRestaurant/SearchRestaurant';
 import TypeOfDish from './TypeOfDish/TypeOfDish';
-import CurrentPageNav from '../CurrentPageNav/CurrentPageNav';
 
 class AllRestaurantsPage extends Component {
 	state = {
@@ -15,11 +24,11 @@ class AllRestaurantsPage extends Component {
 			foodCategory: () => res => res,
 			freeDelivery: () => res => res,
 			deliveryTime: () => res => res,
-			minCostDeliveryHandle: () => res => res,
+			minCostDelivery: () => res => res,
 			restaurantRating: () => res => res,
 			openNowHandle: () => res => res,
 		},
-		showHideFilters: false,
+		showHideFilteres: false,
 	};
 
 	handleMobileFilters = showHideFilters => {
@@ -29,134 +38,50 @@ class AllRestaurantsPage extends Component {
 	};
 
 	filterSearchRestaurant = searchName => {
-		let searchRestaurant = res => res;
-		if (searchName) {
-			searchRestaurant = res =>
-				res.name.toLowerCase().indexOf(searchName.toLowerCase()) !== -1;
-		} else {
-			searchRestaurant = res => res;
-		}
-
+		const searchRestaurant = searchRestaurantFilter(searchName);
 		this.setState({
 			filtersList: { ...this.state.filtersList, searchRestaurant },
 		});
 	};
 
 	sortRestaurants = sortVal => {
-		let sortRestaurants = res => res;
-
-		switch (sortVal) {
-			case 'alphabetically':
-				sortRestaurants = (a, b) => a.name.localeCompare(b.name);
-				break;
-			case 'min_order_amount':
-				sortRestaurants = (a, b) => a.minDeliveryPrice - b.minDeliveryPrice;
-				break;
-			case 'delivery_time':
-				sortRestaurants = (a, b) =>
-					a.averageDeliveryTime - b.averageDeliveryTime;
-				break;
-			case 'delivery_costs':
-				sortRestaurants = (a, b) => a.deliveryPrice - b.deliveryPrice;
-				break;
-			case 'rating':
-				sortRestaurants = (a, b) => b.rating - a.rating;
-				break;
-		}
-
+		const sortRestaurants = sortRestaurantsFilter(sortVal);
 		this.setState({
 			filtersList: { ...this.state.filtersList, sortRestaurants },
 		});
 	};
 
 	foodCategory = category => {
-		let foodCategory = res => res;
-
-		if (category === 'all') {
-			foodCategory = res => res;
-		} else if (category) {
-			foodCategory = res => res.foodCategories.some(r => r === category);
-		}
-
+		const foodCategory = foodCategoryFilter(category);
 		this.setState({
 			filtersList: { ...this.state.filtersList, foodCategory },
 		});
 	};
 
 	freeDeliveryHandle = isFree => {
-		let freeDelivery = res => res;
-
-		if (isFree) {
-			freeDelivery = res => res;
-		} else {
-			freeDelivery = res => res.deliveryPrice === 0;
-		}
-
+		const freeDelivery = freeDeliveryFilter(isFree);
 		this.setState({
 			filtersList: { ...this.state.filtersList, freeDelivery },
 		});
 	};
 
 	deliveryTimeHandle = delTime => {
-		let deliveryTime = res => res;
-
-		switch (delTime) {
-			case 'time_show_all':
-				deliveryTime = res => res;
-				break;
-			case 'under30min':
-				deliveryTime = res => res.averageDeliveryTime < 30;
-				break;
-			case 'under1h':
-				deliveryTime = res => res.averageDeliveryTime < 60;
-				break;
-		}
-
+		const deliveryTime = deliveryTimeFilter(delTime);
 		this.setState({
 			filtersList: { ...this.state.filtersList, deliveryTime },
 		});
 	};
 
 	minCostDeliveryHandle = minCost => {
-		let minCostDeliveryHandle = () => res => res;
-
-		switch (minCost) {
-			case 'price_show_all':
-				minCostDeliveryHandle = () => res => res;
-				break;
-			case 'under30PLN':
-				minCostDeliveryHandle = res => res.minDeliveryPrice < 30;
-				break;
-			case 'under60PLN':
-				minCostDeliveryHandle = res => res.minDeliveryPrice < 60;
-				break;
-		}
+		const minCostDelivery = minCostDeliveryFilter(minCost);
 
 		this.setState({
-			filtersList: { ...this.state.filtersList, minCostDeliveryHandle },
+			filtersList: { ...this.state.filtersList, minCostDelivery },
 		});
 	};
 
 	restaurantRating = rating => {
-		let restaurantRating = () => res => res;
-
-		switch (rating) {
-			case '1':
-				restaurantRating = () => res => res;
-				break;
-			case '2':
-				restaurantRating = res => res.rating >= 2;
-				break;
-			case '3':
-				restaurantRating = res => res.rating >= 3;
-				break;
-			case '4':
-				restaurantRating = res => res.rating >= 4;
-				break;
-			case '5':
-				restaurantRating = res => res.rating >= 4.5;
-				break;
-		}
+		const restaurantRating = restaurantRatingFilter(rating);
 
 		this.setState({
 			filtersList: { ...this.state.filtersList, restaurantRating },
@@ -191,7 +116,7 @@ class AllRestaurantsPage extends Component {
 			searchRestaurant,
 			sortRestaurants,
 			deliveryTime,
-			minCostDeliveryHandle,
+			minCostDelivery,
 			restaurantRating,
 		} = filtersList;
 
@@ -204,7 +129,7 @@ class AllRestaurantsPage extends Component {
 				.filter(foodCategory)
 				.filter(searchRestaurant)
 				.filter(deliveryTime)
-				.filter(minCostDeliveryHandle)
+				.filter(minCostDelivery)
 				.filter(restaurantRating)
 				.sort(sortRestaurants);
 		};
@@ -216,8 +141,11 @@ class AllRestaurantsPage extends Component {
 				<div className="containerBig">
 					<div className="currentPage">
 						<CurrentPageNav page={'/'} pageName={'Start Page'} />
-						<i className="fas fa-chevron-right"></i>
-						<CurrentPageNav page={'/restaurants'} pageName={'Restaurants'} />
+						<CurrentPageNav
+							page={'/restaurants'}
+							pageName={'Restaurants'}
+							lastItem={true}
+						/>
 					</div>
 					<div className="allRestaurants__container">
 						<div className="allRestaurants">
@@ -226,7 +154,7 @@ class AllRestaurantsPage extends Component {
 								filterSearchRestaurant={this.filterSearchRestaurant}
 								sortRestaurants={this.sortRestaurants}
 								handleMobileFilters={this.handleMobileFilters}
-								showHideFilters={this.state.showHideFilters}
+								showHideFilters={showHideFilters}
 							/>
 							<TypeOfDish
 								foodCategories={foodCategoriesAll}

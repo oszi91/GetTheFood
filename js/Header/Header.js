@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import SearchBarAddress from './../StartPage/SearchBarAddress/SearchBarAddress';
+
 import AddressHeader from './AddressHeader/AddressHeader';
 import AddressHeaderMobile from './AddressHeaderMobile/AddressHeaderMobile';
 import Logo from './Logo/Logo';
+import SearchBarAddress from './../StartPage/SearchBarAddress/SearchBarAddress';
 
 class Header extends Component {
 	state = {
@@ -27,6 +28,7 @@ class Header extends Component {
 			prevPosition = currentPosition;
 		});
 	}
+
 
 	handleCursor = () => {
 		const blockChangeAddress =

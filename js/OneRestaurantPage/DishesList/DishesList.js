@@ -3,7 +3,7 @@ import OneDish from './OneDish/OneDish';
 
 class DishesList extends Component {
 	render() {
-		const { foodMenu } = this.props;
+		const { foodMenu, order, handleOrder, reference } = this.props;
 
 		return (
 			<>
@@ -11,15 +11,15 @@ class DishesList extends Component {
 					<div key={res.sectionName} className="dishesList__container">
 						<h1
 							className="dishesList__container__category"
-							ref={this.props.reference[res.sectionName]}
+							ref={reference[res.sectionName]}
 						>
 							{res.sectionName}
 						</h1>
 						<ul className="dishesList">
 							<OneDish
 								menu={res.menuItems}
-								order={this.props.order}
-								handleOrder={this.props.handleOrder}
+								order={order}
+								handleOrder={handleOrder}
 							/>
 						</ul>
 					</div>

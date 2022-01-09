@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './../sass/main.scss';
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
-import StartPage from './StartPage/StartPage';
-import AllRestaurantsPage from './AllRestaurantsPage/AllRestaurantsPage';
-import OneRestaurantPage from './OneRestaurantPage/OneRestaurantPage';
+
 import RestaurantsData from './API/RestaurantsData.json';
+
+import filteredRestaurantsBasedOnAddress from './utils/filteredRestaurantsBasedOnAddress';
+
+import AllRestaurantsPage from './AllRestaurantsPage/AllRestaurantsPage';
+import Footer from './Footer/Footer';
+import Header from './Header/Header';
+import OneRestaurantPage from './OneRestaurantPage/OneRestaurantPage';
+import StartPage from './StartPage/StartPage';
 
 class App extends Component {
 	state = {
@@ -27,23 +31,15 @@ class App extends Component {
 		const { data, address, showSearchBar, blockAddress } = this.state;
 		if (!data) return null;
 
-		let restaurantsIndexToDelete = [];
-		data.restaurants.forEach((res, i) => {
-			if (address) {
-				const compare = res.deliveryAddress.filter(o1 =>
-					[address].some(o2 => o1.street === o2.street)
-				);
-				if (!compare.length) {
-					restaurantsIndexToDelete.push(i);
-				}
-			}
-		});
+		const restaurantsBasedOnUserAddress = filteredRestaurantsBasedOnAddress(
+			data.restaurants,
+			address
+		);
 
-		const newRestaurantsList = data.restaurants.filter((v, i) => {
-			return restaurantsIndexToDelete.indexOf(i) === -1;
-		});
-
-		const newData = { ...data, restaurants: newRestaurantsList };
+		const filteredData = {
+			...data,
+			restaurants: restaurantsBasedOnUserAddress,
+		};
 
 		return (
 			<HashRouter>
@@ -65,16 +61,24 @@ class App extends Component {
 					<Route
 						exact
 						path={'/restaurants'}
-						component={() => (
-							<AllRestaurantsPage data={newData} address={address} />
-						)}
+						component={() =>
+							Object.keys(address).length ? (
+								<AllRestaurantsPage data={filteredData} address={address} />
+							) : (
+								<Redirect to="/" />
+							)
+						}
 					/>
 					<Route
 						exact
 						path={'/restaurants/:id'}
-						render={props => (
-							<OneRestaurantPage data={data} address={address} {...props} />
-						)}
+						render={props =>
+							Object.keys(address).length ? (
+								<OneRestaurantPage data={data} address={address} {...props} />
+							) : (
+								<Redirect to="/" />
+							)
+						}
 					/>
 				</Switch>
 				<Footer />

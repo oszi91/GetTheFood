@@ -1,12 +1,13 @@
-import React, { Component, useRef } from 'react';
-import DishesList from './DishesList/DishesList';
-import FoodKind from './FoodKind/FoodKind';
-import OneRestaurantHeader from './OneRestaurantHeader/OneRestaurantHeader';
-import ShoppingCart from './ShoppingCart/ShoppingCart';
-import changeNameToURL from '../Functions/changeNameToURL';
+import React, { Component } from 'react';
 import { Prompt } from 'react-router';
+
+import changeNameToURL from '../utils/general/changeNameToURL';
+
 import Checkout from './ShoppingCart/Checkout/Checkout';
 import CurrentPageNav from '../CurrentPageNav/CurrentPageNav';
+import OneRestaurantHeader from './OneRestaurantHeader/OneRestaurantHeader';
+import OneRestaurantMenu from './OneRestaurantMenu/OneRestaurantMenu';
+import ShoppingCart from './ShoppingCart/ShoppingCart';
 
 class OneRestaurantPage extends Component {
 	state = {
@@ -54,17 +55,19 @@ class OneRestaurantPage extends Component {
 		});
 	};
 
-	clearOrder = order => {
+	clearOrder = () => {
 		this.setState({
-			order,
+			order: [],
 		});
 	};
 
 	render() {
-		const { address } = this.props;
-		const { restaurants } = this.props.data;
-		const { order, checkoutIsOpen, isOrderOpenMobile } = this.state;
 		const { id } = this.props.match.params;
+		const {
+			address,
+			data: { restaurants },
+		} = this.props;
+		const { order, checkoutIsOpen, isOrderOpenMobile } = this.state;
 
 		const oneRestaurant = restaurants.filter(
 			restaurant => changeNameToURL(restaurant.name) == id
@@ -78,60 +81,31 @@ class OneRestaurantPage extends Component {
 					when={order.length > 0}
 					message="If you leave the website you will lose your order. Are you sure you want to do this?"
 				/>
-				<OneRestaurantHeader
-					name={restaurant.name}
-					rating={restaurant.rating}
-					photo={restaurant.photo}
-				/>
+				<OneRestaurantHeader {...restaurant} />
 				<div className="containerBig">
 					<div className="currentPage">
 						<CurrentPageNav page={'/'} pageName={'Start Page'} />
-						<i className="fas fa-chevron-right"></i>
 						<CurrentPageNav page={'/restaurants'} pageName={'Restaurants'} />
-						<i className="fas fa-chevron-right"></i>
 						<CurrentPageNav
 							page={`/restaurants/${changeNameToURL(restaurant.name)}`}
 							pageName={restaurant.name}
+							lastItem={true}
 						/>
 					</div>
 					<div className="oneRestaurant__container">
 						<>
-							{this.state.checkoutIsOpen ? (
+							{checkoutIsOpen ? (
 								<Checkout
 									address={address}
 									clearOrder={this.clearOrder}
 									averageDeliveryTime={restaurant.averageDeliveryTime}
 								/>
 							) : (
-								<div className="oneRestaurantMenu">
-									{restaurant.menus.map(res => {
-										const refs = res.menuSections.reduce((acc, value) => {
-											acc[value.sectionName] = React.createRef();
-											return acc;
-										}, {});
-
-										const handleClick = id =>
-											refs[id].current.scrollIntoView({
-												behavior: 'smooth',
-												block: 'start',
-											});
-
-										return (
-											<React.Fragment key={restaurant.id}>
-												<FoodKind
-													foodCat={res.menuSections}
-													handleClick={handleClick}
-												/>
-												<DishesList
-													foodMenu={res.menuSections}
-													reference={refs}
-													order={order}
-													handleOrder={this.handleOrder}
-												/>
-											</React.Fragment>
-										);
-									})}
-								</div>
+								<OneRestaurantMenu
+									restaurant={restaurant}
+									order={order}
+									handleOrder={this.handleOrder}
+								/>
 							)}
 						</>
 						<ShoppingCart

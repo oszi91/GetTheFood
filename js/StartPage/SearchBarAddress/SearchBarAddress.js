@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+
+import reduceAddressesFromAllRestaurantsToSingleList from '../../utils/reduceAddressesFromAllRestaurantsToSingleList';
+import userSearchByAddress from '../../utils/userSearchByAddress';
+
+import SearchBarItem from './SearchBarItem/SearchBarItem';
 
 class SearchBarAddress extends Component {
 	state = {
 		searchAddress: '',
-		addressListData: { ...this.props.data },
+		addressListData: [...this.props.data.restaurants],
 	};
 
 	handleInput = e => {
@@ -13,48 +17,22 @@ class SearchBarAddress extends Component {
 		});
 	};
 
-	saveAddress = address => {
-		this.props.handleAddress(address);
-	};
-
 	render() {
 		const { searchAddress, addressListData } = this.state;
-		const { handleCloseAddressBar } = this.props;
+		const { handleAddress, handleCloseAddressBar } = this.props;
 
-		const addressList = addressListData.restaurants
-			.map(res => res.deliveryAddress.map(res => res))
-			.filter(
-				(res, i, addressList) =>
-					addressList.findIndex(r => r.street === res.street) === i
-			)
-			.map(res =>
-				res
-					.filter(
-						res =>
-							res.street
-								.toLowerCase()
-								.includes(this.state.searchAddress.toLowerCase()) ||
-							res.zipCode
-								.toLowerCase()
-								.includes(this.state.searchAddress.toLowerCase()) ||
-							res.city
-								.toLowerCase()
-								.includes(this.state.searchAddress.toLowerCase())
-					)
-					.map(res => (
-						<Link to="/restaurants" key={res.street}>
-							<li
-								onClick={() => {
-									this.saveAddress(res);
-									handleCloseAddressBar ? handleCloseAddressBar() : null;
-								}}
-								className="searchPlace__addressList__item"
-							>
-								{res.street}, {res.zipCode} {res.city}
-							</li>
-						</Link>
-					))
-			);
+		const newList =
+			reduceAddressesFromAllRestaurantsToSingleList(addressListData);
+		const searchedAddresses = userSearchByAddress(newList, searchAddress);
+
+		const showSearchBarItem = searchedAddresses.map(address => (
+			<SearchBarItem
+				key={address.street}
+				address={address}
+				handleAddress={handleAddress}
+				handleCloseAddressBar={handleCloseAddressBar}
+			/>
+		));
 
 		const inputIsActive = searchAddress
 			? 'searchPlace__form__input--active'
@@ -74,7 +52,7 @@ class SearchBarAddress extends Component {
 					<i className="fas fa-search"></i>
 				</div>
 				<ul className="searchPlace__addressList">
-					{searchAddress && addressList}
+					{searchAddress && showSearchBarItem}
 				</ul>
 			</form>
 		);

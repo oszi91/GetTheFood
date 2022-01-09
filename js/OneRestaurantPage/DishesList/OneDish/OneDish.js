@@ -15,7 +15,8 @@ class OneDish extends Component {
 	};
 
 	render() {
-		const { menu } = this.props;
+		const { menu, order, handleOrder } = this.props;
+		const { orderDetails, id } = this.state;
 
 		return (
 			<>
@@ -48,10 +49,10 @@ class OneDish extends Component {
 						<OneDishOrderDetails
 							dish={dish}
 							handleOpenDetails={this.handleOpenDetails}
-							order={this.props.order}
-							handleOrder={this.props.handleOrder}
-							orderDetails={this.state.orderDetails}
-							id={this.state.id}
+							order={order}
+							handleOrder={handleOrder}
+							orderDetails={orderDetails}
+							id={id}
 						/>
 					</li>
 				))}

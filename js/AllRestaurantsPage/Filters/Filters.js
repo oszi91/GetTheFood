@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+
+import scrollToTop from '../../utils/general/scrollToTop';
+
 import FreeDelivery from './FreeDelivery/FreeDelivery';
 import MinPriceDelivery from './MinPriceDelivery/MinPriceDelivery';
 import OpenNow from './OpenNow/OpenNow';
-import TimeDelivery from './TimeDelivery/TimeDelivery';
 import RestaurantRating from './RestaurantRating/RestaurantRating';
 import SearchRestaurant from '../SearchRestaurant/SearchRestaurant';
-import { scrollToTop } from '../../Functions/scrollToTop';
+import TimeDelivery from './TimeDelivery/TimeDelivery';
 
 class Filters extends Component {
 	render() {

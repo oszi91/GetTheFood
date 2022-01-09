@@ -22,7 +22,7 @@ class InputCheckout extends Component {
                     disabled={isDisabled}
                     onChange={handleFunction}
                 />
-                <p className="checkout__form__inputsContainer__item__error">{err}</p>
+                {err && <p className="checkout__form__inputsContainer__item__error">{err}</p>}
             </div>
         );
     }
